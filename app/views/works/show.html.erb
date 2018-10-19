@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+ <h3>
+  <i><%= @work.title %></i>
+</h3>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @work.notes %>
+</p>
+
+<p>
+  <strong>Created:</strong>
+  <%= @work.created_at.to_date.strftime("%a, %-d %b %Y") %>
+</p>
+
+<p>
+  <strong>Updated:</strong>
+  <%= @work.updated_at %>
+</p>
+
+<%= link_to 'Edit', edit_work_path(@work) %> |
+<%= link_to 'Back', works_path %>

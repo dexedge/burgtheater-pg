@@ -1,0 +1,47 @@
+<%= form_with(model: event, local: true) do |form| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date, start_year: 1789, end_year: 1791, default: Date.parse("1789-01-01") %>
+  </div>
+
+  <div class="field">
+    <%= form.label :receipts %>
+    <%= form.number_field :receipts %>
+  </div>
+
+  <div class="field">
+    <%= form.label :kind %>
+    <%= form.text_field :kind %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zinzendorf %>
+    <%= form.check_box :zinzendorf %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :double %>
+    <%= form.check_box :double %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, cols: 80, rows: 5 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
