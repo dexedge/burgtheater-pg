@@ -36,7 +36,9 @@
 
   <p>
     <strong>Notes:</strong>
-    <%= @event.notes.html_safe %>
+    <% if @event.notes %>
+      <%= @event.notes.html_safe %>
+    <% end %>
   </p>
 
   <p>

@@ -48,7 +48,9 @@
 
 <p>
   <strong>Notes:</strong>
-  <%= @work.notes.html_safe %>
+  <% if @work.notes %>
+    <%= @work.notes.html_safe %>
+  <% end %>
 </p>
 
 <p>
