@@ -3,6 +3,9 @@ class Work < ApplicationRecord
   require 'activerecord-import/base'
   require 'activerecord-import/active_record/adapters/sqlite3_adapter'
 
+  has_many :performances
+  has_many :events, through: :performances
+
   def self.my_import(file)
     works = []
     CSV.foreach(file.path, headers: true) do |row|

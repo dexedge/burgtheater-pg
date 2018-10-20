@@ -7,6 +7,9 @@ class Event < ApplicationRecord
   require 'activerecord-import/base'
   require 'activerecord-import/active_record/adapters/sqlite3_adapter'
 
+  has_many :performances
+  has_many :works, through: :performances
+
   def self.my_import(file)
     events = []
     CSV.foreach(file.path, headers: true) do |row|

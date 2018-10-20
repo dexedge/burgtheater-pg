@@ -4,6 +4,13 @@
 <h3>
   <%= @event.date.strftime("%a, %-d %b %Y") %> <i></i>
 </h3>
+<h2>
+  <i><%= @event.works[0].title %></i>
+  <% if @event.double %> 
+     &amp;<br>
+    <i><%= @event.works[1].title %></i>
+  <% end %>
+</h2>
 
 <div>
   <p>
@@ -43,6 +50,6 @@
   </p>
 
 </div>
-
+<hr>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

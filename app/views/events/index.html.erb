@@ -1,25 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Events</h1>
-<div>
+<!--<div>
   <h4>Import data!</h4>
   <%= form_tag import_events_path, multipart: true do %>
     <%= file_field_tag :file %>
     <%= submit_tag "Import from file"%>
   <% end %>
-</div>
+</div> -->
 
 <table>
   <thead>
     <tr>
       <th>id</th>
-      <th>date</th>
-      <th>receipts</th>
-      <th>kind</th>
-      <th>zinz</th>
-      <th>double</th>
-      <th>created</th>
-      <th>modified</th>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Receipts</th>
+      <th>Kind</th>
+      <th>Zinz</th>
+      <th>Double</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -29,15 +28,14 @@
       <tr>
         <td><%= event.id %></td>
         <td><%= event.date %></td>
+        <td><i><%= event.works[0].title%></i></td>
         <td><%= event.receipts %></td>
         <td><%= event.kind %></td>
         <td><%= event.zinzendorf %></td>
         <td><%= event.double %></td>
-        <td><%= event.created_at.to_date.strftime("%a, %-d %b %Y") %></td>
-        <td><%= event.updated_at %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

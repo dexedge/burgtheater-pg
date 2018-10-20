@@ -17,3 +17,7 @@
  .field label {
    font-weight: bold;
  }
+
+ h2 {
+   line-height: normal;
+ }

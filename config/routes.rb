@@ -4,12 +4,18 @@ Rails.application.routes.draw do
   get 'events/import' => 'events#my_import'
   get 'works/index'
   get 'works/import' => 'works#my_import'
+  get 'performances/index'
+  get 'performances/import' => 'performances#my_import'
   
   resources :events do
     collection {post :import}
   end
   
   resources :works do
+    collection {post :import}
+  end
+
+  resources :performances do
     collection {post :import}
   end
 end
