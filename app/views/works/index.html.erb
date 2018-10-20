@@ -25,11 +25,11 @@
       <tr>
         <td class="right"><%= work.id %></td>
         <td><i><%= work.title %></i></td>
-        <td class="right"><%= work.genre %></td>
+        <td><%= work.genre %></td>
         <td class="right"><%= work.events.count %></td>
-        <td><%= link_to 'Show', work %></td>
-        <td><%= link_to 'Edit', edit_work_path(work) %></td>
-        <td><%= link_to 'Delete', work, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="detail-link"><%= link_to 'Details', work %></td>
+        <!--<td><%= link_to 'Edit', edit_work_path(work) %></td>
+        <td><%= link_to 'Delete', work, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
   </tbody>

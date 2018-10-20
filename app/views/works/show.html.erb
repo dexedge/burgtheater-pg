@@ -2,7 +2,10 @@
  <h2>
   <i><%= @work.title %></i>
 </h2>
-
+<p>
+  <strong>Genre:</strong>
+  <%= @work.genre %>
+</p>
 <h3>Performances</h3>
 <table>
   <thead>
@@ -28,6 +31,21 @@
     <% end %>
   </tbody>
 </table>
+
+<p>
+  <strong>Total performances:</strong>
+  <%= @work.events.count %>
+</p>
+<p>
+  <strong>Mean receipts:</strong>
+  <% sum = 0 %>
+  <% @work.events.pluck(:receipts).each do |r| %>
+    <% sum = sum + r.to_i %>
+  <% end %>
+  <% mean = (sum/@work.events.count).divmod(60) %>
+  <%= mean[0]%> fl <%= mean[1]%> kr
+</p>
+
 <p>
   <strong>Notes:</strong>
   <%= @work.notes %>

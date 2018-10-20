@@ -37,6 +37,10 @@
    padding-right: 22px;
  }
 
+ .detail-link {
+   padding-left: 10px;
+ }
+
 a:link, a:visited {
   color: #337ab7;
   text-decoration: none;
