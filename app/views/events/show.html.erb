@@ -15,7 +15,7 @@
 <div>
   <p>
     <strong>Receipts:</strong>
-    <% r = @event.receipts.divmod(60) %>
+    <% r = @event.receipts.to_i.divmod(60) %>
     <%= @event.receipts %> kr = <%= r[0] %> fl <%= r[1] %> kr
   </p>
 
