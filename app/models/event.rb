@@ -20,4 +20,13 @@ class Event < ApplicationRecord
     end
     Event.import events, recursive: true
   end
+
+  def next
+    Event.where("id > ?", id).first
+  end
+  
+  def prev
+    Event.where("id < ?", id).last
+  end
+
 end

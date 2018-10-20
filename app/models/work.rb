@@ -15,4 +15,12 @@ class Work < ApplicationRecord
     end
     Work.import works, recursive: true
   end
+  
+  def next
+    Work.where("id > ?", id).first
+  end
+  
+  def prev
+    Work.where("id < ?", id).last
+  end
 end

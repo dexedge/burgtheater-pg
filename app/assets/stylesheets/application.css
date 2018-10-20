@@ -22,7 +22,6 @@
    line-height: normal;
  }
 
-
  th {
    text-align: left;
    padding: 0 7px 7px 0;
@@ -30,6 +29,12 @@
 
  td {
    padding: 0 7px 7px 0;
+ }
+
+ input, textarea {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
  }
 
  .right {

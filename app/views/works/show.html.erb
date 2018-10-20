@@ -33,7 +33,7 @@
 </table>
 
 <p>
-  <strong>Total performances:</strong>
+  <strong>Total:</strong>
   <%= @work.events.count %>
 </p>
 <p>
@@ -52,16 +52,24 @@
     <%= @work.notes.html_safe %>
   <% end %>
 </p>
-
+<hr>
 <p>
   <strong>Created:</strong>
   <%= @work.created_at.to_date.strftime("%a, %-d %b %Y") %>
 </p>
-
 <p>
   <strong>Updated:</strong>
   <%= @work.updated_at.strftime("%a, %-d %b %Y, %H:%M %Z") %>
 </p>
+<% if @work.prev %>
+  <%= link_to 'Previous Work', @work.prev %>
+  <% if @work.next %>
+   |
+  <% end %>
+<% end %>
+<% if @work.next %> 
+  <%= link_to 'Next Work', @work.next %>
+<% end %>
 <hr>
 <%= link_to 'Edit', edit_work_path(@work) %> |
 <%= link_to 'Back', url_for(:back) %> 
