@@ -7,15 +7,23 @@
 <table>
   <thead>
     <tr>
+      <th colspan="2"></th>
+      <th colspan="2" class="right">Receipts</th>
+    </tr>
+    <tr>
       <th>Date</th>
-      <th>Receipts (kr)</th>
+      <th>DOW</th>
+      <th class="right">fl</th>
+      <th class="right">kr</th>
     </tr>
   </thead>
   <tbody>
     <% @work.events.each do |event| %>
       <tr>
-        <td><%= event.date %></td>
-        <td class="right"><%= event.receipts %></td>
+        <td><%= link_to event.date, event %></td>
+        <td><%= event.date.strftime("%a") %></td>
+        <td class="right"><%= event.receipts.divmod(60)[0]%></td>
+        <td class="right"><%= event.receipts.divmod(60)[1]%></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,8 +40,8 @@
 
 <p>
   <strong>Updated:</strong>
-  <%= @work.updated_at %>
+  <%= @work.updated_at.strftime("%a, %-d %b %Y, %H:%M %Z") %>
 </p>
 <hr>
 <%= link_to 'Edit', edit_work_path(@work) %> |
-<%= link_to 'Back', works_path %>
+<%= link_to 'Back', url_for(:back) %> 

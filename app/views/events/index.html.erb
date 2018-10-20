@@ -14,6 +14,7 @@
     <tr>
       <th>id</th>
       <th>Date</th>
+      <th>DOW</th>
       <th>Title</th>
       <th>Receipts (kr)</th>
       <th>Kind</th>
@@ -28,13 +29,14 @@
       <tr>
         <td class="right"><%= event.id %></td>
         <td><%= event.date %></td>
-        <td><i><%= event.works[0].title%></i></td>
+        <td><%= event.date.strftime("%a") %></td>
+        <td><i><%= link_to event.works[0].title, event.works[0] %></i></td>
         <td class="right"><%= event.receipts %></td>
         <td><%= event.kind %></td>
         <td><%= event.zinzendorf %></td>
         <td><%= event.double %></td>
         <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Edit', edit_event_path(event.id) %></td>
         <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

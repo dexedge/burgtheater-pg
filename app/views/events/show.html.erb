@@ -5,10 +5,10 @@
   <%= @event.date.strftime("%a, %-d %b %Y") %> <i></i>
 </h3>
 <h2>
-  <i><%= @event.works[0].title %></i>
+  <i><%= link_to @event.works[0].title, @event.works[0] %></i>
   <% if @event.double %> 
      &amp;<br>
-    <i><%= @event.works[1].title %></i>
+    <i><%= link_to @event.works[1].title, @event.works[1] %></i>
   <% end %>
 </h2>
 
@@ -20,7 +20,7 @@
   </p>
 
   <p>
-    <strong>Kind</strong>
+    <strong>Kind:</strong>
     <%= @event.kind %>
   </p>
 
@@ -46,10 +46,10 @@
 
   <p>
     <strong>Updated:</strong>
-    <%= @event.updated_at %>
+    <%= @event.updated_at.strftime("%a, %-d %b %Y, %H:%M %Z") %>
   </p>
 
 </div>
 <hr>
 <%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Back', url_for(:back) %>
