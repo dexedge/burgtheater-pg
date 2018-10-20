@@ -15,7 +15,7 @@
       <th>id</th>
       <th>Date</th>
       <th>Title</th>
-      <th>Receipts</th>
+      <th>Receipts (kr)</th>
       <th>Kind</th>
       <th>Zinz</th>
       <th>Double</th>
@@ -26,10 +26,10 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.id %></td>
+        <td class="right"><%= event.id %></td>
         <td><%= event.date %></td>
         <td><i><%= event.works[0].title%></i></td>
-        <td><%= event.receipts %></td>
+        <td class="right"><%= event.receipts %></td>
         <td><%= event.kind %></td>
         <td><%= event.zinzendorf %></td>
         <td><%= event.double %></td>

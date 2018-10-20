@@ -1,8 +1,25 @@
 <p id="notice"><%= notice %></p>
- <h3>
+ <h2>
   <i><%= @work.title %></i>
-</h3>
+</h2>
 
+<h3>Performances</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Receipts (kr)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @work.events.each do |event| %>
+      <tr>
+        <td><%= event.date %></td>
+        <td class="right"><%= event.receipts %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <p>
   <strong>Notes:</strong>
   <%= @work.notes %>
