@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Composings</h1>
+<div>
+  <h4>Import data!</h4>
+  <%= form_tag import_composings_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import from file"%>
+  <% end %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>composer_id</th>
+      <th>name</th>
+      <th>work_id</th>
+      <th>title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @composings.each do |composing| %>
+      <tr>
+        <td><%= composing.composer_id %></td>
+        <td><%= composing.composer.lastname%></td>
+        <td><%= composing.work_id %></td>
+        <td><%= composing.work.title%></td>
+        <td><%= link_to 'Show', composing %></td>
+        <td><%= link_to 'Edit', edit_composing_path(composing) %></td>
+        <td><%= link_to 'Destroy', composing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Composing', new_composing_path %>

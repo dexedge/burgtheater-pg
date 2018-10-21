@@ -39,8 +39,15 @@
 </table>
 
 <p>
+  <% c = @work.events.count %>
   <strong>Total:</strong>
-  <%= @work.events.count %>
+  <%= c %>
+</p>
+<p>
+  <% z = @work.events.where(zinzendorf: true).count %>
+  <strong>Zinzendorf attendances:</strong>
+  <%= z %>
+   (<%= (z.to_f/c.to_f * 100).round(2) %>%)
 </p>
 <p>
   <strong>Mean receipts:</strong>

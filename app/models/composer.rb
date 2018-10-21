@@ -3,6 +3,9 @@ class Composer < ApplicationRecord
   require 'activerecord-import/base'
   require 'activerecord-import/active_record/adapters/sqlite3_adapter'
 
+  has_many :composings
+  has_many :works, through: :composings
+  
   def self.my_import(file)
     composers = []
     CSV.foreach(file.path, headers: true) do |row|

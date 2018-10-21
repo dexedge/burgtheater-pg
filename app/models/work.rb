@@ -7,6 +7,8 @@ class Work < ApplicationRecord
   has_many :events, through: :performances
   has_many :writings
   has_many :authors, through: :writings
+  has_many :composings
+  has_many :composers, through: :composings
 
   def self.my_import(file)
     works = []

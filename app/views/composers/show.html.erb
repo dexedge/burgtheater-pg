@@ -16,13 +16,25 @@
     <tr>
       <th>Date</th>
       <th>Title</th>
-      <th>Function</th>
     </tr>
   </thead>
-  
-
+  <tbody>
+    <% n = 0 %>
+    <% @composer.works.each do |work| %>
+      <% work.events.each do |event| %>
+        <tr>
+          <td><%= link_to event.date, event %></td>
+          <td><i><%= link_to work.title, work %></i></td>
+          <% n = n + 1 %>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
 </table>
-
+<p>
+  <strong>Total:</strong>
+  <%= n %>
+</p>
 <p>
   <strong>Created:</strong>
   <%= @composer.created_at.to_date.strftime("%a, %-d %b %Y") %>

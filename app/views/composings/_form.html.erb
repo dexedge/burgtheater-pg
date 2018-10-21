@@ -1,0 +1,17 @@
+<%= form_with(model: composing, local: true) do |form| %>
+  <% if composing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(composing.errors.count, "error") %> prohibited this composing from being saved:</h2>
+
+      <ul>
+      <% composing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

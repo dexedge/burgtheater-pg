@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'writings/import' => 'writings#my_import'
   get 'composers/index'
   get 'composers/import' => 'composers#my_import'
+  get 'composings/index'
+  get 'composings/import' => 'composings#my_import'
   
   resources :events do
     collection {post :import}
@@ -32,8 +34,12 @@ Rails.application.routes.draw do
   resources :writings do
     collection {post :import}
   end
-
+  
   resources :composers do
+    collection {post :import}
+  end
+  
+  resources :composings do
     collection {post :import}
   end
 

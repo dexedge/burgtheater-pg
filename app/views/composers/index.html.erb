@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Composers</h1>
-<div>
+<!--<div>
   <h4>Import data!</h4>
   <%= form_tag import_composers_path, multipart: true do %>
     <%= file_field_tag :file %>
     <%= submit_tag "Import from file"%>
   <% end %>
-</div>
+</div>-->
 
 <table>
   <thead>
@@ -25,13 +25,13 @@
     <% @composers.each do |composer| %>
       <tr>
         <td><%= composer.id %></td>
-        <td><%= composer.lastname %></td>
+        <td><%= link_to composer.lastname, composer %></td>
         <td><%= composer.firstnames %></td>
         <td><%= composer.birth %></td>
         <td><%= composer.death %></td>
-        <td><%= link_to 'Show', composer %></td>
+        <!--<td><%= link_to 'Show', composer %></td>
         <td><%= link_to 'Edit', edit_composer_path(composer) %></td>
-        <td><%= link_to 'Destroy', composer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', composer, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
   </tbody>

@@ -17,6 +17,7 @@
       <th>DOW</th>
       <th>Title</th>
       <th>Author</th>
+      <th>Composer</th>
       <th>Receipts (kr)</th>
       <th>Kind</th>
       <th>Zinz</th>
@@ -34,6 +35,14 @@
         <td><i><%= link_to event.works[0].title, event.works[0] %></i></td>
         <% if event.works.first.authors.first %>
           <td><%= link_to event.works.first.authors.first.lastname, event.works.first.authors.first %></td>
+        <% end %>
+        <% if event.works.first.composers.first %>
+            <td><%= link_to event.works.first.composers.first.lastname, event.works.first.composers.first %></td>
+        <% else %>
+            <td>NA</td>
+        <% end %>
+        <% if event.receipts == 'unknown' %>
+          <td>unknown</td>
         <% end %>
         <td><%= event.receipts %></td>
         <td><%= event.kind %></td>
