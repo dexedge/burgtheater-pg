@@ -1,0 +1,36 @@
+<%= form_with(model: composer, local: true) do |form| %>
+  <% if composer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(composer.errors.count, "error") %> prohibited this composer from being saved:</h2>
+
+      <ul>
+      <% composer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :lastname %>
+    <%= form.text_field :lastname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :firstnames %>
+    <%= form.text_field :firstnames %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birth %>
+    <%= form.text_field :birth %>
+  </div>
+
+  <div class="field">
+    <%= form.label :death %>
+    <%= form.text_field :death %>
+  </div>
+  
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
