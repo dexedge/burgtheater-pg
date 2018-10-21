@@ -12,4 +12,12 @@ class Author < ApplicationRecord
     end
     Author.import authors, recursive: true
   end
+
+  def next
+    Author.where("id > ?", id).first
+  end
+  
+  def prev
+    Author.where("id < ?", id).last
+  end
 end

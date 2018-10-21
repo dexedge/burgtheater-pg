@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_21_011201) do
+ActiveRecord::Schema.define(version: 2018_10_21_022416) do
 
   create_table "authors", force: :cascade do |t|
     t.string "lastname"
@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(version: 2018_10_21_011201) do
     t.text "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "writings", force: :cascade do |t|
+    t.integer "author_id"
+    t.integer "work_id"
+    t.string "function"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id", "work_id"], name: "index_writings_on_author_id_and_work_id", unique: true
   end
 
 end

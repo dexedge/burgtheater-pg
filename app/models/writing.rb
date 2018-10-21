@@ -1,16 +1,13 @@
-class Performance < ApplicationRecord
+class Writing < ApplicationRecord
   require 'csv'
   require 'activerecord-import/base'
   require 'activerecord-import/active_record/adapters/sqlite3_adapter'
 
-  belongs_to :event
-  belongs_to :work
-   
   def self.my_import(file)
-    performances = []
+    writings = []
     CSV.foreach(file.path, headers: true) do |row|
-      performances << Performance.new(row.to_h)
+      writings << Writing.new(row.to_h)
     end
-    Performance.import performances, recursive: true
+    Writing.import writings, recursive: true
   end
 end

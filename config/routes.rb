@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'performances/import' => 'performances#my_import'
   get 'authors/index'
   get 'authors/import' => 'authors#my_import'
+  get 'writings/index'
+  get 'writings/import' => 'writings#my_import'
   
   resources :events do
     collection {post :import}
@@ -25,4 +27,9 @@ Rails.application.routes.draw do
   resources :authors do
     collection {post :import}
   end
+  
+  resources :writings do
+    collection {post :import}
+  end
+
 end
