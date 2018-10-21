@@ -25,12 +25,12 @@
     <% @authors.each do |author| %>
       <tr>
         <td><%= author.id %></td>
-        <td><%= author.lastname %></td>
+        <td><%= link_to author.lastname, author %></td>
         <td><%= author.firstnames %></td>
         <td><%= author.birth %></td>
         <td><%= author.death %></td>
-        <td><%= link_to 'Detail', author %></td>
-        <!--<td><%= link_to 'Edit', edit_author_path(author) %></td>
+        <!--<td><%= link_to 'Detail', author %></td>
+        <td><%= link_to 'Edit', edit_author_path(author) %></td>
         <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>

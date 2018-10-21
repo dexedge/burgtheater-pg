@@ -20,19 +20,24 @@
     </tr>
   </thead>
   <tbody>
+    <% n = 0 %>
     <% @author.works.each do |work| %>
       <% work.events.each do |event| %>
         <tr>
           <td><%= link_to event.date, event %></td>
-          <td><i><%= work.title %></i></td>
+          <td><i><%= link_to work.title, work %></i></td>
           <td><%= work.writings[0].function %></td>
+          <% n = n + 1 %>
         </tr>
       <% end %>
     <% end %>
   </tbody>
 
 </table>
-
+<p>
+  <strong>Total:</strong>
+  <%= n %>
+</p>
 <hr>
 <p>
   <strong>Created:</strong>
@@ -54,4 +59,4 @@
 <% end %>
 <hr>
 <%= link_to 'Edit', edit_author_path(@author) %> |
-<%= link_to 'Back', authors_path %>
+<%= link_to 'Back', url_for(:back) %>

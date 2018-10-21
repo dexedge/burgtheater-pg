@@ -7,7 +7,7 @@
 <h2>
   <i><%= link_to @event.works[0].title, @event.works[0] %></i>
   <% if @event.double %> 
-     &amp;<br>
+     and 
     <i><%= link_to @event.works[1].title, @event.works[1] %></i>
   <% end %>
 </h2>
@@ -15,12 +15,21 @@
 <div>
   <p>
     <strong>Author: </strong>
-    <%= @event.works[0].authors[0].lastname%>
+    <% if @event.works[0].authors[0] %> 
+      <%= link_to @event.works[0].authors[0].lastname, @event.works[0].authors[0]%>
+    <% end %>
+    <% if @event.double %>
+    | <%= link_to @event.works[1].authors[0].lastname, @event.works[1] %>
+  <% end %>
   </p>
   <p>
     <strong>Receipts:</strong>
     <% r = @event.receipts.to_i.divmod(60) %>
-    <%= @event.receipts %> kr = <%= r[0] %> fl <%= r[1] %> kr
+    <% if @event.receipts == 'unknown' %>
+      unknown
+    <% else %>
+      <%= r[0] %> fl <%= r[1] %> kr (<%= @event.receipts %> kr )
+    <% end %>
   </p>
 
   <p>

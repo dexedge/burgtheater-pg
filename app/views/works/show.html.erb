@@ -6,6 +6,10 @@
   <strong>Genre:</strong>
   <%= @work.genre %>
 </p>
+<p>
+  <strong>Author(s):</strong>
+  <%= link_to @work.authors[0].lastname, @work.authors[0] %>
+</p>
 <h3>Performances</h3>
 <table>
   <thead>

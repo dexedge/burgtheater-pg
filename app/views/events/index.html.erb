@@ -28,15 +28,15 @@
     <% @events.each do |event| %>
       <tr>
         <td class="right"><%= event.id %></td>
-        <td><%= event.date %></td>
+        <td><%= link_to event.date, event %></td>
         <td><%= event.date.strftime("%a") %></td>
         <td><i><%= link_to event.works[0].title, event.works[0] %></i></td>
-        <td class="right"><%= event.receipts %></td>
+        <td><%= event.receipts %></td>
         <td><%= event.kind %></td>
         <td><%= event.zinzendorf %></td>
         <td><%= event.double %></td>
-        <td class="detail-link"><%= link_to 'Details', event %></td>
-        <!-- <td><%= link_to 'Edit', edit_event_path(event.id) %></td>
+        <!--<td class="detail-link"><%= link_to 'Details', event %></td>
+        <td><%= link_to 'Edit', edit_event_path(event.id) %></td>
         <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>

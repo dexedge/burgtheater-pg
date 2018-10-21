@@ -16,6 +16,7 @@
       <th>Title</th>
       <th>Genre</th>
       <th>Author</th>
+      <th># Authors</th>
       <th>Performances</th>
       <th colspan="3"></th>
     </tr>
@@ -25,7 +26,7 @@
     <% @works.each do |work| %>
       <tr>
         <td class="right"><%= work.id %></td>
-        <td><i><%= work.title %></i></td>
+        <td><i><%= link_to work.title, work %></i></td>
         <td><%= work.genre %></td>
         <td>
           <% if work.authors[0] %>
@@ -34,9 +35,10 @@
             NA
           <% end %>
         </td>
-        <td class="right"><%= work.events.count %></td>
-        <td class="detail-link"><%= link_to 'Details', work %></td>
-        <!--<td><%= link_to 'Edit', edit_work_path(work) %></td>
+        <td class="center"><%= work.authors.count %></td>
+        <td class="center"><%= work.events.count %></td>
+        <!--<td class="detail-link"><%= link_to 'Details', work %></td>
+        <td><%= link_to 'Edit', edit_work_path(work) %></td>
         <td><%= link_to 'Delete', work, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
