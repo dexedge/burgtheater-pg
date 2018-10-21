@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Authors</h1>
-<div>
+<!--<div>
   <h4>Import data!</h4>
   <%= form_tag import_authors_path, multipart: true do %>
     <%= file_field_tag :file %>
     <%= submit_tag "Import from file"%>
   <% end %>
-</div>
+</div>-->
 
 <table>
   <thead>
@@ -17,8 +17,6 @@
       <th>First Names</th>
       <th>Birth</th>
       <th>Death</th>
-      <th>Created</th>
-      <th>Updated</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -31,11 +29,9 @@
         <td><%= author.firstnames %></td>
         <td><%= author.birth %></td>
         <td><%= author.death %></td>
-        <td><%= author.created_at.to_date.strftime("%a, %-d %b %Y") %></td>
-        <td><%= author.updated_at.strftime("%a, %-d %b %Y, %H:%M %Z") %></td>
-        <td><%= link_to 'Show', author %></td>
-        <td><%= link_to 'Edit', edit_author_path(author) %></td>
-        <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detail', author %></td>
+        <!--<td><%= link_to 'Edit', edit_author_path(author) %></td>
+        <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
   </tbody>

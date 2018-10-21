@@ -3,6 +3,9 @@ class Author < ApplicationRecord
   require 'activerecord-import/base'
   require 'activerecord-import/active_record/adapters/sqlite3_adapter'
 
+  has_many :writings
+  has_many :works, through: :writings
+
   def self.my_import(file)
     authors = []
     CSV.foreach(file.path, headers: true) do |row|
