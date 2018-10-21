@@ -13,14 +13,16 @@
 </h2>
 
 <div>
+  <% if @event.works[0].authors[0] %> 
   <p>
     <strong>Author: </strong>
-    <% if @event.works[0].authors[0] %> 
       <%= link_to @event.works[0].authors[0].lastname, @event.works[0].authors[0]%>
-    <% end %>
-    <% if @event.double %>
-    | <%= link_to @event.works[1].authors[0].lastname, @event.works[1] %>
+  </p>
   <% end %>
+  <p>
+    <% if @event.double %>
+      | <%= link_to @event.works[1].authors[0].lastname, @event.works[1] %>
+    <% end %>
   </p>
   <p>
     <strong>Receipts:</strong>

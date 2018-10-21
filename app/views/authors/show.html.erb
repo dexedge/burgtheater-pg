@@ -27,7 +27,7 @@
           <td><%= link_to event.date, event %></td>
           <td><i><%= link_to work.title, work %></i></td>
           <td><%= work.writings[0].function %></td>
-          <% n = n + 1 %>
+          <% n += 1 %>
         </tr>
       <% end %>
     <% end %>

@@ -13,7 +13,9 @@
   <thead>
     <tr>
       <th>event_id</th>
+      <th>date</th>
       <th>work_id</th>
+      <th>title</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,7 +24,9 @@
     <% @performances.each do |performance| %>
       <tr>
         <td><%= performance.event_id %></td>
+        <td><%= performance.event.date %></td>
         <td><%= performance.work_id %></td>
+        <td><%= performance.work.title %></td>
         <td><%= link_to 'Show', performance %></td>
         <td><%= link_to 'Edit', edit_performance_path(performance) %></td>
         <td><%= link_to 'Destroy', performance, method: :delete, data: { confirm: 'Are you sure?' } %></td>

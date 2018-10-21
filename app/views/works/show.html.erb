@@ -12,6 +12,12 @@
     <%= link_to @work.authors[0].lastname, @work.authors[0] %>
   <% end %>
 </p>
+<p>
+  <% if @work.composers[0] %>
+    <strong>Composer:</strong>
+    <%= link_to @work.composers[0].lastname, @work.composers[0] %>
+  <% end %>
+</p>
 <h3>Performances</h3>
 <table>
   <thead>

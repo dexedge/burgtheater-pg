@@ -33,11 +33,13 @@
         <td><%= link_to event.date, event %></td>
         <td><%= event.date.strftime("%a") %></td>
         <td><i><%= link_to event.works[0].title, event.works[0] %></i></td>
-        <% if event.works.first.authors.first %>
-          <td><%= link_to event.works.first.authors.first.lastname, event.works.first.authors.first %></td>
+        <% firstauthor = event.works.first.authors.first %>
+        <% firstcomposer = event.works.first.composers.first %>
+        <% if firstauthor %>
+          <td><%= link_to firstauthor.lastname, firstauthor %></td>
         <% end %>
-        <% if event.works.first.composers.first %>
-            <td><%= link_to event.works.first.composers.first.lastname, event.works.first.composers.first %></td>
+        <% if firstcomposer %>
+            <td><%= link_to firstcomposer.lastname, firstcomposer %></td>
         <% else %>
             <td>NA</td>
         <% end %>
