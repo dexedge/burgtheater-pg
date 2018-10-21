@@ -1,0 +1,96 @@
+id,lastname,firstnames,birth,death,created_at,updated_at
+1,Anelli,Angelo,1761,1820,1/4/2015,1/4/2015
+2,Babo,Johann Marius von,1756,1822,1/4/2015,1/4/2015
+3,Banks,John,1650,1706,1/4/2015,1/14/2015
+4,Beaumont,Francis,1584,1616,1/4/2015,1/4/2015
+5,Beck,Heinrich,1760,1803,1/4/2015,1/4/2015
+6,Blumauer,Alois,1755,1798,1/4/2015,1/4/2015
+7,Bock,Johann Christian,0,0,1/4/2015,1/6/2015
+8,Burgoyne,John,1722,1792,1/4/2015,1/4/2015
+9,Boursault,Edmé,1638,1701,1/4/2015,1/4/2015
+10,Brandes,Johann Christian,1735,1799,1/4/2015,1/4/2015
+11,Bretzner,Christoph Friedrich,1748,1807,1/4/2015,1/4/2015
+12,Brockmann,Johann Franz,1745,1812,1/4/2015,1/4/2015
+13,Brömel,Wilhelm Heinrich,1754,1808,1/4/2015,1/4/2015
+14,Brunner,Anton,0,0,1/4/2015,1/6/2015
+15,Burney,Fanny,1752,1840,1/4/2015,1/4/2015
+16,Carmontelle,Louis Carrogis,1717,1806,1/4/2015,1/4/2015
+17,Casti,Giovanni Battista,1724,1803,1/4/2015,1/4/2015
+18,Cibber,Colley,1671,1757,1/4/2015,1/4/2015
+19,Collé,Charles,1709,1783,1/4/2015,1/4/2015
+20,Colman,George (the Elder),1732,1794,1/4/2015,1/4/2015
+21,Crowne,John,1641,1712,1/4/2015,1/4/2015
+22,Cumberland,Richard,1732,1811,1/4/2015,1/4/2015
+23,Da Ponte,Lorenzo,1749,1838,1/4/2015,1/4/2015
+24,Destouches,Philippe Néricault,1680,1754,1/4/2015,1/4/2015
+25,Diderot,Denis,1713,1784,1/4/2015,1/4/2015
+26,Dufresny,Charles,1657,1724,1/4/2015,1/4/2015
+27,Dumaniant,,1752,1828,1/4/2015,1/5/2015
+28,Ehrenberg,Franz,1757,1815,1/4/2015,1/5/2015
+29,Engel,Johann Jakob,1741,1802,1/4/2015,1/5/2015
+30,Farquhar,George,1677,1707,1/4/2015,1/5/2015
+31,Fielding,Henry,1707,1754,1/4/2015,1/5/2015
+32,Fletcher,John,1579,1625,1/4/2015,1/5/2015
+33,Garrick,David,1717,1779,1/4/2015,1/5/2015
+34,Gernevalde,Sainte-Charles de,0,0,1/4/2015,1/6/2015
+35,Goldoni,Carlo,1707,1793,1/4/2015,1/5/2015
+36,Goldsmith,Oliver,1728,1774,1/4/2015,1/5/2015
+37,Gotter,Friedrich Wilhelm,1746,1797,1/4/2015,1/5/2015
+38,Gottsched,Luise Adelgunde Victorie,1713,1762,1/4/2015,1/5/2015
+39,Gozzi,Carlo,1720,1806,1/4/2015,1/5/2015
+40,Großmann,Gustav Friedrich Wilhelm ,1746,1796,1/4/2015,1/5/2015
+41,Dalberg,Wolfgang Heribert von,1750,1806,1/4/2015,1/5/2015
+42,Iffland,August Wilhelm,1759,1814,1/4/2015,1/5/2015
+43,Jünger,Johann Friedrich,1756,1797,1/4/2015,1/5/2015
+44,Kotzebue,August von,1761,1819,1/4/2015,1/5/2015
+45,Kratter,Franz,1758,1830,1/4/2015,1/5/2015
+46,La Chaussée,Pierre Claude Nivelle de,1692,1754,1/4/2015,1/5/2015
+47,Hauteroche,Noël Lebreton de,1617,1707,1/4/2015,1/5/2015
+49,Lessing,Gotthold Ephraim,1729,1781,1/4/2015,1/5/2015
+50,Livigni,Filippo,1750,0,1/4/2015,1/5/2015
+51,Lorenzi,Giovanni Battista,1721,1807,1/4/2015,1/5/2015
+52,Marivaux,Pierre Carlet de Chamblain de,1688,1763,1/4/2015,1/5/2015
+53,Marsollier,Benoît-Joseph,1750,1817,1/4/2015,1/5/2015
+54,Mazzolà,Caterino,1745,1806,1/4/2015,1/5/2015
+55,Meyer,Friedrich Ludwig Wilhelm,1758,1840,1/4/2015,1/5/2015
+56,Lemierre,Antoine-Marin,1733,1793,1/4/2015,1/5/2015
+57,Moore,Hannah,1745,1833,1/4/2015,1/5/2015
+58,Müller,Johann Heinrich Friedrich,1738,1815,1/4/2015,1/5/2015
+59,Palomba,Giuseppe,1765,1825,1/4/2015,1/5/2015
+60,Pape,Georg,0,0,1/4/2015,1/5/2015
+61,Pauersbach,Josef von,0,1807,1/4/2015,1/5/2015
+62,Pelzel,Josef Bernhard,0,0,1/4/2015,1/5/2015
+63,Pilow,,0,0,1/4/2015,1/5/2015
+64,Plümicke,Karl Martin,1749,1833,1/4/2015,1/5/2015
+65,Rautenstrauch,Johann ,1746,1801,1/4/2015,1/5/2015
+66,Richter,Joseph,1749,1813,1/4/2015,1/5/2015
+67,Sannens,Friedrich Karl,0,0,1/4/2015,1/5/2015
+68,Schiller,Friedrich von,1759,1805,1/4/2015,1/5/2015
+69,Schink,Johann Friedrich,1755,1835,1/4/2015,1/5/2015
+70,Schletter,Salomon Friedrich,1739,1801,1/4/2015,1/5/2015
+71,Schmid,Christian Heinrich,1746,1800,1/4/2015,1/5/2015
+72,Schröder,Friedrich Ludwig,1744,1816,1/4/2015,1/5/2015
+73,Sedaine,Michel-Jean,1719,1797,1/4/2015,1/5/2015
+74,Seidel,Karl August Gottlieb,1754,1822,1/4/2015,1/5/2015
+75,Shakespeare,William,1564,1616,1/4/2015,1/5/2015
+76,Sheridan,Richard Brinsley,1751,1816,1/4/2015,1/5/2015
+77,Spieß,Christian Heinrich,1755,1799,1/4/2015,1/5/2015
+78,Stephanie d.J.,Johann Gottlieb,1741,1800,1/4/2015,1/5/2015
+79,Törring und Cronsfeld,Joseph August,1753,1826,1/4/2015,1/5/2015
+80,Ayrenhoff,Cornelius Hermann von,1733,1819,1/4/2015,1/5/2015
+81,Brühl,Alois Friedrich von,1739,1793,1/4/2015,1/6/2015
+82,Gemmingen,Otto Heinrich von,1755,1836,1/4/2015,1/6/2015
+83,Weidmann,Paul,1744,1801,1/4/2015,1/6/2015
+84,Weidmann,Josef,0,0,1/4/2015,1/6/2015
+85,Weiße,Christiane Felix,1726,1804,1/4/2015,1/6/2015
+86,Werthes,Friedrich August Clemens,1748,1817,1/4/2015,1/6/2015
+87,Wycherley,William,1640,1715,1/4/2015,1/6/2015
+88,Wieland,Christoph Martin,1733,1813,1/4/2015,1/6/2015
+89,Ziegler,Friedrich Wilhelm,1761,1827,1/4/2015,1/6/2015
+90,Zini,Saverio,1770,1803,1/4/2015,1/6/2015
+91,Massinger,Philip,1583,1640,1/11/2015,1/11/2015
+92,Ralph,James,,1762,1/14/2015,1/14/2015
+93,Jones,Henry,1721,1770,1/14/2015,1/14/2015
+94,Brooke,Henry,1703,1783,1/14/2015,1/14/2015
+95,Sheridan,Frances,1724,1766,1/28/2015,1/28/2015
+96,Beaumarchais,Pierre-Augustin Caron de,1732,1799,1/28/2015,1/28/2015

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+<h2>
+  <%= @author.firstnames%> <%= @author.lastname %>
+</h2>
+<p>
+  <strong>Birth:</strong>
+  <%= @author.birth %>
+</p>
+<p>
+  <strong>Death:</strong>
+  <%= @author.death %>
+</p>
+<p>
+  <strong>Created:</strong>
+  <%= @author.created_at.to_date.strftime("%a, %-d %b %Y") %>
+</p>
+<p>
+  <strong>Updated:</strong>
+  <%= @author.updated_at.strftime("%a, %-d %b %Y, %H:%M %Z") %>
+</p>
+
+<hr>
+<%= link_to 'Edit', edit_author_path(@author) %> |
+<%= link_to 'Back', authors_path %>

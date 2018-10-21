@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root to: "events#index"
   get 'events/index'
   get 'events/import' => 'events#my_import'
@@ -6,6 +7,8 @@ Rails.application.routes.draw do
   get 'works/import' => 'works#my_import'
   get 'performances/index'
   get 'performances/import' => 'performances#my_import'
+  get 'authors/index'
+  get 'authors/import' => 'authors#my_import'
   
   resources :events do
     collection {post :import}
@@ -16,6 +19,10 @@ Rails.application.routes.draw do
   end
 
   resources :performances do
+    collection {post :import}
+  end
+
+  resources :authors do
     collection {post :import}
   end
 end
