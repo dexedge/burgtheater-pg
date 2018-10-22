@@ -17,9 +17,7 @@
   <p>
     <strong>Author: </strong>
       <%= link_to @event.works[0].authors[0].lastname, @event.works[0].authors[0]%>
-  </p>
   <% end %>
-  <p>
     <% if @event.double %>
       | <%= link_to @event.works[1].authors[0].lastname, @event.works[1] %>
     <% end %>
@@ -49,7 +47,7 @@
     <%= @event.double %>
   </p>
 
-  <p>
+  <p class="notes">
     <strong>Notes:</strong>
     <% if @event.notes %>
       <%= @event.notes.html_safe %>

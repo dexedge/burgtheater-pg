@@ -28,5 +28,4 @@ class Event < ApplicationRecord
   def prev
     Event.where("id < ?", id).last
   end
-
 end

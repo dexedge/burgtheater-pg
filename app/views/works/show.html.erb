@@ -10,29 +10,32 @@
 <h3>
   <strong>Author(s):</strong>
 </h3>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Function</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @work.authors.each do |author| %>
+<% if @work.authors[0] %>
+  <table>
+    <thead>
       <tr>
-      	<td><%= link_to author.lastname, author %></td>
-      	<td><%= link_to author.writings.find_by(author_id: author.id, work_id: @work.id).function, author.writings.find_by(author_id: author.id, work_id: @work.id) %></td>
+        <th>Name</th>
+        <th>Function</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @work.authors.each do |author| %>
+        <tr>
+          <td><%= link_to author.lastname, author %></td>
+          <td><%= author.writings.find_by(author_id: author.id, work_id: @work.id).function %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>NA</p>
+<% end %>
 
-<h3>
-  <% if @work.composers[0] %>
-    <strong>Composer:</strong>
-    <%= link_to @work.composers[0].lastname, @work.composers[0] %>
-  <% end %>
-</h3>
+<% if @work.composers[0] %>
+  <h3><strong>Composer:</strong></h3>
+   <%= link_to @work.composers[0].lastname, @work.composers[0] %> 
+<% end %>
+
 <h3>Performances</h3>
 <table>
   <thead>
@@ -45,6 +48,7 @@
       <th>DOW</th>
       <th class="right">fl</th>
       <th class="right">kr</th>
+      <th>Zinzendorf</th>
     </tr>
   </thead>
   <tbody>
@@ -54,6 +58,7 @@
         <td><%= event.date.strftime("%a") %></td>
         <td class="right"><%= event.receipts.to_i.divmod(60)[0]%></td>
         <td class="right"><%= event.receipts.to_i.divmod(60)[1]%></td>
+        <td class="center"><%= event.zinzendorf %></td>
       </tr>
     <% end %>
   </tbody>
@@ -67,20 +72,46 @@
 <p>
   <% z = @work.events.where(zinzendorf: true).count %>
   <strong>Zinzendorf attendances:</strong>
-  <%= z %>
-   (<%= (z.to_f/c.to_f * 100).round(2) %>%)
+  <%= z %> (<%= (z.to_f/c.to_f * 100).round(2) %>%)
 </p>
+<!-- Calculate mean and median receipts -->
+  <% r = @work.events.pluck(:receipts)%>
+  <% r.map! {|r| r.to_i} %>
 <p>
   <strong>Mean receipts:</strong>
-  <% sum = 0 %>
-  <% @work.events.pluck(:receipts).each do |r| %>
-    <% sum = sum + r.to_i %>
+    <% sum = 0 %>
+    <% r.each do |i| %>
+      <% if i == 0 %>
+        <% sum = 0 %>
+        <% break %>
+      <% end %>
+      <% sum = sum + i %>
+    <% end %>
+    <% mean = (sum/@work.events.count).divmod(60) %>
+  <% if sum == 0 %>
+    <%= "NA" %>
+  <% else %>
+    <%= mean[0]%> fl <%= mean[1]%> kr
   <% end %>
-  <% mean = (sum/@work.events.count).divmod(60) %>
-  <%= mean[0]%> fl <%= mean[1]%> kr
 </p>
 
 <p>
+  <strong>Median receipts:</strong>
+  <% r = r.sort %>
+  <% if r.length.odd? %>
+    <% median = r[(r.length - 1)/2] %>  
+  <% else %>
+    <% median = (r[r.length/2] + r[r.length/2 - 1])/2%>
+  <% end %>
+  <% if median == 0 %>
+    <%= "NA" %>
+  <% else %>
+    <% median = median.divmod(60) %>
+    <%= median[0]%> fl <%= median[1]%> kr
+  <% end %>
+</p>
+
+<p class="notes">
   <strong>Notes:</strong>
   <% if @work.notes %>
     <%= @work.notes.html_safe %>
