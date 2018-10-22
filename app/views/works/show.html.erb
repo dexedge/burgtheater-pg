@@ -1,23 +1,38 @@
 <p id="notice"><%= notice %></p>
- <h2>
+<h2>
   <i><%= @work.title %></i>
 </h2>
 <p>
   <strong>Genre:</strong>
   <%= @work.genre %>
 </p>
-<p>
-  <% if @work.authors[0] %>
-    <strong>Author(s):</strong>
-    <%= link_to @work.authors[0].lastname, @work.authors[0] %>
-  <% end %>
-</p>
-<p>
+
+<h3>
+  <strong>Author(s):</strong>
+</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Function</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @work.authors.each do |author| %>
+      <tr>
+      	<td><%= link_to author.lastname, author %></td>
+      	<td><%= link_to author.writings.find_by(author_id: author.id, work_id: @work.id).function, author.writings.find_by(author_id: author.id, work_id: @work.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>
   <% if @work.composers[0] %>
     <strong>Composer:</strong>
     <%= link_to @work.composers[0].lastname, @work.composers[0] %>
   <% end %>
-</p>
+</h3>
 <h3>Performances</h3>
 <table>
   <thead>

@@ -10,7 +10,15 @@
       </ul>
     </div>
   <% end %>
-
+  
+  <h2><%= @writing.work.title %></h2>
+  <h2><%= @writing.author.firstnames %> <%= @writing.author.lastname %></h2>
+  
+  <div class="field">
+    <%= form.label :function %>
+    <%= form.text_field :function %>
+  </div>
+  
   <div class="actions">
     <%= form.submit %>
   </div>

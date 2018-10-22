@@ -1,4 +1,10 @@
 <p id="notice"><%= notice %></p>
-
+<h2><%= @writing.work.title %></h2>
+<h2><%= @writing.author.firstnames %> <%= @writing.author.lastname %></h2>
+<p>
+  <strong>Function:</strong>
+  <%= @writing.function %>
+</p>
+<hr>
 <%= link_to 'Edit', edit_writing_path(@writing) %> |
-<%= link_to 'Back', writings_path %>
+<%= link_to 'Back', url_for(:back) %>
