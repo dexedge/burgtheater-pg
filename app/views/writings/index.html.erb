@@ -12,8 +12,10 @@
 <table>
   <thead>
     <tr>
-      <th>author_id</th>
       <th>work_id</th>
+      <th>title</th>
+      <th>author_id</th>
+      <th>author</th>
       <th>Function</th>
       <th colspan="3"></th>
     </tr>
@@ -22,8 +24,10 @@
   <tbody>
     <% @writings.each do |writing| %>
       <tr>
-        <td><%= writing.author_id %></td>
         <td><%= writing.work_id %></td>
+        <td><%= writing.work.title %></td>
+        <td><%= writing.author_id %></td>
+        <td><%= writing.author.lastname %></td>
         <td><%= writing.function %></td>
         <td><%= link_to 'Show', writing %></td>
         <td><%= link_to 'Edit', edit_writing_path(writing) %></td>

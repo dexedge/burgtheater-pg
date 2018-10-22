@@ -27,33 +27,38 @@
   </thead>
 
   <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td class="right"><%= event.id %></td>
-        <td><%= link_to event.date, event %></td>
-        <td><%= event.date.strftime("%a") %></td>
-        <td><i><%= link_to event.works[0].title, event.works[0] %></i></td>
-        <% firstauthor = event.works.first.authors.first %>
-        <% firstcomposer = event.works.first.composers.first %>
-        <% if firstauthor %>
-          <td><%= link_to firstauthor.lastname, firstauthor %></td>
-        <% end %>
-        <% if firstcomposer %>
-            <td><%= link_to firstcomposer.lastname, firstcomposer %></td>
-        <% else %>
-            <td>NA</td>
-        <% end %>
-        <% if event.receipts == 'unknown' %>
-          <td>unknown</td>
-        <% end %>
-        <td><%= event.receipts %></td>
-        <td><%= event.kind %></td>
-        <td><%= event.zinzendorf %></td>
-        <td><%= event.double %></td>
-        <!--<td class="detail-link"><%= link_to 'Details', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event.id) %></td>
-        <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-      </tr>
+    <% cache(@events) do %>
+      <% @events.each do |event| %>
+        <tr>
+          <td class="right"><%= event.id %></td>
+          <td><%= link_to event.date, event %></td>
+          <td><%= event.date.strftime("%a") %></td>
+          <td><i><%= link_to event.works[0].title, event.works[0] %></i></td>
+          <% firstauthor = event.works.first.authors.first %>
+          <% firstcomposer = event.works.first.composers.first %>
+          <td>
+            <% if firstauthor %>
+              <%= link_to firstauthor.lastname, firstauthor %>
+            <% else %>
+              NA
+            <% end %>
+          </td>
+          <td>
+            <% if firstcomposer %>
+                <%= link_to firstcomposer.lastname, firstcomposer %>
+            <% else %>
+                NA
+            <% end %>
+          </td>
+          <td><%= event.receipts %></td>
+          <td><%= event.kind %></td>
+          <td><%= event.zinzendorf %></td>
+          <td><%= event.double %></td>
+          <!--<td class="detail-link"><%= link_to 'Details', event %></td>
+          <td><%= link_to 'Edit', edit_event_path(event.id) %></td>
+          <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

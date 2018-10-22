@@ -26,7 +26,7 @@
         <tr>
           <td><%= link_to event.date, event %></td>
           <td><i><%= link_to work.title, work %></i></td>
-          <td><%= work.writings[0].function %></td>
+          <td><%= @author.writings.find_by(work_id: work.id).function %></td>
           <% n += 1 %>
         </tr>
       <% end %>

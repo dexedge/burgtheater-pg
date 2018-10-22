@@ -14,41 +14,53 @@
  *= require_self
  */
 
- .field label {
-   font-weight: bold;
- }
+@import url('https://fonts.googleapis.com/css?family=PT+Serif:400i,700i');
 
- h2 {
-   line-height: normal;
- }
+body {
+  background-color: #f6f7f6;
+  color: #003965;
+}
 
- th {
-   text-align: left;
-   padding: 0 10px 7px 0;
- }
+h1, h2 {
+  font-family: 'PT Serif', serif;
+  font-weight: bold;
+}
 
- td {
-   padding: 0 10px 7px 0;
- }
+h2 {
+  line-height: normal;
+}
 
- input, textarea {
+th {
+  text-align: left;
+  padding: 0 10px 7px 0;
+}
+
+td {
+  padding: 0 10px 7px 0;
+}
+
+input, textarea {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
- }
+}
 
- .right {
-   text-align: right;
-   padding-right: 22px;
- }
+.field label {
+  font-weight: bold;
+}
 
- .center {
-   text-align: center;
- }
+.right {
+  text-align: right;
+  padding-right: 22px;
+}
 
- .detail-link {
-   padding-left: 10px;
- }
+.center {
+  text-align: center;
+}
+
+.detail-link {
+  padding-left: 10px;
+}
 
 a:link, a:visited {
   color: #337ab7;

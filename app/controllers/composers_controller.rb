@@ -24,7 +24,7 @@ class ComposersController < ApplicationController
   # POST /composers
   # POST /composers.json
   def create
-    @composer = Composer.new(composer_params)
+    @composer = Composer.new(allowed_params)
 
     respond_to do |format|
       if @composer.save
