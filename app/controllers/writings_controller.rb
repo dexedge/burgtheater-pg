@@ -41,7 +41,7 @@ class WritingsController < ApplicationController
   # PATCH/PUT /writings/1.json
   def update
     respond_to do |format|
-      if @writing.update(writing_params)
+      if @writing.update(allowed_params)
         format.html { redirect_to @writing, notice: 'Writing was successfully updated.' }
         format.json { render :show, status: :ok, location: @writing }
       else
@@ -75,5 +75,9 @@ class WritingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def writing_params
       params.fetch(:writing, {})
+    end
+
+    def allowed_params
+      params.require(:writing).permit(:function)
     end
 end
