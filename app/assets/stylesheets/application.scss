@@ -10,10 +10,9 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
 
+@import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=PT+Serif:400i,700i');
 
 body {
@@ -21,18 +20,34 @@ body {
   color: #003965;
 }
 
+img {
+  float: right;
+  vertical-align: top;
+}
+
+hr {
+  border-top: 1px solid #999;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
 h1, h2 {
   font-family: 'PT Serif', serif;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 h2 {
   line-height: normal;
 }
 
-h3 {
-  margin-block-end: 0.5em;
+h5 {
+  font-weight: 00;
 }
+
+table, p {
+  margin-bottom: 0.5em;
+}
+
 th {
   text-align: left;
   padding: 0 10px 7px 0;
@@ -46,6 +61,14 @@ input, textarea {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+}
+
+.header {
+  margin-top: 0.5em;
+}
+
+.indent {
+  margin-left: 1em;
 }
 
 .notes {
@@ -65,6 +88,9 @@ input, textarea {
   text-align: center;
 }
 
+.top {
+  margin-top: 1em;
+}
 .detail-link {
   padding-left: 10px;
 }

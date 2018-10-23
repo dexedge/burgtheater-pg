@@ -8,11 +8,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  
+  <div class="container">
+    <body>
+      <h1 class="header"><i>The Burgtheater in Vienna, 26 Feb 1789 to 8 Mar 1791</i></h1>
+      <hr>
+      <%= render 'navigation' %>
+      <%= yield %>
+    </body>
+  </div>
 
-  <body>
-    <h1><i>The Burgtheater in Vienna, 26 Feb 1789 to 8 Mar 1791</i></h1>
-    <hr>
-    <%= render 'navigation' %>
-    <%= yield %>
-  </body>
 </html>

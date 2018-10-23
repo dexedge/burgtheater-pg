@@ -2,16 +2,10 @@
 <h2>
   <i><%= @work.title %></i>
 </h2>
-<p>
-  <strong>Genre:</strong>
-  <%= @work.genre %>
-</p>
 
-<h3>
-  <strong>Author(s):</strong>
-</h3>
+<h5>Author(s):</h5>
 <% if @work.authors[0] %>
-  <table>
+  <table class="indent">
     <thead>
       <tr>
         <th>Name</th>
@@ -32,12 +26,14 @@
 <% end %>
 
 <% if @work.composers[0] %>
-  <h3><strong>Composer:</strong></h3>
-   <%= link_to @work.composers[0].lastname, @work.composers[0] %> 
+  <h5>Composer:</h5>
+   <p class="indent">
+     <%= link_to @work.composers[0].lastname, @work.composers[0] %>
+   </p>
 <% end %>
 
-<h3>Performances</h3>
-<table>
+<h5>Performances</h5>
+<table class="indent">
   <thead>
     <tr>
       <th colspan="2"></th>
@@ -65,8 +61,12 @@
 </table>
 
 <p>
+  <strong>Genre:</strong>
+  <%= @work.genre %>
+</p>
+<p>
   <% c = @work.events.count %>
-  <strong>Total:</strong>
+  <strong>Total performances:</strong>
   <%= c %>
 </p>
 <p>
@@ -110,14 +110,15 @@
     <%= median[0]%> fl <%= median[1]%> kr
   <% end %>
 </p>
-
-<p class="notes">
-  <strong>Notes:</strong>
-  <% if @work.notes %>
-    <%= @work.notes.html_safe %>
-  <% end %>
-</p>
-<hr>
+<% if @work.notes %>
+  <p class="notes">
+    <strong>Notes:</strong>
+    <% if @work.notes %>
+      <%= @work.notes.html_safe %>
+    <% end %>
+  </p>
+<% end %>
+<hr class="top">
 <p>
   <strong>Created:</strong>
   <%= @work.created_at.to_date.strftime("%a, %-d %b %Y") %>
@@ -135,6 +136,6 @@
 <% if @work.next %> 
   <%= link_to 'Next Work', @work.next %>
 <% end %>
-<hr>
+<hr class="top">
 <%= link_to 'Edit', edit_work_path(@work) %> |
 <%= link_to 'Back', url_for(:back) %> 
