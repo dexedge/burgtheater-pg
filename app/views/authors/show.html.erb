@@ -49,7 +49,33 @@
   <strong>Zinzendorf attendances:</strong>
   <%= z %> (<%= (z.to_f/n.to_f * 100).round(2) %>%)
 </p>
-<hr>
+<!-- Calculate mean and median receipts -->
+  <!--Get array of receipts for this Author-->
+  <% r = @author.works.joins(:events).pluck(:receipts)%>
+  <!--Convert array items from string to integer -->
+  <% r.map! {|r| r.to_i} %>
+<p>
+  <strong>Mean receipts:</strong>
+  <% mean = mean(r) %>
+  <% if mean == 0 %>
+    <%= "NA" %>
+  <% else %>
+    <% mean = mean(r).divmod(60) %> 
+    <%= mean[0]%> fl <%= mean[1]%> kr
+  <% end %>
+</p>
+<p>
+  <strong>Median receipts:</strong>
+  <% median = median(r) %>
+  <% if median == 0 %>
+    <%= "NA" %>
+  <% else %>
+    <% median = median.divmod(60) %>
+    <%= median[0]%> fl <%= median[1]%> kr
+  <% end %>
+</p>
+
+<hr class="top">
 <p>
   <strong>Created:</strong>
   <%= @author.created_at.to_date.strftime("%a, %-d %b %Y") %>

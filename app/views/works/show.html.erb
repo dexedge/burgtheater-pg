@@ -75,34 +75,23 @@
   <%= z %> (<%= (z.to_f/c.to_f * 100).round(2) %>%)
 </p>
 <!-- Calculate mean and median receipts -->
+  <!--Get array of receipts for this work-->
   <% r = @work.events.pluck(:receipts)%>
+  <!--Convert array items from string to integer -->
   <% r.map! {|r| r.to_i} %>
 <p>
   <strong>Mean receipts:</strong>
-    <% sum = 0 %>
-    <% r.each do |i| %>
-      <% if i == 0 %>
-        <% sum = 0 %>
-        <% break %>
-      <% end %>
-      <% sum += i %>
-    <% end %>
-    <% mean = (sum/@work.events.count).divmod(60) %>
-  <% if sum == 0 %>
+  <% mean = mean(r) %>
+  <% if mean == 0 %>
     <%= "NA" %>
   <% else %>
+    <% mean = mean(r).divmod(60) %> 
     <%= mean[0]%> fl <%= mean[1]%> kr
   <% end %>
 </p>
-
 <p>
   <strong>Median receipts:</strong>
-  <% r = r.sort %>
-  <% if r.length.odd? %>
-    <% median = r[(r.length - 1)/2] %>  
-  <% else %>
-    <% median = (r[r.length/2] + r[r.length/2 - 1])/2%>
-  <% end %>
+  <% median = median(r) %>
   <% if median == 0 %>
     <%= "NA" %>
   <% else %>
@@ -110,6 +99,7 @@
     <%= median[0]%> fl <%= median[1]%> kr
   <% end %>
 </p>
+
 <% if @work.notes %>
   <p class="notes">
     <strong>Notes:</strong>
