@@ -3,6 +3,13 @@
   <i><%= @work.title %></i>
 </h2>
 
+<% if @work.composers[0] %>
+  <h5>Composer:</h5>
+   <p class="indent">
+     <%= link_to @work.composers[0].lastname, @work.composers[0] %>
+   </p>
+<% end %>
+
 <h5>Author(s):</h5>
 <% if @work.authors[0] %>
   <table class="indent">
@@ -25,19 +32,12 @@
   <p>NA</p>
 <% end %>
 
-<% if @work.composers[0] %>
-  <h5>Composer:</h5>
-   <p class="indent">
-     <%= link_to @work.composers[0].lastname, @work.composers[0] %>
-   </p>
-<% end %>
-
 <h5>Performances</h5>
-<table class="indent">
+<table>
   <thead>
     <tr>
-      <th colspan="2"></th>
-      <th colspan="2" class="right">Receipts</th>
+      <th colspan="2" style="padding-bottom: 0"></th>
+      <th colspan="2" style="padding-bottom: 0" class="right">Receipts</th>
     </tr>
     <tr>
       <th>Date</th>
@@ -85,7 +85,7 @@
         <% sum = 0 %>
         <% break %>
       <% end %>
-      <% sum = sum + i %>
+      <% sum += i %>
     <% end %>
     <% mean = (sum/@work.events.count).divmod(60) %>
   <% if sum == 0 %>

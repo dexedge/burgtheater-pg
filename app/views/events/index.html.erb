@@ -28,7 +28,7 @@
 
   <tbody>
     <% cache(@events) do %>
-      <% @events.each do |event| %>
+      <% @events.find_each(:batch_size => 50) do |event| %>
         <tr>
           <td class="right"><%= event.id %></td>
           <td><%= link_to event.date, event %></td>

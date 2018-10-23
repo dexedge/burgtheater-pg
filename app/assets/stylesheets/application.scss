@@ -20,20 +20,24 @@ body {
   color: #003965;
 }
 
-img {
-  float: right;
-  vertical-align: top;
-}
-
 hr {
   border-top: 1px solid #999;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
 
-h1, h2 {
+img {
+  margin-top: 10px;
+}
+
+h1, h2, h3, h4, h5 {
   font-family: 'PT Serif', serif;
   font-weight: normal;
+}
+
+h1 {
+  font-size: 2.2em;
+  vertical-align: bottom; 
 }
 
 h2 {
@@ -41,7 +45,7 @@ h2 {
 }
 
 h5 {
-  font-weight: 00;
+  margin-bottom: 0.25em;
 }
 
 table, p {
@@ -91,6 +95,7 @@ input, textarea {
 .top {
   margin-top: 1em;
 }
+
 .detail-link {
   padding-left: 10px;
 }

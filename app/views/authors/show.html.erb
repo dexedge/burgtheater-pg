@@ -10,24 +10,31 @@
   <strong>Death:</strong>
   <%= @author.death %>
 </p>
-<h3>Works Performed</h3>
+<h3>Performances</h3>
 <table>
   <thead>
     <tr>
       <th>Date</th>
       <th>Title</th>
       <th>Function</th>
+      <th class="right">fl</th>
+      <th class="right">kr</th>
+      <th>Zinzendorf</th>
     </tr>
   </thead>
   <tbody>
-    <% n = 0 %>
+    <% n = 0 %><% z = 0 %>
     <% @author.works.each do |work| %>
       <% work.events.each do |event| %>
         <tr>
           <td><%= link_to event.date, event %></td>
           <td><i><%= link_to work.title, work %></i></td>
           <td><%= @author.writings.find_by(work_id: work.id).function %></td>
+          <td class="right"><%= event.receipts.to_i.divmod(60)[0]%></td>
+          <td class="right"><%= event.receipts.to_i.divmod(60)[1]%></td>
+          <td class="center"><%= event.zinzendorf %></td>
           <% n += 1 %>
+          <% if event.zinzendorf then z +=1 end %>
         </tr>
       <% end %>
     <% end %>
@@ -35,8 +42,12 @@
 
 </table>
 <p>
-  <strong>Total:</strong>
+  <strong>Total performances:</strong>
   <%= n %>
+</p>
+<p>
+  <strong>Zinzendorf attendances:</strong>
+  <%= z %> (<%= (z.to_f/n.to_f * 100).round(2) %>%)
 </p>
 <hr>
 <p>
