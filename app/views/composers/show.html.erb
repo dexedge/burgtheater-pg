@@ -31,7 +31,7 @@
 <!--Find all performances for this composer and order them by date-->
 <% performances = Event.includes(:works => :composers).where(composers: {id: @composer.id}).order(:date) %>
 
-<table>
+<table class="table table-responsive table-striped">
   <thead>
     <tr>
       <th>Date</th>
@@ -104,7 +104,7 @@
 <hr>
 <%= link_to 'Edit', edit_composer_path(@composer) %>
 
-<!-- Old unsorted table code
+<!-- Old code for unsorted performance table
 <table>
   <thead>
     <tr>
@@ -132,5 +132,4 @@
     <% end %>
   </tbody>
 </table>
-
 -->

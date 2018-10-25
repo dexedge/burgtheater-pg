@@ -27,36 +27,34 @@
   <%= @author.death %>
 </p>
 <h4>Performances</h4>
-<table>
+<!--Find all performances for this composer and order them by date-->
+<% performances = Event.includes(:works => :authors).where(authors: {id: @author.id}).order(:date) %>
+
+<table class="table table-responsive table-striped">
   <thead>
     <tr>
       <th>Date</th>
       <th>Title</th>
-      <th>Function</th>
       <th class="right">fl</th>
       <th class="right">kr</th>
       <th>Zinzendorf</th>
     </tr>
   </thead>
   <tbody>
-    <% n = 0 %><% z = 0 %>
-    <% @author.works.each do |work| %>
-      <% work.events.each do |event| %>
+    <% performances.each do |p| %>
         <tr>
-          <td><%= link_to event.date, event %></td>
-          <td><i><%= link_to work.title, work %></i></td>
-          <td><%= @author.writings.find_by(work_id: work.id).function %></td>
-          <td class="right"><%= event.receipts.to_i.divmod(60)[0]%></td>
-          <td class="right"><%= event.receipts.to_i.divmod(60)[1]%></td>
-          <td class="center"><%= event.zinzendorf %></td>
-          <% n += 1 %>
-          <% if event.zinzendorf then z +=1 end %>
+          <td><%= link_to p.date, p %></td>
+          <td><i><%= link_to p.works[0].title, p.works[0] %></i></td>
+          <td class="right"><%= p.receipts.to_i.divmod(60)[0]%></td>
+          <td class="right"><%= p.receipts.to_i.divmod(60)[1]%></td>
+          <td class="center"><%= p.zinzendorf %></td>
         </tr>
-      <% end %>
     <% end %>
   </tbody>
-
 </table>
+<% n = performances.length %>
+<% z = performances.where(zinzendorf: true).count %>
+
 <hr>
 <p>
   <strong>Total performances:</strong>
@@ -104,3 +102,36 @@
 
 <hr>
 <%= link_to 'Edit', edit_author_path(@author) %>
+
+<!-- Old Performances table code, sorted by title
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Function</th>
+      <th class="right">fl</th>
+      <th class="right">kr</th>
+      <th>Zinzendorf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% n = 0 %><% z = 0 %>
+    <% @author.works.each do |work| %>
+      <% work.events.each do |event| %>
+        <tr>
+          <td><%= link_to event.date, event %></td>
+          <td><i><%= link_to work.title, work %></i></td>
+          <td><%= @author.writings.find_by(work_id: work.id).function %></td>
+          <td class="right"><%= event.receipts.to_i.divmod(60)[0]%></td>
+          <td class="right"><%= event.receipts.to_i.divmod(60)[1]%></td>
+          <td class="center"><%= event.zinzendorf %></td>
+          <% n += 1 %>
+          <% if event.zinzendorf then z +=1 end %>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+
+</table>
+-->
