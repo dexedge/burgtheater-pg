@@ -1,8 +1,23 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+<p style="margin: 0">
+  <% if @work.prev %>
+    <%= link_to 'Previous Work', @work.prev %>
+    <% if @work.next %>
+    |
+    <% end %>
+  <% end %>
+  <% if @work.next %> 
+    <%= link_to 'Next Work', @work.next %>
+  <% end %>
+   |
+  <%= link_to 'Back', url_for(:back) %>
+</p>
+
 <h2>
   <i><%= @work.title %></i>
 </h2>
-
 <% if @work.composers[0] %>
   <h5>Composer:</h5>
    <p class="indent">
@@ -32,13 +47,9 @@
   <p>NA</p>
 <% end %>
 
-<h5>Performances</h5>
+<h4>Performances</h4>
 <table>
   <thead>
-    <tr>
-      <th colspan="2" style="padding-bottom: 0"></th>
-      <th colspan="2" style="padding-bottom: 0" class="right">Receipts</th>
-    </tr>
     <tr>
       <th>Date</th>
       <th>DOW</th>
@@ -59,7 +70,7 @@
     <% end %>
   </tbody>
 </table>
-
+<hr>
 <p>
   <strong>Genre:</strong>
   <%= @work.genre %>
@@ -117,15 +128,6 @@
   <strong>Updated:</strong>
   <%= @work.updated_at.strftime("%a, %-d %b %Y, %H:%M %Z") %>
 </p>
-<% if @work.prev %>
-  <%= link_to 'Previous Work', @work.prev %>
-  <% if @work.next %>
-   |
-  <% end %>
-<% end %>
-<% if @work.next %> 
-  <%= link_to 'Next Work', @work.next %>
-<% end %>
-<hr class="top">
-<%= link_to 'Edit', edit_work_path(@work) %> |
-<%= link_to 'Back', url_for(:back) %> 
+
+<hr> 
+<%= link_to 'Edit', edit_work_path(@work) %>

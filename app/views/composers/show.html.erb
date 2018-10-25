@@ -1,4 +1,20 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+<p style="margin: 0">
+	<% if @composer.prev %>
+	  <%= link_to 'Previous Composer', @composer.prev %>
+	  <% if @composer.next %>
+	   |
+	  <% end %>
+	<% end %>
+	<% if @composer.next %> 
+	  <%= link_to 'Next Composer', @composer.next %>
+	<% end %>
+   |
+  <%= link_to 'Back', url_for(:back) %>
+</p>
+
 <h2>
   <%= @composer.firstnames%> <%= @composer.lastname %>
 </h2>
@@ -11,6 +27,9 @@
   <%= @composer.death %>
 </p>
 <h3>Performances</h3>
+
+<% performances = Event.includes(:works => :composers).where(composers: {id: @composer.id}).order(:date) %>
+
 <table>
   <thead>
     <tr>
@@ -22,22 +41,20 @@
     </tr>
   </thead>
   <tbody>
-    <% n = 0 %><% z = 0 %>
-    <% @composer.works.each do |work| %>
-      <% work.events.each do |event| %>
+    <% performances.each do |p| %>
         <tr>
-          <td><%= link_to event.date, event %></td>
-          <td><i><%= link_to work.title, work %></i></td>
-          <td class="right"><%= event.receipts.to_i.divmod(60)[0]%></td>
-          <td class="right"><%= event.receipts.to_i.divmod(60)[1]%></td>
-          <td class="center"><%= event.zinzendorf %></td>
-          <% n += 1 %>
-          <% if event.zinzendorf then z +=1 end %>
+          <td><%= link_to p.date, p %></td>
+          <td><i><%= link_to p.works[0].title, p.works[0] %></i></td>
+          <td class="right"><%= p.receipts.to_i.divmod(60)[0]%></td>
+          <td class="right"><%= p.receipts.to_i.divmod(60)[1]%></td>
+          <td class="center"><%= p.zinzendorf %></td>
         </tr>
-      <% end %>
     <% end %>
   </tbody>
 </table>
+<hr>
+<% n = performances.length %>
+<% z = performances.where(zinzendorf: true).count %>
 <p>
   <strong>Total performances:</strong>
   <%= n %>
@@ -82,15 +99,37 @@
   <strong>Updated:</strong>
   <%= @composer.updated_at.strftime("%a, %-d %b %Y, %H:%M %Z") %>
 </p>
-<% if @composer.prev %>
-  <%= link_to 'Previous Composer', @composer.prev %>
-  <% if @composer.next %>
-   |
-  <% end %>
-<% end %>
-<% if @composer.next %> 
-  <%= link_to 'Next Composer', @composer.next %>
-<% end %>
+
 <hr>
-<%= link_to 'Edit', edit_composer_path(@composer) %> |
-<%= link_to 'Back', url_for(:back) %>
+<%= link_to 'Edit', edit_composer_path(@composer) %>
+
+<!-- Old unsorted table code
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Title</th>
+      <th class="right">fl</th>
+      <th class="right">kr</th>
+      <th>Zinzendorf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% n = 0 %><% z = 0 %>
+    <% @composer.works.each do |work| %>
+      <% work.events.each do |event| %>
+        <tr>
+          <td><%= link_to event.date, event %></td>
+          <td><i><%= link_to work.title, work %></i></td>
+          <td class="right"><%= event.receipts.to_i.divmod(60)[0]%></td>
+          <td class="right"><%= event.receipts.to_i.divmod(60)[1]%></td>
+          <td class="center"><%= event.zinzendorf %></td>
+          <% n += 1 %>
+          <% if event.zinzendorf then z +=1 end %>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+-->

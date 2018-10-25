@@ -1,4 +1,20 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <p id="notice"><%= notice %></p> 
+<% end %>
+<p style="margin: 0">
+  <% if @author.prev %>
+  <%= link_to 'Previous Author', @author.prev %>
+  <% if @author.next %>
+    |
+  <% end %>
+  <% end %>
+  <% if @author.next %> 
+  <%= link_to 'Next Author', @author.next %>
+  <% end %>
+   |
+  <%= link_to 'Back', url_for(:back) %>
+</p>
+
 <h2>
   <%= @author.firstnames%> <%= @author.lastname %>
 </h2>
@@ -10,7 +26,7 @@
   <strong>Death:</strong>
   <%= @author.death %>
 </p>
-<h3>Performances</h3>
+<h4>Performances</h4>
 <table>
   <thead>
     <tr>
@@ -41,6 +57,7 @@
   </tbody>
 
 </table>
+<hr>
 <p>
   <strong>Total performances:</strong>
   <%= n %>
@@ -85,15 +102,5 @@
   <%= @author.updated_at.strftime("%a, %-d %b %Y, %H:%M %Z") %>
 </p>
 
-<% if @author.prev %>
-  <%= link_to 'Previous Author', @author.prev %>
-  <% if @author.next %>
-   |
-  <% end %>
-<% end %>
-<% if @author.next %> 
-  <%= link_to 'Next Author', @author.next %>
-<% end %>
 <hr>
-<%= link_to 'Edit', edit_author_path(@author) %> |
-<%= link_to 'Back', url_for(:back) %>
+<%= link_to 'Edit', edit_author_path(@author) %>

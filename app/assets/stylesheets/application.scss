@@ -27,7 +27,7 @@ hr {
 }
 
 img {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 h1, h2, h3, h4, h5 {
@@ -37,18 +37,19 @@ h1, h2, h3, h4, h5 {
 
 h1 {
   font-size: 2.2em;
-  vertical-align: bottom; 
+  vertical-align: top; 
 }
 
 h2 {
   line-height: normal;
+  margin-top: 0.2em;
 }
 
 h5 {
   margin-bottom: 0.25em;
 }
 
-table, p {
+table {
   margin-bottom: 0.5em;
 }
 
@@ -67,8 +68,13 @@ input, textarea {
   line-height: 18px;
 }
 
-.header {
+.navigation {
   margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.header {
+  margin-top: 0.3em;
+  margin-bottom: 0.4em;
 }
 
 .indent {
