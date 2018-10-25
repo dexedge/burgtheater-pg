@@ -1,6 +1,23 @@
+<p style="margin: 0">
+  <% if @author.prev %>
+    <%= link_to 'Previous Author', edit_author_path(@author.prev) %>
+    <% if @author.next %>
+    |
+    <% end %>
+  <% end %>
+  <% if @author.next %> 
+    <%= link_to 'Next Author', edit_author_path(@author.next) %>
+  <% end %>
+   |
+  <%= link_to 'Back', url_for(:back) %>
+</p>
 <h1>Editing Author</h1>
 
-<%= render 'form', author: @author %>
-
+<div class="row">
+  <div class="col-6">
+    <%= render 'form', authors: @author %>
+  </div>
+</div>
+<hr class="top">
 <%= link_to 'Show', @author %> |
 <%= link_to 'Back', authors_path %>

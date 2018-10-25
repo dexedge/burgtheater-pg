@@ -1,6 +1,25 @@
+<p style="margin: 0">
+  <% if @composer.prev %>
+    <%= link_to 'Previous Composer', edit_composer_path(@composer.prev) %>
+    <% if @composer.next %>
+    |
+    <% end %>
+  <% end %>
+  <% if @composer.next %> 
+    <%= link_to 'Next Composer', edit_composer_path(@composer.next) %>
+  <% end %>
+   |
+  <%= link_to 'Back', url_for(:back) %>
+</p>
+
 <h1>Editing Composer</h1>
 
-<%= render 'form', composer: @composer %>
+<div class="row">
+  <div class="col-6">
+    <%= render 'form', composer: @composer %>
+  </div>
+</div>
+<hr class="top">
 
 <%= link_to 'Show', @composer %> |
 <%= link_to 'Back', composers_path %>
