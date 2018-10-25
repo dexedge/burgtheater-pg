@@ -43,7 +43,7 @@
   <tbody>
     <% performances.each do |p| %>
         <tr>
-          <td><%= link_to p.date, p %></td>
+          <td><%= link_to p.date.strftime("%Y/%m/%d"), p %></td>
           <td><i><%= link_to p.works[0].title, p.works[0] %></i></td>
           <td class="right"><%= p.receipts.to_i.divmod(60)[0]%></td>
           <td class="right"><%= p.receipts.to_i.divmod(60)[1]%></td>

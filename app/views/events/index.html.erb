@@ -11,10 +11,9 @@
   <% end %>
 </div> -->
 
-<table>
+<table class="table table-responsive table-striped">
   <thead>
     <tr>
-      <th>id</th>
       <th>Date</th>
       <th>DOW</th>
       <th>Title</th>
@@ -32,8 +31,7 @@
     <% cache(@events) do %>
       <% @events.find_each(:batch_size => 50) do |event| %>
         <tr>
-          <td class="right"><%= event.id %></td>
-          <td><%= link_to event.date, event %></td>
+          <td><%= link_to event.date.strftime("%Y/%m/%d"), event %></td>
           <td><%= event.date.strftime("%a") %></td>
           <td><i><%= link_to event.works[0].title, event.works[0] %></i></td>
           <% firstauthor = event.works.first.authors.first %>
@@ -52,7 +50,7 @@
                 NA
             <% end %>
           </td>
-          <td><%= event.receipts %></td>
+          <td class="right"><%= event.receipts %></td>
           <td><%= event.kind %></td>
           <td><%= event.zinzendorf %></td>
           <td><%= event.double %></td>

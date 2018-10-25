@@ -37,7 +37,7 @@
     <tbody>
       <% @work.authors.each do |author| %>
         <tr>
-          <td><%= link_to author.lastname, author %></td>
+          <td class="right"><%= link_to author.lastname, author %></td>
           <td><%= author.writings.find_by(author_id: author.id, work_id: @work.id).function %></td>
         </tr>
       <% end %>
@@ -61,7 +61,7 @@
   <tbody>
     <% @work.events.each do |event| %>
       <tr>
-        <td><%= link_to event.date, event %></td>
+        <td><%= link_to event.date.strftime("%Y/%m/%d"), event %></td>
         <td><%= event.date.strftime("%a") %></td>
         <td class="right"><%= event.receipts.to_i.divmod(60)[0]%></td>
         <td class="right"><%= event.receipts.to_i.divmod(60)[1]%></td>

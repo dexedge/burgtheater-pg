@@ -11,7 +11,7 @@
   <% end %>
 </div>-->
 
-<table>
+<table class="table table-responsive table-striped">
   <thead>
     <tr>
       <th>id</th>
@@ -24,7 +24,7 @@
   </thead>
 
   <tbody>
-    <% @authors.each do |author| %>
+    <% @authors.order(:lastname).each do |author| %>
       <tr>
         <td><%= author.id %></td>
         <td><%= link_to author.lastname, author %></td>

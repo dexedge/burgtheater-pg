@@ -62,6 +62,19 @@ table {
   padding: 0.5rem;
 }
 
+.table .right {
+  text-align: right;
+  padding-right: 22px;
+}
+
+.right {
+  padding-right: 22px;
+}
+
+.center {
+  text-align: center;
+}
+
 input, textarea {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -87,15 +100,6 @@ input, textarea {
 
 .field label {
   font-weight: bold;
-}
-
-.right {
-  text-align: right;
-  padding-right: 22px;
-}
-
-.center {
-  text-align: center;
 }
 
 .top {
