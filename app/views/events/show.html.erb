@@ -1,7 +1,22 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <p id="notice"><%= notice %></p> 
+<% end %>
+<p style="margin: 0">
+  <% if @event.prev %>
+    <%= link_to 'Previous Event', @event.prev %>
+    <% if @event.next %>
+      |
+    <% end %>
+  <% end %>
+  <% if @event.next %> 
+    <%= link_to 'Next Event', @event.next %>
+  <% end %>
+   |
+  <%= link_to 'Back', url_for(:back) %>
+</p>
 
 <!-- Construct heading with date and title-->
-<h3>
+<h3 style="margin-top: 0.5em">
   <%= @event.date.strftime("%a, %-d %b %Y") %> <i></i>
 </h3>
 <h2>
@@ -69,16 +84,6 @@
     <strong>Updated:</strong>
     <%= @event.updated_at.strftime("%a, %-d %b %Y, %H:%M %Z") %>
   </p>
-<% if @event.prev %>
-  <%= link_to 'Previous Event', @event.prev %>
-  <% if @event.next %>
-   |
-  <% end %>
-<% end %>
-<% if @event.next %>
-  <%= link_to 'Next Event', @event.next %>
-<% end %>
 </div>
 <hr>
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', url_for(:back) %>
+<%= link_to 'Edit', edit_event_path(@event) %>
