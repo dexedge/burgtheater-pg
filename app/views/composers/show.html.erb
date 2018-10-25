@@ -28,6 +28,7 @@
 </p>
 <h3>Performances</h3>
 
+<!--Find all performances for this composer and order them by date-->
 <% performances = Event.includes(:works => :composers).where(composers: {id: @composer.id}).order(:date) %>
 
 <table>
