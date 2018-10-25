@@ -1,6 +1,24 @@
+<p style="margin: 0">
+  <% if @work.prev %>
+    <%= link_to 'Previous Work', edit_work_path(@work.prev) %>
+    <% if @work.next %>
+    |
+    <% end %>
+  <% end %>
+  <% if @work.next %> 
+    <%= link_to 'Next Work', edit_work_path(@work.next) %>
+  <% end %>
+   |
+  <%= link_to 'Back', url_for(:back) %>
+</p>
+
 <h1>Editing Work</h1>
 
-<%= render 'form', work: @work %>
-
+<div class="row">
+  <div class="col-6">
+    <%= render 'form', work: @work %>
+  </div>
+</div>
+<hr class="top">
 <%= link_to 'Show', @work %> |
 <%= link_to 'Back', url_for(:back) %>

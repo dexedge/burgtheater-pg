@@ -1,47 +1,17 @@
-<%= form_with(model: event, local: true) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+<%= simple_form_for @event do |form| %>
+  <%= form.error_notification%>
 
-      <ul>
-      <% event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= form.input :date %>
 
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date, start_year: 1789, end_year: 1791, default: Date.parse("1789-01-01") %>
-  </div>
+  <%= form.input :receipts %>
 
-  <div class="field">
-    <%= form.label :receipts %>
-    <%= form.text_field :receipts %>
-  </div>
+  <%= form.input :kind %>
 
-  <div class="field">
-    <%= form.label :kind %>
-    <%= form.text_field :kind %>
-  </div>
+  <%= form.input :zinzendorf, as: :radio_buttons %>
 
-  <div class="field">
-    <%= form.label :zinzendorf %>
-    <%= form.check_box :zinzendorf %>
-  </div>
+  <%= form.input :double, as: :radio_buttons %>
   
-  <div class="field">
-    <%= form.label :double %>
-    <%= form.check_box :double %>
-  </div>
+  <%= form.input :notes, input_html: { rows: '10'} %>
 
-  <div class="field">
-    <%= form.label :notes %>
-    <%= form.text_area :notes, cols: 80, rows: 5 %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.button :submit, class: "btn-outline-secondary" %>
 <% end %>

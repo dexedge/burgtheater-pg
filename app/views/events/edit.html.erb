@@ -1,6 +1,23 @@
+<p style="margin: 0">
+  <% if @event.prev %>
+    <%= link_to 'Previous Event', edit_event_path(@event.prev) %>
+    <% if @event.next %>
+    |
+    <% end %>
+  <% end %>
+  <% if @event.next %> 
+    <%= link_to 'Next Event', edit_event_path(@event.next) %>
+  <% end %>
+   |
+  <%= link_to 'Back', url_for(:back) %>
+</p>
 <h1>Editing Event</h1>
 
-<%= render 'form', event: @event %>
-
+<div class="row">
+  <div class="col-6">
+    <%= render 'form', work: @event %>
+  </div>
+</div>
+<hr class="top">
 <%= link_to 'Show', @event %> |
 <%= link_to 'Back', events_path %>
