@@ -1,9 +1,9 @@
 <%= simple_form_for @author do |form| %>
   <%= form.error_notification%>
 
-  <%= form.input :lastname %>
+  <%= form.input :lastname, label: 'Last name' %>
   
-  <%= form.input :firstnames %>
+  <%= form.input :firstnames, label: 'First name(s)' %>
 
   <%= form.input :birth %>
 
