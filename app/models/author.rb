@@ -1,7 +1,7 @@
 class Author < ApplicationRecord
   require 'csv'
   require 'activerecord-import/base'
-  require 'activerecord-import/active_record/adapters/sqlite3_adapter'
+  require 'activerecord-import/active_record/adapters/postgresql_adapter'
 
   has_many :writings
   has_many :works, through: :writings

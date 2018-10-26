@@ -1,7 +1,7 @@
 class Composer < ApplicationRecord
   require 'csv'
   require 'activerecord-import/base'
-  require 'activerecord-import/active_record/adapters/sqlite3_adapter'
+  require 'activerecord-import/active_record/adapters/postgresql_adapter'
 
   has_many :composings
   has_many :works, through: :composings

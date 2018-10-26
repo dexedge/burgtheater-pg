@@ -1,7 +1,7 @@
 class Writing < ApplicationRecord
   require 'csv'
   require 'activerecord-import/base'
-  require 'activerecord-import/active_record/adapters/sqlite3_adapter'
+  require 'activerecord-import/active_record/adapters/postgresql_adapter'
 
   belongs_to :author
   belongs_to :work

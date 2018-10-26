@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_21_200358) do
+ActiveRecord::Schema.define(version: 2018_10_26_172407) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "authors", force: :cascade do |t|
     t.string "lastname"
@@ -49,37 +52,29 @@ ActiveRecord::Schema.define(version: 2018_10_21_200358) do
     t.datetime "updated_at"
   end
 
-  create_table "events_works", id: false, force: :cascade do |t|
-    t.integer "event_id", null: false
-    t.integer "work_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["event_id", nil], name: "index_events_works_on_event_id_and_student_id", unique: true
-  end
-
   create_table "performances", force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "work_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["event_id", "work_id"], name: "index_performances_on_event_id_and_work_id", unique: true
+    t.bigint "event_id"
+    t.bigint "work_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["event_id", "work_id"], name: "idx_16838_index_performances_on_event_id_and_work_id", unique: true
   end
 
   create_table "works", force: :cascade do |t|
-    t.string "title"
-    t.string "genre"
+    t.text "title"
+    t.text "genre"
     t.text "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "writings", force: :cascade do |t|
-    t.integer "author_id"
-    t.integer "work_id"
-    t.string "function"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_id", "work_id"], name: "index_writings_on_author_id_and_work_id", unique: true
+    t.bigint "author_id"
+    t.bigint "work_id"
+    t.text "function"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["author_id", "work_id"], name: "idx_16859_index_writings_on_author_id_and_work_id", unique: true
   end
 
 end
