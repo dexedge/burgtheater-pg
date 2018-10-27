@@ -4,7 +4,8 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.all.includes(:works, :works => :authors, :works => :composers)
+
   end
 
   # GET /events/1

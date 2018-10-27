@@ -27,7 +27,7 @@
 
   <tbody>
     <% cache(@works) do %> 
-      <% @works.each do |work| %>
+      <% @works.find_each do |work| %>
         <tr>
           <td class="right"><%= work.id %></td>
           <td><i><%= link_to work.title, work %></i></td>

@@ -29,23 +29,21 @@
 
   <tbody>
     <% cache(@events) do %>
-      <% @events.find_each(:batch_size => 50) do |event| %>
+      <% @events.find_each do |event| %>
         <tr>
           <td><%= link_to event.date.strftime("%Y/%m/%d"), event %></td>
           <td><%= event.date.strftime("%a") %></td>
           <td><i><%= link_to event.works[0].title, event.works[0] %></i></td>
-          <% firstauthor = event.works.first.authors.first %>
-          <% firstcomposer = event.works.first.composers.first %>
           <td>
-            <% if firstauthor %>
-              <%= link_to firstauthor.lastname, firstauthor %>
+            <% if event.works[0].authors[0] %>
+              <%= link_to event.works[0].authors[0].lastname, event.works[0].authors[0] %>
             <% else %>
               NA
             <% end %>
           </td>
           <td>
-            <% if firstcomposer %>
-                <%= link_to firstcomposer.lastname, firstcomposer %>
+            <% if event.works[0].composers[0] %>
+                <%= link_to event.works[0].composers[0].lastname, event.works[0].composers[0] %>
             <% else %>
                 NA
             <% end %>

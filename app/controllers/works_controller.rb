@@ -4,7 +4,7 @@ class WorksController < ApplicationController
   # GET /works
   # GET /works.json
   def index
-    @works = Work.all
+    @works = Work.all.includes(:authors, :composers)
   end
 
   # GET /works/1
