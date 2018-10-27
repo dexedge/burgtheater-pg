@@ -63,6 +63,10 @@
   <%= n %>
 </p>
 <p>
+  <strong>Titles:</strong>
+  <%= @author.works.count %>
+</p>
+<p>
   <strong>Zinzendorf attendances:</strong>
   <%= z %> (<%= (z.to_f/n.to_f * 100).round(2) %>%)
 </p>
