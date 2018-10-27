@@ -26,31 +26,33 @@
   </thead>
 
   <tbody>
-    <% @works.each do |work| %>
-      <tr>
-        <td class="right"><%= work.id %></td>
-        <td><i><%= link_to work.title, work %></i></td>
-        <td><%= work.genre %></td>
-        <td>
-          <% if work.authors[0] %>
-            <%= link_to work.authors[0].lastname, work.authors[0] %>
-          <% else %>
-            NA
-          <% end %>
-        </td>
-        <td>
-          <% if work.composers[0] %>
-            <%= link_to work.composers[0].lastname, work.composers[0] %>
-          <% else %>
-            NA
-          <% end %>
-        </td>
-        <td class="center"><%= work.events.count %></td>
-        <td class="center"><%= work.events.where(zinzendorf: true).count %></td>
-        <!--<td class="detail-link"><%= link_to 'Details', work %></td>
-        <td><%= link_to 'Edit', edit_work_path(work) %></td>
-        <td><%= link_to 'Delete', work, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-      </tr>
+    <% cache(@works) do %> 
+      <% @works.each do |work| %>
+        <tr>
+          <td class="right"><%= work.id %></td>
+          <td><i><%= link_to work.title, work %></i></td>
+          <td><%= work.genre %></td>
+          <td>
+            <% if work.authors[0] %>
+              <%= link_to work.authors[0].lastname, work.authors[0] %>
+            <% else %>
+              NA
+            <% end %>
+          </td>
+          <td>
+            <% if work.composers[0] %>
+              <%= link_to work.composers[0].lastname, work.composers[0] %>
+            <% else %>
+              NA
+            <% end %>
+          </td>
+          <td class="center"><%= work.events.count %></td>
+          <td class="center"><%= work.events.where(zinzendorf: true).count %></td>
+          <!--<td class="detail-link"><%= link_to 'Details', work %></td>
+          <td><%= link_to 'Edit', edit_work_path(work) %></td>
+          <td><%= link_to 'Delete', work, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
