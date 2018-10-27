@@ -55,18 +55,18 @@
   </p>
 
   <p>
-    <strong>Kind:</strong>
+    <strong>Type:</strong>
     <%= @event.kind %>
   </p>
 
   <p>
     <strong>Zinzendorf:</strong>
-    <%= @event.zinzendorf %>
+    <%= if @event.zinzendorf then "Yes" else "No" end %>
   </p>
 
   <p>
     <strong>Double:</strong>
-    <%= @event.double %>
+    <%= if @event.double then "Yes" else "No" end %>
   </p>
 
   <p class="notes">
