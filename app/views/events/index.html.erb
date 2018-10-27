@@ -20,7 +20,7 @@
       <th>Author</th>
       <th>Composer</th>
       <th>Receipts (kr)</th>
-      <th>Kind</th>
+      <th>Type</th>
       <th>Zinz</th>
       <th>Double</th>
       <th colspan="3"></th>
@@ -52,8 +52,8 @@
           </td>
           <td class="right"><%= event.receipts %></td>
           <td><%= event.kind %></td>
-          <td><%= event.zinzendorf %></td>
-          <td><%= event.double %></td>
+          <td><%= if event.zinzendorf then "Yes" else "" end %></td>
+          <td><%= if event.double then "Yes" else "" end %></td>
           <!--<td class="detail-link"><%= link_to 'Details', event %></td>
           <td><%= link_to 'Edit', edit_event_path(event.id) %></td>
           <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->

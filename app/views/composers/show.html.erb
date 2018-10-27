@@ -48,7 +48,7 @@
           <td><i><%= link_to p.works[0].title, p.works[0] %></i></td>
           <td class="right"><%= p.receipts.to_i.divmod(60)[0]%></td>
           <td class="right"><%= p.receipts.to_i.divmod(60)[1]%></td>
-          <td class="center"><%= p.zinzendorf %></td>
+          <td class="center"><%= if p.zinzendorf then "Yes" else "" end %></td>
         </tr>
     <% end %>
   </tbody>

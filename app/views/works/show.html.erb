@@ -65,7 +65,7 @@
         <td><%= event.date.strftime("%a") %></td>
         <td class="right"><%= event.receipts.to_i.divmod(60)[0]%></td>
         <td class="right"><%= event.receipts.to_i.divmod(60)[1]%></td>
-        <td class="center"><%= event.zinzendorf %></td>
+        <td class="center"><%= if event.zinzendorf then "Yes" else "" end%></td>
       </tr>
     <% end %>
   </tbody>
