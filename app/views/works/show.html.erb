@@ -1,18 +1,17 @@
-<% if notice %>
-  <p id="notice"><%= notice %></p>
-<% end %>
 <p style="margin: 0">
   <% if @work.prev %>
-    <%= link_to 'Previous Work', @work.prev %>
-    <% if @work.next %>
-    |
-    <% end %>
+    <%= link_to 'Previous Work', @work.prev %> | 
   <% end %>
   <% if @work.next %> 
-    <%= link_to 'Next Work', @work.next %>
+    <%= link_to 'Next Work', @work.next %> | 
   <% end %>
-   |
   <%= link_to 'Back', url_for(:back) %>
+  <% if current_user %>
+   | <%= link_to 'Edit', edit_work_path(@work) %>
+  <% end %>
+  <% if notice %>
+      | <span id="notice"><%= notice %></span> 
+  <% end %>
 </p>
 
 <h2>
@@ -130,7 +129,3 @@
 </p>
 
 <hr> 
-<% if current_user %>
-  <!-- current_user will return true if a user is logged in -->
-  <%= link_to 'Edit', edit_work_path(@work) %>
-<% end %>

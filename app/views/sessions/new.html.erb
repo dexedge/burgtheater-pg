@@ -8,7 +8,7 @@
         <%= form.input :username %>
       
         <%= form.input :password %>
-        <!--Save the relative path of the page we were on -->
+        <!--Save the relative path of the calling page -->
         <%= hidden_field_tag :redirect_to, params[:redirect_to] %>
         <%= form.button :submit, "Log In", class: "btn-outline-secondary" %>
       

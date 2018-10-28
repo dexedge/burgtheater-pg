@@ -1,18 +1,17 @@
-<% if notice %>
-  <p id="notice"><%= notice %></p> 
-<% end %>
 <p style="margin: 0">
   <% if @author.prev %>
-    <%= link_to 'Previous Author', @author.prev %>
-    <% if @author.next %>
-      |
-    <% end %>
+    <%= link_to 'Previous Author', @author.prev %> | 
   <% end %>
   <% if @author.next %> 
-    <%= link_to 'Next Author', @author.next %>
+  <%= link_to 'Next Author', @author.next %> | 
   <% end %>
-   |
   <%= link_to 'Back', url_for(:back) %>
+  <% if current_user %>
+   | <%= link_to 'Edit', edit_author_path(@author) %>
+  <% end %>
+  <% if notice %>
+      | <span id="notice"><%= notice %></span> 
+  <% end %>
 </p>
 
 <h2>
@@ -107,37 +106,3 @@
 </p>
 
 <hr>
-<%= link_to 'Edit', edit_author_path(@author) %>
-
-<!-- Old Performances table code, sorted by title
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Title</th>
-      <th>Function</th>
-      <th class="right">fl</th>
-      <th class="right">kr</th>
-      <th>Zinzendorf</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% n = 0 %><% z = 0 %>
-    <% @author.works.each do |work| %>
-      <% work.events.each do |event| %>
-        <tr>
-          <td><%= link_to event.date, event %></td>
-          <td><i><%= link_to work.title, work %></i></td>
-          <td><%= @author.writings.find_by(work_id: work.id).function %></td>
-          <td class="right"><%= event.receipts.to_i.divmod(60)[0]%></td>
-          <td class="right"><%= event.receipts.to_i.divmod(60)[1]%></td>
-          <td class="center"><%= event.zinzendorf %></td>
-          <% n += 1 %>
-          <% if event.zinzendorf then z +=1 end %>
-        </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-
-</table>
--->

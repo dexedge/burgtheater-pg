@@ -1,18 +1,17 @@
-<% if notice %>
-  <p id="notice"><%= notice %></p>
-<% end %>
 <p style="margin: 0">
 	<% if @composer.prev %>
-	  <%= link_to 'Previous Composer', @composer.prev %>
-	  <% if @composer.next %>
-	   |
-	  <% end %>
+	  <%= link_to 'Previous Composer', @composer.prev %> | 
 	<% end %>
 	<% if @composer.next %> 
-	  <%= link_to 'Next Composer', @composer.next %>
+    <%= link_to 'Next Composer', @composer.next %> |
 	<% end %>
-   |
   <%= link_to 'Back', url_for(:back) %>
+  <% if current_user %>
+   | <%= link_to 'Edit', edit_composer_path(@composer) %>
+  <% end %>
+  <% if notice %>
+      | <span id="notice"><%= notice %></span> 
+  <% end %>
 </p>
 
 <h2>
@@ -106,34 +105,3 @@
 </p>
 
 <hr>
-<%= link_to 'Edit', edit_composer_path(@composer) %>
-
-<!-- Old code for unsorted performance table
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Title</th>
-      <th class="right">fl</th>
-      <th class="right">kr</th>
-      <th>Zinzendorf</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% n = 0 %><% z = 0 %>
-    <% @composer.works.each do |work| %>
-      <% work.events.each do |event| %>
-        <tr>
-          <td><%= link_to event.date, event %></td>
-          <td><i><%= link_to work.title, work %></i></td>
-          <td class="right"><%= event.receipts.to_i.divmod(60)[0]%></td>
-          <td class="right"><%= event.receipts.to_i.divmod(60)[1]%></td>
-          <td class="center"><%= event.zinzendorf %></td>
-          <% n += 1 %>
-          <% if event.zinzendorf then z +=1 end %>
-        </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
--->

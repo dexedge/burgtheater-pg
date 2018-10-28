@@ -1,18 +1,17 @@
-<% if notice %>
-  <p id="notice"><%= notice %></p> 
-<% end %>
 <p style="margin: 0">
   <% if @event.prev %>
-    <%= link_to 'Previous Event', @event.prev %>
-    <% if @event.next %>
-      |
-    <% end %>
+    <%= link_to 'Previous Event', @event.prev %> | 
   <% end %>
   <% if @event.next %> 
-    <%= link_to 'Next Event', @event.next %>
+    <%= link_to 'Next Event', @event.next %> | 
   <% end %>
-   |
   <%= link_to 'Back', url_for(:back) %>
+  <% if current_user %>
+   | <%= link_to 'Edit', edit_event_path(@event) %>
+  <% end %>
+  <% if notice %>
+      | <span id="notice"><%= notice %></span> 
+  <% end %>
 </p>
 
 <!-- Construct heading with date and title-->
@@ -86,4 +85,3 @@
   </p>
 </div>
 <hr>
-<%= link_to 'Edit', edit_event_path(@event) %>

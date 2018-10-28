@@ -3,10 +3,9 @@
   <%= link_to 'Works', works_path %> |
   <%= link_to 'Composers', composers_path %> |
   <%= link_to 'Authors', authors_path %> | 
+  <!-- Current_user will return true if a user is logged in -->
   <% if current_user %>
-      <!-- Current_user will return true if a user is logged in -->
-      <!-- Send the relative path of the page the login/logout request
-      is comng from -->
+      <!-- Save the relative path of this page so we can return to it -->
       <%= link_to 'Log Out', logout_path(redirect_to: request.path), method: :delete %>
     <% else %>
       <!-- not logged in -->
