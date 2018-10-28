@@ -1,0 +1,18 @@
+<h1>Log In</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <%= simple_form_for :login do |form| %>
+        <%= form.error_notification%>
+      
+        <%= form.input :username %>
+      
+        <%= form.input :password %>
+        <!--Save the relative path of the page we were on -->
+        <%= hidden_field_tag :redirect_to, params[:redirect_to] %>
+        <%= form.button :submit, "Log In", class: "btn-outline-secondary" %>
+      
+      <% end %>
+    </div>
+  </div>
+</div>

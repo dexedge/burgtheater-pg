@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   root to: "events#index"
   get 'events/index'
   get 'events/import' => 'events#my_import'
@@ -43,4 +44,16 @@ Rails.application.routes.draw do
     collection {post :import}
   end
 
+  get 'users/new' => 'users#new'
+  post 'users' => 'users#create'
+
+  # log in page with form:
+	get '/login' => 'sessions#new'
+	
+	# create (post) action for when log in form is submitted:
+	post '/login' => 'sessions#create'
+	
+	# delete action to log out:
+  delete '/logout' => 'sessions#destroy'
+  
 end

@@ -10,44 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_26_172407) do
+ActiveRecord::Schema.define(version: 2018_10_28_014834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "authors", force: :cascade do |t|
-    t.string "lastname"
-    t.string "firstnames"
-    t.integer "birth"
-    t.integer "death"
+    t.text "lastname"
+    t.text "firstnames"
+    t.bigint "birth"
+    t.bigint "death"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "composers", force: :cascade do |t|
-    t.string "lastname"
-    t.string "firstnames"
-    t.integer "birth"
-    t.integer "death"
+    t.text "lastname"
+    t.text "firstnames"
+    t.bigint "birth"
+    t.bigint "death"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "composings", force: :cascade do |t|
-    t.integer "composer_id"
-    t.integer "work_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["composer_id", "work_id"], name: "index_composings_on_composer_id_and_work_id", unique: true
+    t.bigint "composer_id"
+    t.bigint "work_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["composer_id", "work_id"], name: "idx_17314_index_composings_on_composer_id_and_work_id", unique: true
   end
 
-  create_table "events", force: :cascade do |t|
+  create_table "events", id: :bigint, default: nil, force: :cascade do |t|
     t.date "date"
-    t.string "receipts"
-    t.string "kind"
+    t.text "receipts"
+    t.text "kind"
     t.boolean "zinzendorf"
     t.boolean "double"
     t.text "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events_works", id: false, force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "work_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -57,7 +64,14 @@ ActiveRecord::Schema.define(version: 2018_10_26_172407) do
     t.bigint "work_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["event_id", "work_id"], name: "idx_16838_index_performances_on_event_id_and_work_id", unique: true
+    t.index ["event_id", "work_id"], name: "idx_17275_index_performances_on_event_id_and_work_id", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "works", force: :cascade do |t|
@@ -74,7 +88,7 @@ ActiveRecord::Schema.define(version: 2018_10_26_172407) do
     t.text "function"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["author_id", "work_id"], name: "idx_16859_index_writings_on_author_id_and_work_id", unique: true
+    t.index ["author_id", "work_id"], name: "idx_17296_index_writings_on_author_id_and_work_id", unique: true
   end
 
 end

@@ -130,4 +130,7 @@
 </p>
 
 <hr> 
-<%= link_to 'Edit', edit_work_path(@work) %>
+<% if current_user %>
+  <!-- current_user will return true if a user is logged in -->
+  <%= link_to 'Edit', edit_work_path(@work) %>
+<% end %>
