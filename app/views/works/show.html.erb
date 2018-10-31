@@ -76,7 +76,11 @@
 </p>
 <p>
   <% c = @work.events.count %>
-  <strong>Total performances:</strong>
+  <% if @work.title == "Theater closed"%>
+    <strong>Days closed: </strong>
+  <% else %>
+    <strong>Total performances:</strong>
+  <% end %>
   <%= c %>
 </p>
 <p>
