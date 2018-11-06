@@ -7,6 +7,7 @@
   <% end %>
 </div> -->
 
+<% cache(@events) do %>
 <table class="table table-responsive table-striped">
   <thead>
     <tr>
@@ -24,8 +25,8 @@
   </thead>
 
   <tbody>
-    <% cache(@events) do %>
-      <% @events.find_each do |event| %>
+    <% @events.each do |event| %>
+      <% cache(event) do %>
         <tr>
           <td><%= link_to event.date.strftime("%Y/%m/%d"), event %></td>
           <td><%= event.date.strftime("%a") %></td>
@@ -56,7 +57,7 @@
     <% end %>
   </tbody>
 </table>
-
+<% end %>
 <br>
 
 <!-- <%= link_to 'New Event', new_event_path %> -->

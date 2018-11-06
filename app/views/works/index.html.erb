@@ -10,7 +10,7 @@
     <%= submit_tag "Import from file"%>
   <% end %>
 </div>-->
-
+<% cache(@works) do %> 
 <table class="table table-responsive table-striped">
   <thead>
     <tr> 
@@ -26,8 +26,8 @@
   </thead>
 
   <tbody>
-    <% cache(@works) do %> 
-      <% @works.find_each do |work| %>
+    <% @works.each do |work| %>
+      <% cache(work) do %>
         <tr>
           <td class="right"><%= work.id %></td>
           <td><i><%= link_to work.title, work %></i></td>
@@ -56,7 +56,7 @@
     <% end %>
   </tbody>
 </table>
-
+<% end %>
 <br>
 
 <!-- <%= link_to 'New Work', new_work_path %> -->
