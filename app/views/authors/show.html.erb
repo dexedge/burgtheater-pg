@@ -19,11 +19,19 @@
 </h2>
 <p>
   <strong>Birth:</strong>
-  <%= @author.birth %>
+  <% if @author.birth !=0 %>
+    <%= @author.birth %>
+  <% else %>
+    <span>?</span>
+  <% end %>
 </p>
 <p>
   <strong>Death:</strong>
-  <%= @author.death %>
+  <% if @author.death !=0 %>
+    <%= @author.death %>
+  <% else %>
+    <span>?</span>
+  <% end %>
 </p>
 <h4>Performances</h4>
 <!--Find all performances for this composer and order them by date-->
