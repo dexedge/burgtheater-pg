@@ -11,6 +11,7 @@
   <% end %>
 </div>-->
 
+<% cache(@authors) do %>
 <table class="table table-responsive table-striped">
   <thead>
     <tr>
@@ -25,32 +26,34 @@
 
   <tbody>
     <% @authors.order(:lastname).each do |author| %>
-      <tr>
-        <td><%= author.id %></td>
-        <td><%= link_to author.lastname, author %></td>
-        <td><%= author.firstnames %></td>
-        <td class='center'>
-          <% if author.birth != 0 %>
-            <%= author.birth %>
-          <% else %>
-            <span>?</span>
-          <% end %>
-        </td>
-        <td class='center'>
-          <% if author.death != 0 %>
-            <%= author.death %>
-          <% else %>
-            <span>?</span>
-          <% end %>
-        </td>
-        <!--<td><%= link_to 'Detail', author %></td>
-        <td><%= link_to 'Edit', edit_author_path(author) %></td>
-        <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-      </tr>
+      <% cache(author) do %>
+        <tr>
+          <td><%= author.id %></td>
+          <td><%= link_to author.lastname, author %></td>
+          <td><%= author.firstnames %></td>
+          <td class='center'>
+            <% if author.birth != 0 %>
+              <%= author.birth %>
+            <% else %>
+              <span>?</span>
+            <% end %>
+          </td>
+          <td class='center'>
+            <% if author.death != 0 %>
+              <%= author.death %>
+            <% else %>
+              <span>?</span>
+            <% end %>
+          </td>
+          <!--<td><%= link_to 'Detail', author %></td>
+          <td><%= link_to 'Edit', edit_author_path(author) %></td>
+          <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
-
+<% end %>
 <br>
 
 <!--<%= link_to 'New Author', new_author_path %>-->

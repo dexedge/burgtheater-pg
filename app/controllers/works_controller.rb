@@ -5,7 +5,7 @@ class WorksController < ApplicationController
   # GET /works
   # GET /works.json
   def index
-    # Sort "Concert", "Theater closed", and "unknown" to end of table
+    # Sort "Concert", "Theater closed", and "unknown" to end of title list
     works = Work.all.includes(:authors, :composers)
     
     works1 = works.where.not(genre: ["Concert", "Closed", "Unknown"]).sort_by {|w| w.title.downcase}

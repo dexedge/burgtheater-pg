@@ -10,7 +10,7 @@
     <%= submit_tag "Import from file"%>
   <% end %>
 </div>-->
-
+<% cache(@composers) do %>
 <table class="table table-responsive table-striped">
   <thead>
     <tr>
@@ -25,20 +25,21 @@
 
   <tbody>
     <% @composers.each do |composer| %>
-      <tr>
-        <td><%= composer.id %></td>
-        <td><%= link_to composer.lastname, composer %></td>
-        <td><%= composer.firstnames %></td>
-        <td><%= composer.birth %></td>
-        <td><%= composer.death %></td>
-        <!--<td><%= link_to 'Show', composer %></td>
-        <td><%= link_to 'Edit', edit_composer_path(composer) %></td>
-        <td><%= link_to 'Destroy', composer, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-      </tr>
+      <% cache(composer) do %> 
+        <tr>
+          <td><%= composer.id %></td>
+          <td><%= link_to composer.lastname, composer %></td>
+          <td><%= composer.firstnames %></td>
+          <td><%= composer.birth %></td>
+          <td><%= composer.death %></td>
+          <!--<td><%= link_to 'Show', composer %></td>
+          <td><%= link_to 'Edit', edit_composer_path(composer) %></td>
+          <td><%= link_to 'Destroy', composer, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
-
+<% end %>
 <br>
-
 <!--<%= link_to 'New Composer', new_composer_path %>-->
