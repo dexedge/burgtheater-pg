@@ -5,7 +5,15 @@ class WorksController < ApplicationController
   # GET /works
   # GET /works.json
   def index
-    @works = Work.all.includes(:authors, :composers)
+    works = Work.all.includes(:authors, :composers)
+    
+    works1 = works.where.not(genre: ["Concert", "Closed", "Unknown"]).sort_by {|w| w.title.downcase}
+    works2 = works.where(genre: ["Concert", "Closed", "Unknown"]).sort_by(&:title.downcase)
+
+    @works = works1 + works2
+
+
+    # @works = Work.all.includes(:authors, :composers).sort_by(&:title.downcase)
   end
 
   # GET /works/1
