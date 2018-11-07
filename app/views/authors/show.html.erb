@@ -79,7 +79,8 @@
 </p>
 <!-- Calculate mean and median receipts -->
   <!--Get array of receipts for this Author-->
-  <% r = @author.works.joins(:events).pluck(:receipts)%>
+  <!-- Remove any performances that were free or canceled -->
+  <% r = @author.works.joins(:events).where.not(events: {kind: ["canceled", "free"]}).pluck(:receipts) %>
   <!--Convert array items from string to integer -->
   <% r.map! {|r| r.to_i} %>
 <p>

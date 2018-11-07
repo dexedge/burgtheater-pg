@@ -90,7 +90,8 @@
 </p>
 <!-- Calculate mean and median receipts -->
   <!--Get array of receipts for this work-->
-  <% r = @work.events.pluck(:receipts)%>
+  <!-- Remove any performances that were free or canceled -->
+  <% r = @work.events.where.not(kind: ["canceled", "free"]).pluck(:receipts) %>
   <!--Convert array items from string to integer -->
   <% r.map! {|r| r.to_i} %>
 <p>
