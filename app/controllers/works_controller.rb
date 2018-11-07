@@ -8,7 +8,9 @@ class WorksController < ApplicationController
     # Sort "Concert", "Theater closed", and "unknown" to end of title list
     works = Work.all.includes(:authors, :composers)
     
-    works1 = works.where.not(genre: ["Concert", "Closed", "Unknown"]).sort_by {|w| w.title.downcase}
+    works1 = works.where.not(genre: ["Concert", "Closed", "Unknown"]).sort_by {|w| w.title.downcase.sub(/^der |^das |^die |^i |^gli |^il |^l'|^la |^le |^una /,"")}
+    
+    # works.where.not(genre: ["Concert", "Closed", "Unknown"]).sort_by {|w| w.title.downcase}
 
     works2 = works.where(genre: ["Concert", "Closed", "Unknown"]).sort_by(&:title)
 
