@@ -25,7 +25,7 @@
   </thead>
 
   <tbody>
-    <% @authors.order(:lastname).each do |author| %>
+    <% @authors.each do |author| %>
       <% cache(author) do %>
         <tr>
           <td><%= author.id %></td>

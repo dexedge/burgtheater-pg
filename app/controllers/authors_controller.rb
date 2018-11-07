@@ -4,7 +4,8 @@ class AuthorsController < ApplicationController
   # GET /authors
   # GET /authors.json
   def index
-    @authors = Author.all
+    # Sort umlauted characters in lastname correctly
+    @authors = Author.all.sort_by {|a| a.lastname.downcase.sub(/ö/,"oe").sub(/ü/, "ue")}
   end
 
   # GET /authors/1
