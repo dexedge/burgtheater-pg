@@ -10,7 +10,7 @@ class WorksController < ApplicationController
 
     # Ignore leading definite and indefinite articles in sort, and sort umlauted characters to proper alphabetical position
     
-    works1 = works.where.not(genre: ["Concert", "Closed", "Unknown"]).sort_by {|w| w.title.downcase.sub(/^der |^das |^die |^i |^gli |^il |^l'|^la |^le |^una /,"").sub(/ö/,"oe").sub(/ä/,"ae")}
+    works1 = works.where.not(genre: ["Concert", "Closed", "Unknown"]).sort_by {|w| w.title.downcase.sub(/ö/,"oe").sub(/ä/,"ae")}
     
     # works.where.not(genre: ["Concert", "Closed", "Unknown"]).sort_by {|w| w.title.downcase}
 

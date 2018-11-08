@@ -17,10 +17,10 @@ class Composer < ApplicationRecord
   end
 
   def next
-    Composer.where("id > ?", id).first
+    Composer.order(:lastname).find_by("lastname > ?", lastname)
   end
   
   def prev
-    Composer.where("id < ?", id).last
+    Composer.order(lastname: :desc).find_by("lastname < ?", lastname)
   end
 end

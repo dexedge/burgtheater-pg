@@ -21,10 +21,10 @@ class Work < ApplicationRecord
   end
   
   def next
-    Work.where("id > ?", id).first
+    Work.order("lower(title)").find_by("title > ?", title)
   end
   
   def prev
-    Work.where("id < ?", id).last
+    Work.order("lower(title) DESC").find_by("title < ?", title)
   end
 end

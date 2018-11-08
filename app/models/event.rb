@@ -22,10 +22,10 @@ class Event < ApplicationRecord
   end
 
   def next
-    Event.where("id > ?", id).first
+    Event.order(:date).find_by("date > ?", date)
   end
   
   def prev
-    Event.where("id < ?", id).last
+    Event.order(date: :desc).find_by("date < ?", date)
   end
 end

@@ -12,13 +12,14 @@ class AuthorsController < ApplicationController
   # GET /authors/1
   # GET /authors/1.json
   def show
-    performances = Event.includes(:works => :authors).where(authors: {id: @author.id})
+    # Collect the performances for this author, omitting any where receipts = "NA", which would break sorting on that column
+    performances = Event.includes(:works => :authors).where(authors: {id: @author.id}).where.not(receipts: "NA")
     
     case params[:column]
     when "date"
       @performances = performances.order(sort_column + " " + sort_direction)
     when "title"
-      @performances = performances.order("works." + sort_column + " " + sort_direction)
+      @performances = performances.order("lower(works." + sort_column + ") " + sort_direction)
     when "receipts"
       @performances = performances.order(sort_column + "::integer"+ " " + sort_direction)
     else
@@ -95,7 +96,14 @@ class AuthorsController < ApplicationController
     end
 
     def sort_direction
-      %w[asc, desc].include?(params[:direction]) ? params[:direction] : "asc"
+      if %w[asc, desc].include?(params[:direction])
+        params[:direction]
+      elsif sort_column == "receipts"
+        "desc" # Default sort for receipts is descending
+      else
+        "asc" # Otherwise default is ascending
+      end
+      # %w[asc, desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

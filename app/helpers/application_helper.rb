@@ -5,7 +5,7 @@ module ApplicationHelper
 
   def sort_link(column, path, title=nil)
     title ||= column.titleize
-    css_class = column == sort_column ? "current #{sort_direction}" : nil
+
     direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
     
     icon = sort_direction == "asc" ? "fa fa-angle-up" : "fa fa-angle-down"
