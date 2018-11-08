@@ -1,5 +1,20 @@
 module ApplicationHelper
-# Helper functions for calcuting mean and median of an array of receipts in kreuzer
+
+# Helper function to construct links for sortable table columns
+# Adapted from http://railscasts.com/episodes/228-sortable-table-columns?autoplay=true and  https://richonrails.com/articles/sortable-table-columns?comments_page=2 
+
+  def sort_link(column, path, title=nil)
+    title ||= column.titleize
+    css_class = column == sort_column ? "current #{sort_direction}" : nil
+    direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
+    
+    icon = sort_direction == "asc" ? "fa fa-angle-up" : "fa fa-angle-down"
+    icon = column == sort_column ? icon : ""
+    
+    link_to "<i class='#{icon}'></i>#{title}".html_safe, {column: column, direction: direction}
+  end
+
+# Helper functions for calculating mean and median of an array of receipts in kreuzer
 
   def mean(array)
     sum = 0

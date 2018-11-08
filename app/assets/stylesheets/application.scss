@@ -64,7 +64,15 @@ table {
 
 .table .right {
   text-align: right;
-  padding-right: 22px;
+  padding: 8px 5px;
+}
+
+table .kr {
+  width: 2.5em;
+}
+
+th a:link, a:visited {
+  color: #2d6a9f;
 }
 
 .right {

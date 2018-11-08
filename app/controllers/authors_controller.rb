@@ -1,5 +1,6 @@
 class AuthorsController < ApplicationController
   before_action :set_author, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /authors
   # GET /authors.json
@@ -11,6 +12,18 @@ class AuthorsController < ApplicationController
   # GET /authors/1
   # GET /authors/1.json
   def show
+    performances = Event.includes(:works => :authors).where(authors: {id: @author.id})
+    
+    case params[:column]
+    when "date"
+      @performances = performances.order(sort_column + " " + sort_direction)
+    when "title"
+      @performances = performances.order("works." + sort_column + " " + sort_direction)
+    when "receipts"
+      @performances = performances.order(sort_column + "::integer"+ " " + sort_direction)
+    else
+      @performances = performances.order(:date)
+    end
   end
 
   # GET /authors/new
@@ -71,6 +84,18 @@ class AuthorsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_author
       @author = Author.find(params[:id])
+    end
+
+    def sortable_columns
+      ["date", "title", "receipts"]
+    end
+
+    def sort_column
+      sortable_columns.include?(params[:column]) ? params[:column] : "date"
+    end
+
+    def sort_direction
+      %w[asc, desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

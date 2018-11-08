@@ -35,21 +35,21 @@
 </p>
 <h4>Performances</h4>
 <!--Find all performances for this composer and order them by date-->
-<% performances = Event.includes(:works => :authors).where(authors: {id: @author.id}).order(:date) %>
+<%# performances = Event.includes(:works => :authors).where(authors: {id: @author.id}).order(:date) %>
 
 <table class="table table-responsive table-striped">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Title</th>
+      <th><%= sort_link "date", @author %></th>
+      <th><%= sort_link "title", @author %></th>
       <th>Function</th>
-      <th class="right">fl</th>
-      <th class="right">kr</th>
+      <th class="right"><%= sort_link "receipts", @author, "fl" %></th>
+      <th class="right kr"><%= sort_link "receipts", @author, "kr" %></th>
       <th>Zinzendorf</th>
     </tr>
   </thead>
   <tbody>
-    <% performances.each do |p| %>
+    <% @performances.each do |p| %>
         <tr>
           <td><%= link_to p.date.strftime("%Y/%m/%d"), p %></td>
           <td><i><%= link_to p.works[0].title, p.works[0] %></i></td>
@@ -61,8 +61,8 @@
     <% end %>
   </tbody>
 </table>
-<% n = performances.length %>
-<% z = performances.where(zinzendorf: true).count %>
+<% n = @performances.length %>
+<% z = @performances.where(zinzendorf: true).count %>
 
 <hr>
 <p>
