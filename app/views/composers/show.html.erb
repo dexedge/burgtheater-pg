@@ -3,9 +3,8 @@
 	  <%= link_to 'Previous Composer', @composer.prev %> | 
 	<% end %>
 	<% if @composer.next %> 
-    <%= link_to 'Next Composer', @composer.next %> |
+    <%= link_to 'Next Composer', @composer.next %>
 	<% end %>
-  <%= link_to 'Back', url_for(:back) %>
   <% if current_user %>
    | <%= link_to 'Edit', edit_composer_path(@composer) %>
   <% end %>
@@ -35,8 +34,8 @@
     <tr>
       <th><%= sort_link "date", @composer %></th>
       <th><%= sort_link "title", @composer %></th>
-      <th class="right"><%= sort_link "receipts", @composer, "fl" %></th>
-      <th class="right kr"><%= sort_link "receipts", @composer, "kr" %></th>
+      <th class="right wide"><%= sort_link "receipts", @composer, "fl" %></th>
+      <th class="right wide"><%= sort_link "receipts", @composer, "kr" %></th>
       <th>Zinzendorf</th>
     </tr>
   </thead>

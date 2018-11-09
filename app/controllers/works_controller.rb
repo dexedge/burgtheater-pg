@@ -31,7 +31,10 @@ class WorksController < ApplicationController
     when "date"
       @performances = performances.order(sort_column + " " + sort_direction)
     when "receipts"
-      @performances = performances.order(sort_column + "::integer"+ " " + sort_direction)
+      perf_unknown = performances.where(receipts: "unknown")
+      perf_known = performances.where.not(receipts: "unknown")
+
+      @performances = perf_unknown.order(:date) + perf_known.order(sort_column + "::integer"+ " " + sort_direction)
     else
       @performances = performances.order(:date)
     end

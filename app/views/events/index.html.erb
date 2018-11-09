@@ -16,11 +16,10 @@
       <th>Title</th>
       <th>Author</th>
       <th>Composer</th>
-      <th>Receipts (kr)</th>
-      <th>Type</th>
-      <th>Zinz</th>
-      <th>Double</th>
-      <th colspan="3"></th>
+      <th class="right">Receipts (kr)</th>
+      <th class="right">fl</th>
+      <th class="right">kr</th>
+      <th>Zinzendorf</th>
     </tr>
   </thead>
 
@@ -46,9 +45,22 @@
             <% end %>
           </td>
           <td class="right"><%= event.receipts %></td>
-          <td><%= event.kind %></td>
-          <td><%= if event.zinzendorf then "Yes" else "" end %></td>
-          <td><%= if event.double then "Yes" else "" end %></td>
+          <% r = event.receipts.to_i.divmod(60) %>
+          <td class="right">
+            <% if event.receipts == 'unknown' %>
+              —
+            <% else %>
+              <%= r[0] %> 
+            <% end %>
+          </td>
+          <td class="right">
+            <% if event.receipts == 'unknown' %>
+              —
+            <% else %>
+              <%= r[1] %> 
+            <% end %>
+          </td>
+          <td class="center"><%= if event.zinzendorf then "Yes" else "" end %></td>
           <!--<td class="detail-link"><%= link_to 'Details', event %></td>
           <td><%= link_to 'Edit', edit_event_path(event.id) %></td>
           <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->

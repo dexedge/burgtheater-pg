@@ -3,9 +3,8 @@
     <%= link_to 'Previous Author', @author.prev %> | 
   <% end %>
   <% if @author.next %> 
-  <%= link_to 'Next Author', @author.next %> | 
+  <%= link_to 'Next Author', @author.next %> 
   <% end %>
-  <%= link_to 'Back', url_for(:back) %>
   <% if current_user %>
    | <%= link_to 'Edit', edit_author_path(@author) %>
   <% end %>
