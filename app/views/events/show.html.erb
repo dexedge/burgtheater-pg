@@ -3,10 +3,10 @@
     <%= link_to 'Previous Day', @event.prev %> | 
   <% end %>
   <% if @event.next %> 
-    <%= link_to 'Next Day', @event.next %> 
+    <%= link_to 'Next Day', @event.next %> |
   <% end %>
   <% if current_user %>
-   | <%= link_to 'Edit', edit_event_path(@event) %>
+    <%= link_to 'Edit', edit_event_path(@event) %>
   <% end %>
   <% if notice %>
       | <span id="notice"><%= notice %></span> 

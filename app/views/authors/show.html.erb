@@ -3,10 +3,10 @@
     <%= link_to 'Previous Author', @author.prev %> | 
   <% end %>
   <% if @author.next %> 
-  <%= link_to 'Next Author', @author.next %> 
+  <%= link_to 'Next Author', @author.next %> |
   <% end %>
   <% if current_user %>
-   | <%= link_to 'Edit', edit_author_path(@author) %>
+    <%= link_to 'Edit', edit_author_path(@author) %>
   <% end %>
   <% if notice %>
       | <span id="notice"><%= notice %></span> 

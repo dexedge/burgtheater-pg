@@ -21,10 +21,11 @@ class AuthorsController < ApplicationController
     when "title"
       @performances = performances.order("lower(works." + sort_column + ") " + sort_direction)
     when "receipts"
-      perf_unknown = performances.where(receipts: "unknown")
-      perf_known = performances.where.not(receipts: "unknown")
-
-      @performances = perf_unknown.order(:date) + perf_known.order(sort_column + "::integer"+ " " + sort_direction)
+      if performances.exists?(receipts: "unknown")
+        @performances = performances.order(:date)
+      else
+        @performances = performances.order(sort_column + "::integer"+ " " + sort_direction)
+      end
     else
       @performances = performances.order(:date)
     end

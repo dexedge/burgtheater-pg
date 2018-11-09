@@ -1,12 +1,12 @@
 <p style="margin: 0">
 	<% if @composer.prev %>
-	  <%= link_to 'Previous Composer', @composer.prev %> | 
+	  <%= link_to 'Previous Composer', @composer.prev %> |
 	<% end %>
 	<% if @composer.next %> 
-    <%= link_to 'Next Composer', @composer.next %>
+    <%= link_to 'Next Composer', @composer.next %> |
 	<% end %>
   <% if current_user %>
-   | <%= link_to 'Edit', edit_composer_path(@composer) %>
+    <%= link_to 'Edit', edit_composer_path(@composer) %>
   <% end %>
   <% if notice %>
       | <span id="notice"><%= notice %></span> 
@@ -34,8 +34,19 @@
     <tr>
       <th><%= sort_link "date", @composer %></th>
       <th><%= sort_link "title", @composer %></th>
-      <th class="right wide"><%= sort_link "receipts", @composer, "fl" %></th>
-      <th class="right wide"><%= sort_link "receipts", @composer, "kr" %></th>
+      <th class="right wide">
+        <% if @performances.exists?(receipts: "unknown") %>
+          fl
+        <% else %>
+          <%= sort_link "receipts", @composer, "fl" %>
+        <% end %>
+      </th>
+      <th class="right wide">
+        <% if @performances.exists?(receipts: "unknown") %>
+          kr
+        <% else %>
+          <%= sort_link "receipts", @composer, "kr" %></th>
+        <% end %>
       <th>Zinzendorf</th>
     </tr>
   </thead>

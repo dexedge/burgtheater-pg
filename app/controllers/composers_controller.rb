@@ -18,8 +18,12 @@ class ComposersController < ApplicationController
       @performances = performances.order(sort_column + " " + sort_direction)
     when "title"
       @performances = performances.order("lower(works." + sort_column + ") " + sort_direction)
-    when "receipts" && !performances.exists?(receipts: "unknown")
-      @performances = performances.order(sort_column + "::integer"+ " " + sort_direction)
+    when "receipts"
+      if performances.exists?(receipts: "unknown")
+        @performances = performances.order(:date)
+      else
+        @performances = performances.order(sort_column + "::integer"+ " " + sort_direction)
+      end
     else
       @performances = performances.order(:date) # Default
     end

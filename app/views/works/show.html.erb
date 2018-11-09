@@ -3,10 +3,10 @@
     <%= link_to 'Previous Work', @work.prev %> | 
   <% end %>
   <% if @work.next %> 
-    <%= link_to 'Next Work', @work.next %> 
+    <%= link_to 'Next Work', @work.next %> |
   <% end %>
   <% if current_user %>
-   | <%= link_to 'Edit', edit_work_path(@work) %>
+    <%= link_to 'Edit', edit_work_path(@work) %>
   <% end %>
   <% if notice %>
       | <span id="notice"><%= notice %></span> 
@@ -51,8 +51,19 @@
     <tr>
       <th><%= sort_link "date", @work %></th>
       <th>DOW</th>
-      <th class="right wide"><%= sort_link "receipts", @work, "fl" %></th>
-      <th class="right wide"><%= sort_link "receipts", @work, "kr" %></th>
+      <th class="right wide">
+        <% if @performances.exists?(receipts: "unknown") %>
+          fl
+        <% else %>
+          <%= sort_link "receipts", @work, "fl" %>
+        <% end %>
+      </th>
+      <th class="right wide">
+        <% if @performances.exists?(receipts: "unknown") %>
+          kr
+        <% else %>
+          <%= sort_link "receipts", @work, "kr" %></th>
+        <% end %>
       <th>Zinzendorf</th>
     </tr>
   </thead>
