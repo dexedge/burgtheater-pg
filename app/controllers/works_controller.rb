@@ -23,6 +23,18 @@ class WorksController < ApplicationController
   # GET /works/1
   # GET /works/1.json
   def show
+    # Collect the performances for this work, omitting any where receipts = "NA", which would break sorting on that column
+    # performances = Event.includes(:works).where(works: {id: @work.id}).where.not(receipts: "NA")
+    performances = @work.events.where.not(receipts: "NA")
+
+    case params[:column]
+    when "date"
+      @performances = performances.order(sort_column + " " + sort_direction)
+    when "receipts"
+      @performances = performances.order(sort_column + "::integer"+ " " + sort_direction)
+    else
+      @performances = performances.order(:date)
+    end
   end
 
   # GET /works/new
@@ -92,5 +104,10 @@ class WorksController < ApplicationController
 
     def allowed_params
       params.require(:work).permit(:title, :genre, :notes)
+    end
+
+    # White list for sortable columns
+    def sortable_columns
+      ["date", "receipts"]
     end
 end

@@ -5,8 +5,22 @@ module ApplicationHelper
 
   def sort_link(column, path, title=nil)
     title ||= column.titleize
-
-    direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
+    
+    if column == sort_column      # If the column is already sorted
+      if sort_direction == "desc" # swap directions
+        direction = "asc"
+      else
+        direction = "desc"
+      end
+    else                          # Else the column has not yet been sorted
+      if column == "receipts"     # Default first to descending for receipts
+        direction = "desc"
+      else
+        direction = "asc"         # Default to ascending for others
+      end
+    end
+      
+    # direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
     
     icon = sort_direction == "asc" ? "fa fa-angle-up" : "fa fa-angle-down"
     icon = column == sort_column ? icon : ""

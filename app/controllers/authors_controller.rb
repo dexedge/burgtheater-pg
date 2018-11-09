@@ -86,26 +86,7 @@ class AuthorsController < ApplicationController
     def set_author
       @author = Author.find(params[:id])
     end
-
-    def sortable_columns
-      ["date", "title", "receipts"]
-    end
-
-    def sort_column
-      sortable_columns.include?(params[:column]) ? params[:column] : "date"
-    end
-
-    def sort_direction
-      if %w[asc, desc].include?(params[:direction])
-        params[:direction]
-      elsif sort_column == "receipts"
-        "desc" # Default sort for receipts is descending
-      else
-        "asc" # Otherwise default is ascending
-      end
-      # %w[asc, desc].include?(params[:direction]) ? params[:direction] : "asc"
-    end
-
+  
     # Never trust parameters from the scary internet, only allow the white list through.
     def author_params
       params.fetch(:author, {})
@@ -113,5 +94,10 @@ class AuthorsController < ApplicationController
 
     def allowed_params
       params.require(:author).permit(:lastname, :firstnames, :birth, :death)
+    end
+
+    # White list for sortable columns
+    def sortable_columns
+      ["date", "title", "receipts"]
     end
 end

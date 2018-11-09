@@ -10,6 +10,19 @@ class ComposersController < ApplicationController
   # GET /composers/1
   # GET /composers/1.json
   def show
+    # Collect the performances for this author, omitting any where receipts = "NA", which would break sorting on that column
+    performances = Event.includes(:works => :composers).where(composers: {id: @composer.id}).where.not(receipts: "NA")
+    
+    case params[:column]
+    when "date"
+      @performances = performances.order(sort_column + " " + sort_direction)
+    when "title"
+      @performances = performances.order("lower(works." + sort_column + ") " + sort_direction)
+    when "receipts"
+      @performances = performances.order(sort_column + "::integer"+ " " + sort_direction)
+    else
+      @performances = performances.order(:date) # Default
+    end
   end
 
   # GET /composers/new
@@ -79,5 +92,10 @@ class ComposersController < ApplicationController
 
     def allowed_params
       params.require(:composer).permit(:lastname, :firstnames, :birth, :death)
+    end
+
+    # White list for sortable columns
+    def sortable_columns
+      ["date", "title", "receipts"]
     end
 end
