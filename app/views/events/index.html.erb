@@ -16,9 +16,9 @@
       <th>Title</th>
       <th>Author</th>
       <th>Composer</th>
-      <th class="right">Receipts (kr)</th>
-      <th class="right">fl</th>
-      <th class="right">kr</th>
+      <th class="right pad-right">Receipts (kr)</th>
+      <th class="right pad-right">fl</th>
+      <th class="right pad-right">kr</th>
       <th>Zinzendorf</th>
     </tr>
   </thead>
@@ -44,16 +44,16 @@
                 NA
             <% end %>
           </td>
-          <td class="right"><%= event.receipts %></td>
+          <td class="right pad-right"><%= event.receipts %></td>
           <% r = event.receipts.to_i.divmod(60) %>
-          <td class="right">
+          <td class="right pad-right">
             <% if event.receipts == 'unknown' %>
               —
             <% else %>
               <%= r[0] %> 
             <% end %>
           </td>
-          <td class="right">
+          <td class="right pad-right">
             <% if event.receipts == 'unknown' %>
               —
             <% else %>
