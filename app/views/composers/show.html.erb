@@ -33,6 +33,7 @@
   <thead>
     <tr>
       <th><%= sort_link "date", @composer %></th>
+      <th class="dow"><%= sort_link "dow", @work, "DOW" %></th>
       <th><%= sort_link "title", @composer %></th>
       <th class="right wide">
         <% if @performances.exists?(receipts: "unknown") %>
@@ -54,6 +55,7 @@
     <% @performances.each do |p| %>
         <tr>
           <td><%= link_to p.date.strftime("%Y/%m/%d"), p %></td>
+          <td><%= p.date.strftime("%a") %></td>
           <td><i><%= link_to p.works[0].title, p.works[0] %></i></td>
           <td class="right"><%= p.receipts.to_i.divmod(60)[0]%></td>
           <td class="right"><%= p.receipts.to_i.divmod(60)[1]%></td>

@@ -40,10 +40,11 @@
   <thead>
     <tr>
       <th><%= sort_link "date", @author %></th>
+      <th class="dow"><%= sort_link "dow", @work, "DOW" %></th>
       <th><%= sort_link "title", @author %></th>
       <th>Function</th>
-      <th class="right"><%= sort_link "receipts", @author, "fl" %></th>
-      <th class="right kr"><%= sort_link "receipts", @author, "kr" %></th>
+      <th class="right wide"><%= sort_link "receipts", @author, "fl" %></th>
+      <th class="right wide"><%= sort_link "receipts", @author, "kr" %></th>
       <th>Zinzendorf</th>
     </tr>
   </thead>
@@ -51,6 +52,7 @@
     <% @performances.each do |p| %>
         <tr>
           <td><%= link_to p.date.strftime("%Y/%m/%d"), p %></td>
+          <td><%= p.date.strftime("%a") %></td>
           <td><i><%= link_to p.works[0].title, p.works[0] %></i></td>
           <td><%= p.works[0].writings.where(author_id: @author.id)[0].function %></td>
           <td class="right"><%= p.receipts.to_i.divmod(60)[0]%></td>

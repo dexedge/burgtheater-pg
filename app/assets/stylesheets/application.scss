@@ -55,7 +55,7 @@ table {
 
 .table th {
   text-align: left;
-  padding: 0.5rem;
+  padding: 8px 14px 8px 8px;
 }
 
 .table td {
@@ -64,12 +64,22 @@ table {
 
 .table .right {
   text-align: right;
-  padding: 8px 12px 8px 0;
+  padding: 8px 0 8px 0;
+}
+
+.table .left {
+  text-align: left;
+  padding:  8px 0 8px 12px;
 }
 
 table .wide {
-  width: 2.5em;
+  width: 2.2em;
 }
+
+table .dow {
+  width: 4.5em;
+}
+
 
 th a:link, a:visited {
   color: #2d6a9f;

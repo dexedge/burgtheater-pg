@@ -18,8 +18,10 @@ class AuthorsController < ApplicationController
     case params[:column]
     when "date"
       @performances = performances.order(sort_column + " " + sort_direction)
+    when "dow"
+      @performances = performances.order("to_char(date, 'D') " + sort_direction + ", date")
     when "title"
-      @performances = performances.order("lower(works." + sort_column + ") " + sort_direction)
+      @performances = performances.order("lower(works." + sort_column + ") " + sort_direction + ", date")
     when "receipts"
       if performances.exists?(receipts: "unknown")
         @performances = performances.order(:date)
@@ -102,6 +104,6 @@ class AuthorsController < ApplicationController
 
     # White list for sortable columns
     def sortable_columns
-      ["date", "title", "receipts"]
+      ["date", "dow", "title", "receipts"]
     end
 end

@@ -25,7 +25,11 @@ module ApplicationHelper
     icon = sort_direction == "asc" ? "fa fa-angle-up" : "fa fa-angle-down"
     icon = column == sort_column ? icon : ""
     
-    link_to "<i class='#{icon}'></i>#{title}".html_safe, {column: column, direction: direction}
+    if column == "receipts" # sort icon on left
+      link_to "<i class='#{icon}'></i>#{title}".html_safe, {column: column, direction: direction}
+    else # sort icon on right
+      link_to "#{title}<i class='#{icon}'></i>".html_safe, {column: column, direction: direction}
+    end
   end
 
 # Helper functions for calculating mean and median of an array of receipts in kreuzer

@@ -50,7 +50,7 @@
   <thead>
     <tr>
       <th><%= sort_link "date", @work %></th>
-      <th>DOW</th>
+      <th class="dow"><%= sort_link "dow", @work, "DOW" %></th>
       <th class="right wide">
         <% if @performances.exists?(receipts: "unknown") %>
           fl
