@@ -20,6 +20,16 @@ body {
   color: #003965;
 }
 
+.sticky-top {
+  background-color: #f6f7f6;
+}
+
+.sticky-top hr {
+  border-top: 1px solid #999;
+  margin-top: 0.6em;
+  margin-bottom: 0em;
+}
+
 hr {
   border-top: 1px solid #999;
   margin-top: 0.5em;
@@ -48,6 +58,8 @@ h2 {
 h5 {
   margin-bottom: 0.25em;
 }
+
+// Table styles
 
 table {
   margin-bottom: 0.5em;
@@ -88,6 +100,8 @@ table .dow {
 th a:link, a:visited {
   color: #2d6a9f;
 }
+
+// General 
 
 .right {
   padding-right: 22px;
