@@ -2,14 +2,11 @@
   <% if @composer.prev %>
     <%= link_to 'Previous Composer', edit_composer_path(@composer.prev) %>
     <% if @composer.next %>
-    |
+    | <%= link_to 'Next Composer', edit_composer_path(@composer.next) %>
     <% end %>
-  <% end %>
-  <% if @composer.next %> 
+  <% else %>
     <%= link_to 'Next Composer', edit_composer_path(@composer.next) %>
   <% end %>
-   |
-  <%= link_to 'Back', url_for(:back) %>
 </p>
 
 <h1>Editing Composer</h1>

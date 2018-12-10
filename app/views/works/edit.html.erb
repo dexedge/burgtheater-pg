@@ -2,14 +2,11 @@
   <% if @work.prev %>
     <%= link_to 'Previous Work', edit_work_path(@work.prev) %>
     <% if @work.next %>
-    |
+      | <%= link_to 'Next Work', edit_work_path(@work.next) %>
     <% end %>
-  <% end %>
-  <% if @work.next %> 
+  <% else %> 
     <%= link_to 'Next Work', edit_work_path(@work.next) %>
   <% end %>
-   |
-  <%= link_to 'Back', url_for(:back) %>
 </p>
 
 <h1>Editing Work</h1>

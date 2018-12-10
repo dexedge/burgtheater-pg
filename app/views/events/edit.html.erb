@@ -2,14 +2,11 @@
   <% if @event.prev %>
     <%= link_to 'Previous Event', edit_event_path(@event.prev) %>
     <% if @event.next %>
-    |
+      | <%= link_to 'Next Event', edit_event_path(@event.next) %>
     <% end %>
-  <% end %>
-  <% if @event.next %> 
+  <% else %>
     <%= link_to 'Next Event', edit_event_path(@event.next) %>
   <% end %>
-   |
-  <%= link_to 'Back', url_for(:back) %>
 </p>
 <h1>Editing Event</h1>
 

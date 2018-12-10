@@ -152,6 +152,10 @@ input, textarea {
   padding-left: 10px;
 }
 
+input[type=checkbox] {
+  margin-left: 1.5em;
+}
+
 a:link, a:visited {
   color: #337ab7;
   text-decoration: none;

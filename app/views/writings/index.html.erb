@@ -9,7 +9,7 @@
   <% end %>
 </div>-->
 
-<table>
+<table class="table table-responsive table-striped">
   <thead>
     <tr>
       <th>id</th>
@@ -27,7 +27,7 @@
       <tr>
         <td><%= writing.id%></td>
         <td><%= writing.work_id %></td>
-        <td><%= writing.work.title %></td>
+        <td><i><%= writing.work.title %></i></td>
         <td><%= writing.author_id %></td>
         <td><%= writing.author.lastname %></td>
         <td><%= writing.function %></td>

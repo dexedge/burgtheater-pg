@@ -1,6 +1,10 @@
-<h2>Editing Author for <b><%= Work.find(@writing.work_id).title %></b></h2>
-
+<% work = Work.find(@writing.work_id) %>
 <% author = Author.find(@writing.author_id)%>
+<p style="margin: 0">
+  <%= link_to 'Back', url_for(:back) %>
+</p>
+
+<h2>Editing Author for <%= link_to work.title, work_path(work) %></h2>
 <h4>
   <%= author.lastname %>, <%= author.firstnames %>
 </h4>
@@ -12,6 +16,6 @@
 </div>
 
 <div class="top">
-  <%= link_to 'Back', url_for(:back) %>
+ 
 </div>
 

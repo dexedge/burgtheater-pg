@@ -3,7 +3,7 @@ class Author < ApplicationRecord
   require 'activerecord-import/base'
   require 'activerecord-import/active_record/adapters/postgresql_adapter'
 
-  has_many :writings
+  has_many :writings, :dependent => :destroy
   has_many :works, through: :writings
 
   def self.my_import(file)

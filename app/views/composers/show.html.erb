@@ -1,15 +1,17 @@
 <p style="margin: 0">
 	<% if @composer.prev %>
-	  <%= link_to 'Previous Composer', @composer.prev %> |
-	<% end %>
-	<% if @composer.next %> 
-    <%= link_to 'Next Composer', @composer.next %> |
+	  <%= link_to 'Previous Composer', @composer.prev %>
+    <% if @composer.next %> 
+      | <%= link_to 'Next Composer', @composer.next %>
+    <% end %>
+  <% else %>
+    <%= link_to 'Next Composer', @composer.next %>
 	<% end %>
   <% if current_user %>
-    <%= link_to 'Edit', edit_composer_path(@composer) %>
+    | <%= link_to 'Edit', edit_composer_path(@composer) %>
   <% end %>
   <% if notice %>
-      | <span id="notice"><%= notice %></span> 
+    | <span id="notice"><%= notice %></span> 
   <% end %>
 </p>
 

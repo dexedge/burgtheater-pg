@@ -21,7 +21,6 @@
       <th>Composer</th>
       <th>Performances</th>
       <th>Zinzendorf</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -33,14 +32,20 @@
           <td><i><%= link_to work.title, work %></i></td>
           <td><%= work.genre %></td>
           <td>
-            <% if work.authors[0] %>
-              <%= link_to work.authors[0].lastname, work.authors[0] %>
+            <% credited_author = work.writings.find_by_credited_author (true) %>
+            <% if work.authors.any? %>
+              <% if credited_author %>
+                <%= link_to credited_author.author.lastname, credited_author.author %>
+              <% else %>
+                <%= link_to work.authors[0].lastname, work.authors[0] %>
+              <% end %>
             <% else %>
               NA
             <% end %>
+
           </td>
           <td>
-            <% if work.composers[0] %>
+            <% if work.composers.any? %>
               <%= link_to work.composers[0].lastname, work.composers[0] %>
             <% else %>
               NA

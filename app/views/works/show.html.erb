@@ -1,8 +1,10 @@
 <p style="margin: 0">
   <% if @work.prev %>
-    <%= link_to 'Previous Work', @work.prev %> | 
-  <% end %>
-  <% if @work.next %> 
+    <%= link_to 'Previous Work', @work.prev %> 
+    <% if @work.next %> 
+     | <%= link_to 'Next Work', @work.next %>
+    <% end %>
+  <% else %>
     <%= link_to 'Next Work', @work.next %>
   <% end %>
   <% if current_user %>
@@ -36,8 +38,9 @@
     <tbody>
       <% @work.authors.each do |author| %>
         <tr>
+          <% author_work = author.writings.find_by(author_id: author.id, work_id: @work.id)%>
           <td class="right"><%= link_to author.lastname, author %></td>
-          <td><%= author.writings.find_by(author_id: author.id, work_id: @work.id).function %></td>
+          <td><%= author_work.function %></td>
         </tr>
       <% end %>
     </tbody>
