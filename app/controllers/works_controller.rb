@@ -5,10 +5,10 @@ class WorksController < ApplicationController
   # GET /works
   # GET /works.json
   def index
-    # Sort "Concert", "Theater closed", and "unknown" to end of title list
     works = Work.all.includes(:authors, :composers)
-
-    # Ignore leading definite and indefinite articles in sort, and sort umlauted characters to proper alphabetical position
+    
+    # Sort "Concert", "Theater closed", and "unknown" to end of title list
+    # Sort umlauted characters to proper alphabetical position
     
     works1 = works.where.not(genre: ["Concert", "Closed", "Unknown"]).sort_by {|w| w.title.downcase.sub(/ö/,"oe").sub(/ä/,"ae")}
     
@@ -95,6 +95,42 @@ class WorksController < ApplicationController
   def import
     Work.my_import(params[:file])
     redirect_to works_path, notice: 'Successfully imported data!'
+  end
+
+  # GET /works/1/authors
+  def authors
+    @work = Work.find(params[:id])
+    @authors = @work.authors
+  end
+
+  # POST /works/1/author_add?author_id=2
+  def author_add
+    @work = Work.find(params[:id])
+    @author = Author.find(params[:author])
+    unless @work.is_author?(@author)
+      @work.authors << @author
+      flash[:notice] = "Author added"
+    else
+      flash[:error] = "Author already attached"
+    end
+    redirect_to action: "authors", id: @work
+  end
+
+  # POST /works/1/author_remove?authors[]=
+  def author_remove
+    @work = Work.find(params[:id])
+    author_ids = params[:authors]
+    unless author_ids.blank?
+      author_ids.each do |author_id|
+        author = Author.find(author_id)
+        if @work.is_author?(author)
+          logger.info "Removing work from author #{author.id}"
+          @work.authors.delete(author)
+          flash[:notice] = "Author deleted"
+        end
+      end
+    end
+    redirect_to action: "authors", id: @work
   end
 
   private

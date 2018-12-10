@@ -1,0 +1,42 @@
+<p></p>
+<h1>Author(s) for <b><%= @work.title %></b></h1>
+
+<div class='form-group wide'>
+  <% if @authors.length > 0 %>
+    <%= form_tag(author_remove_work_path(@work)) do %>
+      <table class='table table-responsive table-striped"'>
+        <thead>
+          <th>Author</th>
+          <th>Function</th>
+          <th>Credited</th>
+          <th></th>
+          <th>Remove</th>
+        </thead>
+        <tbody>
+          <% for author in @authors do %>
+            <tr>
+              <% author_work = author.writings.find_by(work_id: @work.id) %>
+              <td><%= author.lastname + ", " + author.firstnames %></td>
+              <td><%= author_work.function %></td>
+              <td><%= author_work.credited_author %></td>
+              <td><%= link_to "Edit", edit_writing_path({id: author_work, redirect_to: request.path}) %></td>
+              <td><%= check_box_tag "authors[]", author.id %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br>
+      <%= submit_tag "Remove author(s)", class: 'btn-outline-secondary' %>
+    <% end %>
+  <% else %>
+    <p>No authors added yet.</p>
+  <% end %>
+</div>
+<div class="form-group">
+  <h2>Add new author</h2>
+  <%= form_tag(author_add_work_path(@work)) do %>
+    <%= select_tag :author, options_from_collection_for_select(Author.all.order(:lastname), :id, 'authorName'), class: "dropdown" %>
+    <br><br>
+    <%= submit_tag "Add Author", class: 'btn-outline-secondary'%>
+  <% end %>
+</div>

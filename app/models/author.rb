@@ -23,4 +23,12 @@ class Author < ApplicationRecord
   def prev
     Author.order(lastname: :desc).find_by("lastname < ?", lastname)
   end
+
+  def authorName
+    if self.firstnames
+      self.lastname + ", " + self.firstnames
+    else
+      self.lastname
+    end
+  end
 end

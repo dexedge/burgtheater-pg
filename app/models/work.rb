@@ -27,4 +27,8 @@ class Work < ApplicationRecord
   def prev
     Work.order("lower(title) DESC").find_by("title < ?", title)
   end
+
+  def is_author?(author)
+    self.authors.include?(author)
+  end
 end

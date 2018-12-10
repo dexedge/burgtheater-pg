@@ -3,10 +3,11 @@
     <%= link_to 'Previous Author', @author.prev %> | 
   <% end %>
   <% if @author.next %> 
-  <%= link_to 'Next Author', @author.next %> |
+  <%= link_to 'Next Author', @author.next %>
   <% end %>
   <% if current_user %>
-    <%= link_to 'Edit', edit_author_path(@author) %>
+     | <%= link_to 'Edit', edit_author_path(@author) %> |
+    <%= link_to 'Delete', @author, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
   <% if notice %>
       | <span id="notice"><%= notice %></span> 
@@ -76,7 +77,11 @@
 </p>
 <p>
   <strong>Zinzendorf attendances:</strong>
-  <%= z %> (<%= (z.to_f/n.to_f * 100).round(2) %>%)
+  <% if n == 0 %>
+     <%= "NA" %>
+  <% else %>
+    <%= z %> (<%= (z.to_f/n.to_f * 100).round(2) %>%)
+  <% end %>
 </p>
 <!-- Calculate mean and median receipts -->
   <!--Get array of receipts for this Author-->
@@ -86,8 +91,7 @@
   <% r.map! {|r| r.to_i} %>
 <p>
   <strong>Mean receipts:</strong>
-  <% mean = mean(r) %>
-  <% if mean == 0 %>
+  <% if r.empty? %>
     <%= "NA" %>
   <% else %>
     <% mean = mean(r).divmod(60) %> 
@@ -96,11 +100,10 @@
 </p>
 <p>
   <strong>Median receipts:</strong>
-  <% median = median(r) %>
-  <% if median == 0 %>
+  <% if r.empty? %>
     <%= "NA" %>
   <% else %>
-    <% median = median.divmod(60) %>
+    <% median = median(r).divmod(60) %>
     <%= median[0]%> fl <%= median[1]%> kr
   <% end %>
 </p>

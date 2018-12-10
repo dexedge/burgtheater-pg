@@ -22,6 +22,11 @@ Rails.application.routes.draw do
   
   resources :works do
     collection {post :import}
+    member do
+      get :authors
+      post :author_add
+      post :author_remove
+    end
   end
 
   resources :performances do
@@ -30,6 +35,9 @@ Rails.application.routes.draw do
 
   resources :authors do
     collection {post :import}
+    member do
+      get :works
+    end
   end
   
   resources :writings do

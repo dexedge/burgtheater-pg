@@ -42,7 +42,7 @@ class WritingsController < ApplicationController
   def update
     respond_to do |format|
       if @writing.update(allowed_params)
-        format.html { redirect_to @writing, notice: 'Writing was successfully updated.' }
+        format.html { redirect_to params[:redirect_to], notice: 'Writing was successfully updated.' }
         format.json { render :show, status: :ok, location: @writing }
       else
         format.html { render :edit }
@@ -78,6 +78,6 @@ class WritingsController < ApplicationController
     end
 
     def allowed_params
-      params.require(:writing).permit(:function)
+      params.require(:writing).permit(:function, :credited_author)
     end
 end

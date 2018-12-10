@@ -1,5 +1,6 @@
 class AuthorsController < ApplicationController
   before_action :set_author, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, only: [:edit, :update, :create, :new]
   helper_method :sort_column, :sort_direction
 
   # GET /authors
@@ -45,7 +46,7 @@ class AuthorsController < ApplicationController
   # POST /authors
   # POST /authors.json
   def create
-    @author = Author.new(author_params)
+    @author = Author.new(allowed_params)
 
     respond_to do |format|
       if @author.save
@@ -77,7 +78,7 @@ class AuthorsController < ApplicationController
   def destroy
     @author.destroy
     respond_to do |format|
-      format.html { redirect_to authors_url, notice: 'Author was successfully destroyed.' }
+      format.html { redirect_to authors_url, notice: 'Author was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -85,6 +86,11 @@ class AuthorsController < ApplicationController
   def import
     Author.my_import(params[:file])
     redirect_to authors_path, notice: 'Successfully imported data!'
+  end
+
+  # GET /authors/1/works
+  def works
+    @author = Author.find(params[:id])
   end
 
   private

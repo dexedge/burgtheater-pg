@@ -1,6 +1,17 @@
-<b>Editing Writing</b>
+<h2>Editing Author for <b><%= Work.find(@writing.work_id).title %></b></h2>
 
-<%= render 'form', writing: @writing %>
+<% author = Author.find(@writing.author_id)%>
+<h4>
+  <%= author.lastname %>, <%= author.firstnames %>
+</h4>
 
-<%= link_to 'Show', @writing %> |
-<%= link_to 'Back', writings_path %>
+<div class="row">
+  <div class="col-4">
+    <%= render 'form', writing: @writing %>
+  </div>
+</div>
+
+<div class="top">
+  <%= link_to 'Back', url_for(:back) %>
+</div>
+

@@ -5,6 +5,7 @@
   <%= link_to 'Authors', authors_path %> | 
   <!-- Current_user will return true if a user is logged in -->
   <% if current_user %>
+      <%= link_to 'Writings', writings_path %> |
       <!-- Save the relative path of this page so we can return to it -->
       <%= link_to 'Log Out', logout_path(redirect_to: request.path), method: :delete %>
     <% else %>

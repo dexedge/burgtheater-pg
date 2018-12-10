@@ -1,25 +1,13 @@
-<%= form_with(model: writing, local: true) do |form| %>
-  <% if writing.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(writing.errors.count, "error") %> prohibited this writing from being saved:</h2>
+<%= simple_form_for @writing do |f| %>
+  
+  <%= f.error_notification %>
 
-      <ul>
-      <% writing.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-  <h2><%= @writing.work.title %></h2>
-  <h2><%= @writing.author.firstnames %> <%= @writing.author.lastname %></h2>
-  
-  <div class="field">
-    <%= form.label :function %>
-    <%= form.text_field :function %>
-  </div>
-  
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= f.input :function, collection: ['Author', 'Source Author', 'Librettist', 'Adapter', 'Translator'], include_blank: false %>
+
+  <%= f.input :credited_author, as: :radio_buttons %>
+
+  <%= hidden_field_tag :redirect_to, params[:redirect_to] %>
+
+  <%= f.button :submit, class: 'btn-outline-secondary' %>
+
 <% end %>
