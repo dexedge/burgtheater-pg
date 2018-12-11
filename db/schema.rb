@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2018_12_09_204258) do
     t.text "function"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean "credited_author"
+    t.boolean "credited_author", default: false, null: false
     t.index ["author_id", "work_id"], name: "idx_17296_index_writings_on_author_id_and_work_id", unique: true
   end
 
