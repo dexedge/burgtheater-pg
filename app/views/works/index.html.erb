@@ -14,7 +14,6 @@
 <table class="table table-responsive table-striped">
   <thead>
     <tr> 
-      <th>id</th>
       <th>Title</th>
       <th>Genre</th>
       <th>Author</th>
@@ -28,7 +27,6 @@
     <% @works.each do |work| %>
       <% cache(work) do %>
         <tr>
-          <td class="right"><%= work.id %></td>
           <td><i><%= link_to work.title, work %></i></td>
           <td><%= work.genre %></td>
           <td>
@@ -61,6 +59,9 @@
     <% end %>
   </tbody>
 </table>
+<div class='digg_pagination'>
+  <%= will_paginate @works %>
+</div>
 <% end %>
 <br>
 

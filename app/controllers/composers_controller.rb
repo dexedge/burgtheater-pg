@@ -4,7 +4,7 @@ class ComposersController < ApplicationController
   # GET /composers
   # GET /composers.json
   def index
-    @composers = Composer.all
+    @composers = Composer.all.order(lastname: :asc)
   end
 
   # GET /composers/1

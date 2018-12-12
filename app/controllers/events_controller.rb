@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all.includes(:works, :works => :authors, :works => :composers).order(:date)
+    @events = Event.all.includes(:works, :works => :authors, :works => :composers).paginate(:page => params[:page], :per_page => 14).order(:date)
 
   end
 
