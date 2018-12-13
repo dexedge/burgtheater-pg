@@ -5,7 +5,7 @@ class WorksController < ApplicationController
   # GET /works
   # GET /works.json
   def index
-    @works = Work.all.includes(:authors, :composers).paginate(:page => params[:page], :per_page => 14).order(title: :asc)
+    @works = Work.all.includes(:authors, :composers).paginate(:page => params[:page], :per_page => 14).order(sortable_title: :asc)
     
     # Sort "Concert", "Theater closed", and "unknown" to end of title list
     # Sort umlauted characters to proper alphabetical position

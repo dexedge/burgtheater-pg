@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_09_204258) do
+ActiveRecord::Schema.define(version: 2018_12_13_020619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2018_12_09_204258) do
     t.bigint "death"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string "sortable_name"
   end
 
   create_table "composers", force: :cascade do |t|
@@ -80,6 +81,7 @@ ActiveRecord::Schema.define(version: 2018_12_09_204258) do
     t.text "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string "sortable_title"
   end
 
   create_table "writings", force: :cascade do |t|

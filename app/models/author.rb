@@ -5,7 +5,7 @@ class Author < ApplicationRecord
 
   has_many :writings, :dependent => :destroy
   has_many :works, through: :writings
-
+  
   def self.my_import(file)
     authors = []
     CSV.foreach(file.path, headers: true) do |row|
