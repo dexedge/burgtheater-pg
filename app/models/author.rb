@@ -17,11 +17,11 @@ class Author < ApplicationRecord
   end
 
   def next
-    Author.order(:lastname).find_by("lastname > ?", lastname)
+    Author.order(:sortable_name).find_by("sortable_name > ?", sortable_name)
   end
   
   def prev
-    Author.order(lastname: :desc).find_by("lastname < ?", lastname)
+    Author.order(sortable_name: :desc).find_by("sortable_name < ?", sortable_name)
   end
 
   def authorName

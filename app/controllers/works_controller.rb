@@ -5,18 +5,11 @@ class WorksController < ApplicationController
   # GET /works
   # GET /works.json
   def index
-    @works = Work.all.includes(:authors, :composers).paginate(:page => params[:page], :per_page => 14).order(sortable_title: :asc)
+    @q = Work.ransack(params[:q])
     
-    # Sort "Concert", "Theater closed", and "unknown" to end of title list
-    # Sort umlauted characters to proper alphabetical position
+    # sortable_title is downcased, with leading articles removed and umlauted characters change to form with 'e'
+    @works = @q.result(distinct: true).includes(:authors, :composers).paginate(:page => params[:page], :per_page => 14).order(sortable_title: :asc)
     
-    # works1 = works.where.not(genre: ["Concert", "Closed", "Unknown"]).sort_by {|w| w.title.downcase.sub(/ö/,"oe").sub(/ä/,"ae")}
-    
-    # works.where.not(genre: ["Concert", "Closed", "Unknown"]).sort_by {|w| w.title.downcase}
-
-    # works2 = works.where(genre: ["Concert", "Closed", "Unknown"]).sort_by(&:title)
-
-    # @works = works1 + works2
   end
 
   # GET /works/1
