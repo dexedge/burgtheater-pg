@@ -3,17 +3,25 @@
 <% end %>
 
 <% if notice %>
-  <p id="notice"><%= notice %></p>
+  <p id="notice" style="margin-bottom: 0"><%= notice %></p>
 <% end %>
 
-<h1>Authors</h1>
-<!--<div>
-  <h4>Import data!</h4>
-  <%= form_tag import_authors_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <%= submit_tag "Import from file"%>
-  <% end %>
-</div>-->
+<div class="row">
+  <div class="col">
+    <h2>Authors</h2>
+  </div>
+  <div class="col-5">
+    <p>
+      <%= search_form_for @q do |f| %>
+        <!-- Ransack "contains" search, executes on Enter -->
+        <%= f.search_field :lastname_or_firstnames_cont, placeholder: "Search", size: "25" %>
+        
+        <!-- Clear search and reload page -->
+        <%= link_to "(clear)", request.path, class: 'small' %>
+      <% end %>
+    </p>
+  </div>
+</div>
 
 <% cache(@authors) do %>
 <table class="table table-responsive table-striped">

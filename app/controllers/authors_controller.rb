@@ -6,8 +6,10 @@ class AuthorsController < ApplicationController
   # GET /authors
   # GET /authors.json
   def index
+    @q = Author.ransack(params[:q])
+    
     # The sortable_name field gives the last name downcased with "ae" etc substituted for umlauted vowels
-    @authors = Author.all.paginate(:page => params[:page], :per_page => 14).order(sortable_name: :asc, firstnames: :asc)
+    @authors = @q.result.paginate(:page => params[:page], :per_page => 14).order(sortable_name: :asc, firstnames: :asc)
   end
 
   # GET /authors/1
