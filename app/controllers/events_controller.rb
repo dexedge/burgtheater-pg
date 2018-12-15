@@ -4,10 +4,9 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @q = Event.ransack(params[:q])
+    @q = Event.includes(:works, :works => [:authors, :composers]).ransack(params[:q])
     
-    @events = @q.result(distinct: true).includes(:works, :works => :authors, :works => :composers).paginate(:page => params[:page], :per_page => 14).order(:date)
-
+    @events = @q.result(distinct: true).paginate(:page => params[:page], :per_page => 14).order(:date)
   end
 
   # GET /events/1
