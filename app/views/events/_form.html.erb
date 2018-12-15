@@ -5,7 +5,7 @@
 
   <%= form.input :receipts, label: 'Receipts (kr)' %>
 
-  <%= form.input :kind %>
+  <%= form.input :kind, collection: ["regular", "premiere", "free","concert", "closed",  "canceled", "unknown"] %>
 
   <%= form.input :zinzendorf, as: :radio_buttons %>
 
