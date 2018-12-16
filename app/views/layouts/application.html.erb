@@ -28,5 +28,15 @@
         <%= yield %>  
     </div>
   </body>
-
+  <script>
+    $(document).ready(function(){
+      $('.datepicker').datepicker({
+        format: "yyyy-mm-dd",
+        startDate: "1789-02-26",
+        endDate: "1791-03-08",
+        defaultViewDate: "1789-02-26",
+        startView: 1
+      });
+    });
+  </script>
 </html>

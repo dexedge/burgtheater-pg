@@ -14,7 +14,7 @@
     <p>
       <%= search_form_for @q do |f| %>
         <!-- Ransack "contains" search, executes on Enter -->
-        <%= f.search_field :lastname_or_firstnames_cont, placeholder: "Search", size: "25" %>
+        <%= f.search_field :lastname_or_firstnames_cont, placeholder: "Search", size: "25", class: "search-box" %>
         
         <!-- Clear search and reload page -->
         <%= link_to "(clear)", request.path, class: 'small' %>

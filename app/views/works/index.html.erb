@@ -10,7 +10,7 @@
     <p>
       <%= search_form_for @q do |f| %>
         <!-- Ransack "contains" search, executes on Enter -->
-        <%= f.search_field :title_or_genre_or_authors_lastname_or_composers_lastname_cont, placeholder: "Search", size: "25" %>
+        <%= f.search_field :title_or_genre_or_authors_lastname_or_composers_lastname_cont, placeholder: "Search", size: "25", class: "search-box" %>
         
         <!-- Clear search and reload page -->
         <%= link_to "(clear)", request.path, class: 'small' %>

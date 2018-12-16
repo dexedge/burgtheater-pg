@@ -14,10 +14,26 @@
 
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=PT+Serif:400i,700i');
+@import "bootstrap-datepicker";
 
 body {
   background-color: #f6f7f6;
   color: #003965;
+}
+
+.datepicker {
+  padding: 2px;
+}
+
+.search-box {
+  padding: 2px;
+  border-radius: 4px;
+}
+
+input {
+  background-color: #fcfdfc;
+  color:  #003965;
+  border-radius: 4px;
 }
 
 .dropdown {
