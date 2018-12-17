@@ -91,14 +91,14 @@ class WorksController < ApplicationController
 
   # GET /works/1/authors
   def authors
-    @work = Work.find(params[:id])
+    @work = Work.friendly.find(params[:id])
     @authors = @work.authors
   end
 
   # POST /works/1/author_add?author_id=2
   def author_add
-    @work = Work.find(params[:id])
-    @author = Author.find(params[:author])
+    @work = Work.friendly.find(params[:id])
+    @author = Author.friendly.find(params[:author])
     unless @work.is_author?(@author)
       @work.authors << @author
       flash[:notice] = "Author added"
@@ -110,11 +110,11 @@ class WorksController < ApplicationController
 
   # POST /works/1/author_remove?authors[]=
   def author_remove
-    @work = Work.find(params[:id])
+    @work = Work.friendly.find(params[:id])
     author_ids = params[:authors]
     unless author_ids.blank?
       author_ids.each do |author_id|
-        author = Author.find(author_id)
+        author = Author.friendly.find(author_id)
         if @work.is_author?(author)
           logger.info "Removing work from author #{author.id}"
           @work.authors.delete(author)
