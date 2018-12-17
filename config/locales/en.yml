@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+  i18n:
+    transliterate:
+      rule:
+        ü: "ue"
+        ö: "oe"
+        ä: "ae"
+        ß: "ss"

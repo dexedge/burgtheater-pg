@@ -2,9 +2,12 @@ class Composer < ApplicationRecord
   require 'csv'
   require 'activerecord-import/base'
   require 'activerecord-import/active_record/adapters/postgresql_adapter'
+  extend FriendlyId
 
   has_many :composings
   has_many :works, through: :composings
+
+  friendly_id :firstnames_lastname, use: :slugged
   
   def self.my_import(file)
     composers = []
@@ -22,5 +25,9 @@ class Composer < ApplicationRecord
   
   def prev
     Composer.order(lastname: :desc).find_by("lastname < ?", lastname)
+  end
+
+  def firstnames_lastname
+    "#{firstnames} #{lastname}"
   end
 end

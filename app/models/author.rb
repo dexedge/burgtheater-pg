@@ -2,9 +2,12 @@ class Author < ApplicationRecord
   require 'csv'
   require 'activerecord-import/base'
   require 'activerecord-import/active_record/adapters/postgresql_adapter'
+  extend FriendlyId
 
   has_many :writings, :dependent => :destroy
   has_many :works, through: :writings
+
+  friendly_id :firstnames_lastname, use: :slugged
   
   def self.my_import(file)
     authors = []
@@ -30,5 +33,9 @@ class Author < ApplicationRecord
     else
       self.lastname
     end
+  end
+
+  def firstnames_lastname
+    "#{firstnames} #{lastname}"
   end
 end

@@ -45,6 +45,7 @@ gem 'simple_form'
 gem 'will_paginate', '~>3.1.1'
 gem 'ransack'
 gem 'bootstrap-datepicker-rails'
+gem 'friendly_id', '~> 5.2.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

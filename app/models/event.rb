@@ -6,9 +6,12 @@ class Event < ApplicationRecord
   require 'csv'
   require 'activerecord-import/base'
   require 'activerecord-import/active_record/adapters/postgresql_adapter'
+  extend FriendlyId
 
   has_many :performances
   has_many :works, through: :performances
+
+  friendly_id :date, use: :slugged
 
   def self.my_import(file)
     events = []

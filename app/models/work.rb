@@ -2,6 +2,7 @@ class Work < ApplicationRecord
   require 'csv'
   require 'activerecord-import/base'
   require 'activerecord-import/active_record/adapters/postgresql_adapter'
+  extend FriendlyId
 
   has_many :performances
   has_many :events, through: :performances
@@ -9,6 +10,8 @@ class Work < ApplicationRecord
   has_many :authors, through: :writings
   has_many :composings
   has_many :composers, through: :composings
+
+  friendly_id :title, use: :slugged
 
   def self.my_import(file)
     works = []
