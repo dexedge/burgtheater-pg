@@ -1,4 +1,6 @@
 class Author < ApplicationRecord
+  before_save :make_sortable_name
+  
   require 'csv'
   require 'activerecord-import/base'
   require 'activerecord-import/active_record/adapters/postgresql_adapter'
@@ -17,6 +19,14 @@ class Author < ApplicationRecord
       authors << Author.new(row.to_h)
     end
     Author.import authors, recursive: true
+  end
+
+  def make_sortable_name
+    self.sortable_name = self.lastname.downcase.sub(/ä/,"ae").sub(/ö/, "oe").sub(/ü/, "ue")
+  end
+
+  def should_generate_new_friendly_id?
+    lastname_changed?
   end
 
   def next
