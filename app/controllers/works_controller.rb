@@ -137,7 +137,7 @@ class WorksController < ApplicationController
     end
 
     def allowed_params
-      params.require(:work).permit(:title, :genre, :notes)
+      params.require(:work).permit(:title, :genre, :notes, :image_name, :book_url)
     end
 
     # White list for sortable columns

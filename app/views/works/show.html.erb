@@ -19,129 +19,140 @@
 <h2>
   <i><%= @work.title %></i>
 </h2>
-<% if @work.composers[0] %>
-  <h5>Composer:</h5>
-   <p class="indent">
-     <%= link_to @work.composers[0].lastname, @work.composers[0] %>
-   </p>
-<% end %>
-
-<h5>Author(s):</h5>
-<% if @work.authors[0] %>
-  <table class="indent">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Function</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @work.authors.each do |author| %>
-        <tr>
-          <% author_work = author.writings.find_by(author_id: author.id, work_id: @work.id)%>
-          <td class="right"><%= link_to author.lastname, author %></td>
-          <td><%= author_work.function %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <p>NA</p>
-<% end %>
-
-<h4>Performances</h4>
-  <% if @performances.any? %>
-    <table class="table table-responsive table-striped">
-    <thead>
-      <tr>
-        <th><%= sort_link "date", @work %></th>
-        <th class="dow"><%= sort_link "dow", @work, "Day" %></th>
-        <th class="right wide">
-          <% if @performances.exists?(receipts: "unknown") %>
-            fl
-          <% else %>
-            <%= sort_link "receipts", @work, "fl" %>
+<div class="row">
+  <div class="col">
+    <% if @work.composers[0] %>
+      <h5>Composer:</h5>
+       <p class="indent">
+         <%= link_to @work.composers[0].lastname, @work.composers[0] %>
+       </p>
+    <% end %>
+    
+    <h5>Author(s):</h5>
+    <% if @work.authors[0] %>
+      <table class="indent">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Function</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @work.authors.each do |author| %>
+            <tr>
+              <% author_work = author.writings.find_by(author_id: author.id, work_id: @work.id)%>
+              <td class="right"><%= link_to author.lastname, author %></td>
+              <td><%= author_work.function %></td>
+            </tr>
           <% end %>
-        </th>
-        <th class="right wide">
-          <% if @performances.exists?(receipts: "unknown") %>
-            kr
-          <% else %>
-            <%= sort_link "receipts", @work, "kr" %></th>
+        </tbody>
+      </table>
+    <% else %>
+      <p>NA</p>
+    <% end %>
+    
+    <h4>Performances</h4>
+      <% if @performances.any? %>
+        <table class="table table-responsive table-striped">
+        <thead>
+          <tr>
+            <th><%= sort_link "date", @work %></th>
+            <th class="dow"><%= sort_link "dow", @work, "Day" %></th>
+            <th class="right wide">
+              <% if @performances.exists?(receipts: "unknown") %>
+                fl
+              <% else %>
+                <%= sort_link "receipts", @work, "fl" %>
+              <% end %>
+            </th>
+            <th class="right wide">
+              <% if @performances.exists?(receipts: "unknown") %>
+                kr
+              <% else %>
+                <%= sort_link "receipts", @work, "kr" %></th>
+              <% end %>
+            <th>Zinzendorf</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- In Works controller, @performances = @work.events.where.not(receipts: "NA")-->
+          <% @performances.each do | performance | %>
+            <tr>
+              <td><%= link_to performance.date.strftime("%Y/%m/%d"), performance %></td>
+              <td><%= performance.date.strftime("%a") %></td>
+              <td class="right"><%= performance.receipts.to_i.divmod(60)[0]%></td>
+              <td class="right"><%= performance.receipts.to_i.divmod(60)[1]%></td>
+              <td class="center"><%= if performance.zinzendorf then "Yes" else "" end%></td>
+            </tr>
           <% end %>
-        <th>Zinzendorf</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- In Works controller, @performances = @work.events.where.not(receipts: "NA")-->
-      <% @performances.each do | performance | %>
-        <tr>
-          <td><%= link_to performance.date.strftime("%Y/%m/%d"), performance %></td>
-          <td><%= performance.date.strftime("%a") %></td>
-          <td class="right"><%= performance.receipts.to_i.divmod(60)[0]%></td>
-          <td class="right"><%= performance.receipts.to_i.divmod(60)[1]%></td>
-          <td class="center"><%= if performance.zinzendorf then "Yes" else "" end%></td>
-        </tr>
+        </tbody>
+        </table>
+      <% else %> <!-- No records for "Theater closed" -->
+        NA
       <% end %>
-    </tbody>
-    </table>
-  <% else %> <!-- No records for "Theater closed" -->
-    NA
-  <% end %>
-<hr>
-<p>
-  <strong>Genre:</strong>
-  <%= @work.genre %>
-</p>
-<p>
-  <% c = @work.events.count %>
-  <% if @work.title == "Theater closed"%>
-    <strong>Days closed: </strong>
-  <% else %>
-    <strong>Total performances:</strong>
-  <% end %>
-  <%= c %>
-</p>
-<p>
-  <% z = @work.events.where(zinzendorf: true).count %>
-  <strong>Zinzendorf attendances:</strong>
-  <%= z %> (<%= (z.to_f/c.to_f * 100).round(2) %>%)
-</p>
-<!-- Calculate mean and median receipts -->
-  <!--Get array of receipts for this work-->
-  <!-- Remove any performances that were free or canceled -->
-  <% r = @work.events.where.not(kind: ["canceled", "free"]).pluck(:receipts) %>
-  <!--Convert array items from string to integer -->
-  <% r.map! {|r| r.to_i} %>
-<p>
-  <strong>Mean receipts:</strong>
-  <% mean = mean(r) %>
-  <% if mean == 0 %>
-    <%= "NA" %>
-  <% else %>
-    <% mean = mean(r).divmod(60) %> 
-    <%= mean[0]%> fl <%= mean[1]%> kr
-  <% end %>
-</p>
-<p>
-  <strong>Median receipts:</strong>
-  <% median = median(r) %>
-  <% if median == 0 %>
-    <%= "NA" %>
-  <% else %>
-    <% median = median.divmod(60) %>
-    <%= median[0]%> fl <%= median[1]%> kr
-  <% end %>
-</p>
-
-<% if @work.notes %>
-  <p class="notes">
-    <strong>Notes:</strong>
-    <% if @work.notes %>
-      <%= @work.notes.html_safe %>
+  </div> <!-- End Column 1 -->
+  <div class="col">
+    <% if @work.image_name %>
+      <%= link_to image_tag("titlepages/#{@work.image_name}", size: "250x420", class: "titlepage"), @work.book_url, target:
+    "_blank" %>
+    <% end %>
+  </div>
+</div> <!-- End row -->
+  <hr>
+  <p>
+    <strong>Genre:</strong>
+    <%= @work.genre %>
+  </p>
+  <p>
+    <% c = @work.events.count %>
+    <% if @work.title == "Theater closed"%>
+      <strong>Days closed: </strong>
+    <% else %>
+      <strong>Total performances:</strong>
+    <% end %>
+    <%= c %>
+  </p>
+  <p>
+    <% z = @work.events.where(zinzendorf: true).count %>
+    <strong>Zinzendorf attendances:</strong>
+    <%= z %> (<%= (z.to_f/c.to_f * 100).round(2) %>%)
+  </p>
+  <!-- Calculate mean and median receipts -->
+    <!--Get array of receipts for this work-->
+    <!-- Remove any performances that were free or canceled -->
+    <% r = @work.events.where.not(kind: ["canceled", "free"]).pluck(:receipts) %>
+    <!--Convert array items from string to integer -->
+    <% r.map! {|r| r.to_i} %>
+  <p>
+    <strong>Mean receipts:</strong>
+    <% mean = mean(r) %>
+    <% if mean == 0 %>
+      <%= "NA" %>
+    <% else %>
+      <% mean = mean(r).divmod(60) %> 
+      <%= mean[0]%> fl <%= mean[1]%> kr
     <% end %>
   </p>
-<% end %>
+  <p>
+    <strong>Median receipts:</strong>
+    <% median = median(r) %>
+    <% if median == 0 %>
+      <%= "NA" %>
+    <% else %>
+      <% median = median.divmod(60) %>
+      <%= median[0]%> fl <%= median[1]%> kr
+    <% end %>
+  </p>
+  
+  <% if @work.notes %>
+    <p class="notes">
+      <strong>Notes:</strong>
+      <% if @work.notes %>
+        <%= @work.notes.html_safe %>
+      <% end %>
+    </p>
+  <% end %>
+
 <hr class="top">
 <p>
   <strong>Created:</strong>
@@ -151,5 +162,4 @@
   <strong>Updated:</strong>
   <%= @work.updated_at.strftime("%a, %-d %b %Y, %H:%M %Z") %>
 </p>
-
 <hr> 
