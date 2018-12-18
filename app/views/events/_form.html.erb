@@ -7,10 +7,10 @@
 
   <%= form.input :kind, collection: ["regular", "premiere", "free","concert", "closed",  "canceled", "unknown"] %>
 
-  <%= form.input :zinzendorf, as: :radio_buttons %>
-
   <%= form.input :double, as: :radio_buttons %>
   
+  <%= form.input :zinzendorf, as: :radio_buttons %>
+
   <%= form.input :notes, input_html: { rows: '10'} %>
 
   <%= form.button :submit, class: "btn-outline-secondary" %>

@@ -92,7 +92,7 @@
       <% end %>
   </div> <!-- End Column 1 -->
   <div class="col">
-    <% if @work.image_name %>
+    <% if !@work.image_name.blank? %>
       <%= link_to image_tag("titlepages/#{@work.image_name}", size: "250x420", class: "titlepage"), @work.book_url, target:
     "_blank" %>
     <% end %>
