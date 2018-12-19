@@ -34,4 +34,8 @@ class Work < ApplicationRecord
   def is_author?(author)
     self.authors.include?(author)
   end
+
+  def should_generate_new_friendly_id?
+    title_changed?
+  end
 end

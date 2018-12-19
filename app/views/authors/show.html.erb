@@ -110,6 +110,15 @@
   <% end %>
 </p>
 
+<% if @author.notes %>
+    <p class="notes">
+      <strong>Notes:</strong>
+      <% if @author.notes %>
+        <%= @author.notes.html_safe %>
+      <% end %>
+    </p>
+  <% end %>
+
 <hr class="top">
 <p>
   <strong>Created:</strong>

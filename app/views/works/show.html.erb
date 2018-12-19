@@ -144,7 +144,7 @@
     <% end %>
   </p>
   
-  <% if @work.notes %>
+  <% if !@work.notes.blank? %>
     <p class="notes">
       <strong>Notes:</strong>
       <% if @work.notes %>

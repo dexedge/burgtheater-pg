@@ -107,7 +107,7 @@ class AuthorsController < ApplicationController
     end
 
     def allowed_params
-      params.require(:author).permit(:lastname, :firstnames, :birth, :death, :sortable_name)
+      params.require(:author).permit(:lastname, :firstnames, :birth, :death, :notes, :sortable_name)
     end
 
     # White list for sortable columns
