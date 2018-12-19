@@ -35,6 +35,9 @@
           <tr>
             <th>Name</th>
             <th>Function</th>
+            <% if current_user %>
+              <th class="left">Credited</th>
+            <% end %>
           </tr>
         </thead>
         <tbody>
@@ -43,6 +46,9 @@
               <% author_work = author.writings.find_by(author_id: author.id, work_id: @work.id)%>
               <td class="right"><%= link_to author.lastname, author %></td>
               <td><%= author_work.function %></td>
+              <% if current_user %>
+                <td class="left"><%= author_work.credited_author %></td>
+              <% end %>
             </tr>
           <% end %>
         </tbody>
@@ -59,18 +65,10 @@
             <th><%= sort_link "date", @work %></th>
             <th class="dow"><%= sort_link "dow", @work, "Day" %></th>
             <th class="right wide">
-              <% if @performances.exists?(receipts: "unknown") %>
-                fl
-              <% else %>
-                <%= sort_link "receipts", @work, "fl" %>
-              <% end %>
+              <%= sort_link "receipts", @work, "fl" %>
             </th>
             <th class="right wide">
-              <% if @performances.exists?(receipts: "unknown") %>
-                kr
-              <% else %>
-                <%= sort_link "receipts", @work, "kr" %></th>
-              <% end %>
+              <%= sort_link "receipts", @work, "kr" %></th>
             <th>Zinzendorf</th>
           </tr>
         </thead>
@@ -80,8 +78,20 @@
             <tr>
               <td><%= link_to performance.date.strftime("%Y/%m/%d"), performance %></td>
               <td><%= performance.date.strftime("%a") %></td>
-              <td class="right"><%= performance.receipts.to_i.divmod(60)[0]%></td>
-              <td class="right"><%= performance.receipts.to_i.divmod(60)[1]%></td>
+              <td class="right">
+                <% if performance.receipts == "0" %>
+                  &mdash;
+                <% else %> 
+                  <%= performance.receipts.to_i.divmod(60)[0]%></td>
+                <% end %>
+              </td>
+              <td class="right">
+                <% if performance.receipts == "0" %>
+                  &mdash;
+                <% else %>
+                  <%= performance.receipts.to_i.divmod(60)[1]%>
+                <% end %>
+              </td>
               <td class="center"><%= if performance.zinzendorf then "Yes" else "" end%></td>
             </tr>
           <% end %>

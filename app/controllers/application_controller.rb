@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     redirect_to login_path, alert: 'You must be logged in to access this page.' if current_user.nil?
   end
 
-  # Methods for sortable columns. Used in show views for Author, Composer, Work. sortable_columns is the white-list of columns in the each of the individual controllers.
+  # Methods for sortable columns. Used in show views for Author, Composer, Work. sortable_columns is the white-list of columns in each of the individual controllers.
 
   def sort_column
     sortable_columns.include?(params[:column]) ? params[:column] : "date"

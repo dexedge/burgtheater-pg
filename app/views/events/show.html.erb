@@ -47,7 +47,7 @@
   <p>
     <strong>Receipts:</strong>
     <% r = @event.receipts.to_i.divmod(60) %>
-    <% if @event.receipts == 'unknown' %>
+    <% if @event.receipts == '0' %>
       unknown
     <% else %>
       <%= r[0] %> fl <%= r[1] %> kr (<%= @event.receipts %> kr)

@@ -38,18 +38,10 @@
       <th class="dow"><%= sort_link "dow", @work, "Day" %></th>
       <th><%= sort_link "title", @composer %></th>
       <th class="right wide">
-        <% if @performances.exists?(receipts: "unknown") %>
-          fl
-        <% else %>
-          <%= sort_link "receipts", @composer, "fl" %>
-        <% end %>
+        <%= sort_link "receipts", @composer, "fl" %>
       </th>
       <th class="right wide">
-        <% if @performances.exists?(receipts: "unknown") %>
-          kr
-        <% else %>
-          <%= sort_link "receipts", @composer, "kr" %></th>
-        <% end %>
+        <%= sort_link "receipts", @composer, "kr" %></th>
       <th>Zinzendorf</th>
     </tr>
   </thead>
@@ -59,8 +51,20 @@
           <td><%= link_to p.date.strftime("%Y/%m/%d"), p %></td>
           <td><%= p.date.strftime("%a") %></td>
           <td><i><%= link_to p.works[0].title, p.works[0] %></i></td>
-          <td class="right"><%= p.receipts.to_i.divmod(60)[0]%></td>
-          <td class="right"><%= p.receipts.to_i.divmod(60)[1]%></td>
+          <td class="right">
+          <% if p.receipts == "0" %>
+              &mdash;
+            <% else %>
+              <%= p.receipts.to_i.divmod(60)[0]%>
+            <% end %>
+          </td>
+          <td class="right">
+            <% if p.receipts == "0" %>
+              &mdash;
+            <% else %>
+              <%= p.receipts.to_i.divmod(60)[1]%>
+            <% end %>
+          </td>
           <td class="center"><%= if p.zinzendorf then "Yes" else "" end %></td>
         </tr>
     <% end %>

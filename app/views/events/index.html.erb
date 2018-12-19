@@ -59,17 +59,23 @@
                 NA
             <% end %>
           </td>
-          <td class="right pad-right"><%= event.receipts %></td>
+          <td class="right pad-right">
+            <% if event.receipts == "0" %>
+              unknown
+            <% else %>
+              <%= event.receipts %>
+            <% end %>
+          </td>
           <% r = event.receipts.to_i.divmod(60) %>
           <td class="right pad-right">
-            <% if event.receipts == 'unknown' %>
+            <% if event.receipts == '0' %>
               —
             <% else %>
               <%= r[0] %> 
             <% end %>
           </td>
           <td class="right pad-right">
-            <% if event.receipts == 'unknown' %>
+            <% if event.receipts == '0' %>
               —
             <% else %>
               <%= r[1] %> 
