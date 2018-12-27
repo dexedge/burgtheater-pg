@@ -18,7 +18,7 @@ class ComposersController < ApplicationController
       @performances = performances.order(sort_column + " " + sort_direction)
     when "dow"
       @performances = performances.order("to_char(date, 'D') " + sort_direction + ", date")
-    when "title"
+    when "sortable_title"
       @performances = performances.order("lower(works." + sort_column + ") " + sort_direction + ", date")
     when "receipts"
       @performances = performances.order(sort_column + "::integer"+ " " + sort_direction)
@@ -98,6 +98,6 @@ class ComposersController < ApplicationController
 
     # White list for sortable columns
     def sortable_columns
-      ["date", "dow", "title", "receipts"]
+      ["date", "dow", "sortable_title", "receipts"]
     end
 end

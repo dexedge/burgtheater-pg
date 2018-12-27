@@ -36,7 +36,7 @@
     <tr>
       <th><%= sort_link "date", @composer %></th>
       <th class="dow"><%= sort_link "dow", @work, "Day" %></th>
-      <th><%= sort_link "title", @composer %></th>
+      <th><%= sort_link "sortable_title", @composer, "Title" %></th>
       <th class="right wide">
         <%= sort_link "receipts", @composer, "fl" %>
       </th>
