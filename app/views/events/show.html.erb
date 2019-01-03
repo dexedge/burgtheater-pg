@@ -38,9 +38,17 @@
   <% if @event.works[0].authors[0] %> 
     <p>
       <strong>Author: </strong>
-      <%= link_to @event.works[0].authors[0].lastname, @event.works[0].authors[0]%>
+      <% credited_author = @event.works[0].writings.find_by_credited_author(true)%>
+            <% if @event.works[0].authors.any? %>
+              <% if credited_author %>
+                <%= link_to credited_author.author.lastname, credited_author.author %>
+              <% else %> 
+                <%= link_to @event.works[0].authors[0].lastname, @event.works[0].authors[0]%>
+              <% end %>
+            <% end %>
+      <%#= link_to @event.works[0].authors[0].lastname, @event.works[0].authors[0]%>
       <% if @event.double %>
-        | <%= link_to @event.works[1].authors[0].lastname, @event.works[1] %>
+        | <%= link_to @event.works[1].authors[0].lastname, @event.works[1].authors[0] %>
       <% end %>
     </p>
   <% end %>
