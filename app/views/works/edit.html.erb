@@ -15,6 +15,13 @@
   <div class="col-6">
     <%= render 'form', work: @work %>
   </div>
+  <div class="col-1"></div>
+  <div class="col">
+    <% if !@work.image_name.blank? %>
+      <%= link_to image_tag("titlepages/#{@work.image_name}", size: "298x500", class: "titlepage"), @work.book_url, target:
+    "_blank" %>
+    <% end %>
+  </div>
 </div>
 <hr class="top">
 <%= link_to 'Show', @work %>
