@@ -134,7 +134,11 @@ class WorksController < ApplicationController
     end
 
     def set_query
-      session[:query] = params[:q] if params[:q]
+      if request.referer.include? "events"
+        session[:query] = nil
+      else
+        session[:query] = params[:q] if params[:q]
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

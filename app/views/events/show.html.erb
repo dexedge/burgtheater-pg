@@ -1,17 +1,29 @@
 <p style="margin: 0">
-  <% if @event.prev %>
-    <%= link_to 'Previous Day', @event.prev %> 
-    <% if @event.next %> 
-      | <%= link_to 'Next Day', @event.next %>
-    <% end %>
+  <% prev_event = Event.ransack(session[:query]).result.order(date: :desc).find_by("date < ?", @event.date) %>
+  
+  <% next_event = Event.ransack(session[:query]).result.order(:date).find_by("date > ?", @event.date) %>
+  
+  <% if prev_event %>
+    <%= link_to 'Previous Day', prev_event %> |
   <% else %>
-    <%= link_to 'Next Day', @event.next %>
+    <span class="greyed-out">Previous Day</span> |
   <% end %>
+  <% if next_event %> 
+    <%= link_to 'Next Day', next_event %>
+  <% else %>
+    <span class="greyed-out">Next Day</span>
+  <% end %>
+  
   <% if current_user %> 
     | <%= link_to 'Edit', edit_event_path(@event) %>
   <% end %>
   <% if notice %>
       | <span id="notice"><%= notice %></span> 
+  <% end %>
+  <% if session[:query] %>
+    <span style="margin-left: 1em">
+      <%= link_to "(clear search)", clear_event_path(@event), class: "small" %>
+    </span>
   <% end %>
 </p>
 
@@ -94,3 +106,5 @@
   </p>
 </div>
 <hr>
+<%#= session[:query] %>
+<%#= Event.includes(:works).ransack(session[:query]).result.order(date: :desc).find_by("date < ?", @event.date).inspect %>

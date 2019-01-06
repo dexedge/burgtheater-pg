@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :clear]
+  before_action :set_query
 
   # GET /events
   # GET /events.json
@@ -68,10 +69,23 @@ class EventsController < ApplicationController
     redirect_to root_url, notice: 'Successfully imported data!'
   end
 
+  def clear
+    session[:query] = nil
+    redirect_to @event
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.friendly.find(params[:id])
+    end
+
+    def set_query
+      # if request.referer.include? "works"
+      #   session[:query] = nil
+      # else
+        session[:query] = params[:q] if params[:q]
+      # end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -24,11 +24,11 @@ class Event < ApplicationRecord
     Event.import events, recursive: true
   end
 
-  def next
-    Event.order(:date).find_by("date > ?", date)
-  end
+  # def next
+  #   Event.order(:date).find_by("date > ?", date)
+  # end
   
-  def prev
-    Event.order(date: :desc).find_by("date < ?", date)
-  end
+  # def prev
+  #   Event.order(date: :desc).find_by("date < ?", date)
+  # end
 end

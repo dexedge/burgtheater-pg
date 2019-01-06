@@ -22,14 +22,6 @@ class Work < ApplicationRecord
     end
     Work.import works, recursive: true
   end
-  
-  # def next
-  #   Work.order(:sortable_title).find_by("sortable_title > ?", sortable_title)
-  # end
-  
-  # def prev
-  #   Work.order(sortable_title: :desc).find_by("sortable_title < ?", sortable_title)
-  # end
 
   def is_author?(author)
     self.authors.include?(author)

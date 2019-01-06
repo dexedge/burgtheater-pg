@@ -186,4 +186,5 @@
 </p>
 <hr>
 <%#= session[:query] %>
+<%#=  request.referer %>
 <%#= Work.ransack(session[:query]).result.order(:sortable_title).find_by("sortable_title > ?", @work.sortable_title).inspect %>
