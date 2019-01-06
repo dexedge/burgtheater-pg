@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       get :authors
       post :author_add
       post :author_remove
+      get :clear
     end
   end
 

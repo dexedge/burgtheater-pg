@@ -12,11 +12,11 @@ module ApplicationHelper
       else
         direction = "desc"
       end
-    else                          # Else the column has not yet been sorted
-      if column == "receipts"     # Default first to descending for receipts
+    else                      # Else the column has not yet been sorted
+      if column == "receipts" # Default first to descending for receipts
         direction = "desc"
       else
-        direction = "asc"         # Default to ascending for others
+        direction = "asc"     # Default to ascending for others
       end
     end
       
@@ -31,6 +31,7 @@ module ApplicationHelper
       link_to "#{title}<i class='#{icon}'></i>".html_safe, {column: column, direction: direction}
     end
   end
+
 
 # Helper functions for calculating mean and median of an array of receipts in kreuzer
 
