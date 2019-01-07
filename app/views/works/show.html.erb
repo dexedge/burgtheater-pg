@@ -1,8 +1,9 @@
 <p style="margin: 0">
+  <!-- If there is a ransack search query from Works index, it is stored in the session variable :query, so the previous and next works will be those in the found set -->
   <% prev_work = Work.ransack(session[:query]).result.order(sortable_title: :desc).find_by("sortable_title < ?", @work.sortable_title) %>
 
   <% next_work = Work.ransack(session[:query]).result.order(:sortable_title).find_by("sortable_title > ?", @work.sortable_title) %>
-
+  <!-- If we are at the beginning or end of the list, grey it out, with no link -->
   <% if prev_work %>
     <%= link_to 'Previous Work', prev_work %> |
   <% else %>
@@ -13,7 +14,8 @@
   <% else %>
     <span class="greyed-out">Next Work</span>
   <% end %>
- 
+
+ <!-- If a user is logged in, show Edit options -->
   <% if current_user %>
     | <%= link_to 'Edit Work', edit_work_path(@work) %>
     | <%= link_to 'Edit Authors', authors_work_path(@work) %>
@@ -21,6 +23,7 @@
   <% if notice %>
       | <span id="notice"><%= notice %></span> 
   <% end %>
+  <!-- Link to clear current ransack search; returns to current page -->
   <% if session[:query] %>
     <span style="margin-left: 1em">
       <%= link_to "(clear search)", clear_work_path(@work), class: "small" %>
@@ -69,7 +72,8 @@
       <p>NA</p>
     <% end %>
     
-    <h4>Performances</h4>
+    <!-- Table of performances, with sortable columns -->
+    <h4>Performances</h4> 
       <% if @performances.any? %>
         <table class="table table-responsive table-striped">
         <thead>
@@ -109,10 +113,11 @@
           <% end %>
         </tbody>
         </table>
-      <% else %> <!-- No records for "Theater closed" -->
+      <% else %> <!-- No records shown for "Theater closed" -->
         NA
       <% end %>
   </div> <!-- End Column 1 -->
+  <!-- Show the title page image if there is one -->
   <div class="col">
     <% if !@work.image_name.blank? %>
       <%= link_to image_tag("titlepages/#{@work.image_name}", size: "250x420", class: "titlepage"), @work.book_url, target:
@@ -139,8 +144,8 @@
     <strong>Zinzendorf attendances:</strong>
     <%= z %> (<%= (z.to_f/c.to_f * 100).round(2) %>%)
   </p>
-  <!-- Calculate mean and median receipts -->
-    <!--Get array of receipts for this work-->
+    <!-- Calculate mean and median receipts -->
+    <!-- Get array of receipts for this work -->
     <!-- Remove any performances that were free or canceled -->
     <% r = @work.events.where.not(kind: ["canceled", "free"]).pluck(:receipts) %>
     <!--Convert array items from string to integer -->
@@ -183,12 +188,8 @@
 <p>
   <strong>Updated:</strong>
   <%= @work.updated_at.strftime("%a, %-d %b %Y, %H:%M %Z") %>
-<<<<<<< HEAD
-</p>
-=======
 </p>
 <hr>
 <%#= session[:query] %>
 <%#=  request.referer %>
 <%#= Work.ransack(session[:query]).result.order(:sortable_title).find_by("sortable_title > ?", @work.sortable_title).inspect %>
->>>>>>> search-set
