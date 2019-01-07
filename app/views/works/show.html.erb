@@ -85,7 +85,7 @@
           </tr>
         </thead>
         <tbody>
-          <!-- In Works controller, @performances = @work.events.where.not(receipts: "NA")-->
+          <!-- In Works controller, @performances = @work.events.where.not(receipts: "NA") -->
           <% @performances.each do | performance | %>
             <tr>
               <td><%= link_to performance.date.strftime("%Y/%m/%d"), performance %></td>

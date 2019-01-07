@@ -107,4 +107,5 @@
 </div>
 <hr>
 <%#= session[:query] %>
+<%#=  request.referer %>
 <%#= Event.includes(:works).ransack(session[:query]).result.order(date: :desc).find_by("date < ?", @event.date).inspect %>
