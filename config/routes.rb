@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   
   resources :events do
     collection {post :import}
+    member do
+      get :clear
+    end
   end
   
   resources :works do
@@ -26,6 +29,7 @@ Rails.application.routes.draw do
       get :authors
       post :author_add
       post :author_remove
+      get :clear
     end
   end
 

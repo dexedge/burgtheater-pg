@@ -1,12 +1,15 @@
 <p style="margin: 0">
   <% if @author.prev %>
-    <%= link_to 'Previous Author', @author.prev %> 
-    <% if @author.next %> 
-      | <%= link_to 'Next Author', @author.next %>
-    <% end %>
+    <%= link_to 'Previous Author', @author.prev %> |
   <% else %>
-    <%= link_to 'Next Author', @author.next %>
+    <span class="greyed-out">Previous Author</span> |
   <% end %>
+  <% if @author.next %> 
+    <%= link_to 'Next Author', @author.next %>
+  <% else %>
+    <span class="greyed-out">Next Author</span>
+  <% end %>
+  
   <% if current_user %>
      | <%= link_to 'Edit', edit_author_path(@author) %> |
     <%= link_to 'Delete', @author, method: :delete, data: { confirm: 'Are you sure?' } %>

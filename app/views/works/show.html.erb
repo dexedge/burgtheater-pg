@@ -1,18 +1,30 @@
 <p style="margin: 0">
-  <% if @work.prev %>
-    <%= link_to 'Previous Work', @work.prev %> 
-    <% if @work.next %> 
-     | <%= link_to 'Next Work', @work.next %>
-    <% end %>
+  <% prev_work = Work.ransack(session[:query]).result.order(sortable_title: :desc).find_by("sortable_title < ?", @work.sortable_title) %>
+
+  <% next_work = Work.ransack(session[:query]).result.order(:sortable_title).find_by("sortable_title > ?", @work.sortable_title) %>
+
+  <% if prev_work %>
+    <%= link_to 'Previous Work', prev_work %> |
   <% else %>
-    <%= link_to 'Next Work', @work.next %>
+    <span class="greyed-out">Previous Work</span> |
   <% end %>
+  <% if next_work %> 
+    <%= link_to 'Next Work', next_work %>
+  <% else %>
+    <span class="greyed-out">Next Work</span>
+  <% end %>
+ 
   <% if current_user %>
     | <%= link_to 'Edit Work', edit_work_path(@work) %>
     | <%= link_to 'Edit Authors', authors_work_path(@work) %>
   <% end %>
   <% if notice %>
       | <span id="notice"><%= notice %></span> 
+  <% end %>
+  <% if session[:query] %>
+    <span style="margin-left: 1em">
+      <%= link_to "(clear search)", clear_work_path(@work), class: "small" %>
+    </span>
   <% end %>
 </p>
 
@@ -73,7 +85,7 @@
           </tr>
         </thead>
         <tbody>
-          <!-- In Works controller, @performances = @work.events.where.not(receipts: "NA")-->
+          <!-- In Works controller, @performances = @work.events.where.not(receipts: "NA") -->
           <% @performances.each do | performance | %>
             <tr>
               <td><%= link_to performance.date.strftime("%Y/%m/%d"), performance %></td>
@@ -171,4 +183,12 @@
 <p>
   <strong>Updated:</strong>
   <%= @work.updated_at.strftime("%a, %-d %b %Y, %H:%M %Z") %>
+<<<<<<< HEAD
 </p>
+=======
+</p>
+<hr>
+<%#= session[:query] %>
+<%#=  request.referer %>
+<%#= Work.ransack(session[:query]).result.order(:sortable_title).find_by("sortable_title > ?", @work.sortable_title).inspect %>
+>>>>>>> search-set

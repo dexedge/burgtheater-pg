@@ -1,5 +1,6 @@
 class WorksController < ApplicationController
-  before_action :set_work, only: [:show, :edit, :update, :destroy]
+  before_action :set_work, only: [:show, :edit, :update, :destroy, :clear]
+  before_action :set_query
   before_action :authorize, only: [:edit, :update]
 
   # GET /works
@@ -121,10 +122,23 @@ class WorksController < ApplicationController
     redirect_to action: "authors", id: @work
   end
 
+  def clear
+    session[:query] = nil
+    redirect_to @work
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_work
       @work = Work.friendly.find(params[:id])
+    end
+
+    def set_query
+      if request.referer.include? "events"
+        session[:query] = nil
+      else
+        session[:query] = params[:q] if params[:q]
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
