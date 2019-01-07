@@ -1,11 +1,13 @@
 <p style="margin: 0">
   <% if @author.prev %>
-    <%= link_to 'Previous Author', edit_author_path(@author.prev) %> 
-    <% if @author.next %> 
-      | <%= link_to 'Next Author', edit_author_path(@author.next) %>
-    <% end %>
+    <%= link_to 'Previous Author', edit_author_path(@author.prev) %> |
   <% else %>
+    <span class="greyed-out">Previous Author</span> |
+  <% end %>
+  <% if @author.next %> 
     <%= link_to 'Next Author', edit_author_path(@author.next) %>
+  <% else %>
+    <span class="greyed-out">Next Author</span>
   <% end %>
 </p>
 <h1>Editing Author</h1>

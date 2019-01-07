@@ -1,13 +1,34 @@
 <p style="margin: 0">
-  <% if @event.prev %>
-    <%= link_to 'Previous Event', edit_event_path(@event.prev) %>
-    <% if @event.next %>
-      | <%= link_to 'Next Event', edit_event_path(@event.next) %>
-    <% end %>
+  <%# if @event.prev %>
+    <%#= link_to 'Previous Event', edit_event_path(@event.prev) %>
+    <%# if @event.next %>
+      <%#= link_to 'Next Event', edit_event_path(@event.next) %>
+    <%# end %>
+  <%# else %>
+    <%#= link_to 'Next Event', edit_event_path(@event.next) %>
+  <%# end %>
+
+  <% prev_event = Event.ransack(session[:query]).result.order(date: :desc).find_by("date < ?", @event.date) %>
+  
+  <% next_event = Event.ransack(session[:query]).result.order(:date).find_by("date > ?", @event.date) %>
+  
+  <% if prev_event %>
+    <%= link_to 'Previous Day', edit_event_path(prev_event) %> |
   <% else %>
-    <%= link_to 'Next Event', edit_event_path(@event.next) %>
+    <span class="greyed-out">Previous Day</span> |
+  <% end %>
+  <% if next_event %> 
+    <%= link_to 'Next Day', edit_event_path(next_event) %>
+  <% else %>
+    <span class="greyed-out">Next Day</span>
+  <% end %>
+  <% if session[:query] %>
+    <span style="margin-left: 1em">
+      <%= link_to "(clear search)", clear_event_path(@event), class: "small" %>
+    </span>
   <% end %>
 </p>
+
 <h1>Editing Event</h1>
 <h2>
   <%= @event.works[0].title%>
