@@ -1,5 +1,5 @@
 <p style="margin: 0">
-  <!-- If there is a ransack search query from Works index, it is stored in the session variable :query, so the previous and next works will be those in the found set -->
+  <!-- If there is a ransack search query from Works index, it is stored in a session variable :query, so that the previous and next works will be those in the found set -->
   <% prev_work = Work.ransack(session[:query]).result.order(sortable_title: :desc).find_by("sortable_title < ?", @work.sortable_title) %>
 
   <% next_work = Work.ransack(session[:query]).result.order(:sortable_title).find_by("sortable_title > ?", @work.sortable_title) %>
