@@ -1,5 +1,5 @@
 <p style="margin: 0">
-  <!-- If there is a ransack search query from Works index, it is stored in a session variable :query, so that the previous and next works will be those in the found set -->
+  <!-- If there is a ransack search query from the Works index, it is stored in the session variable :query, so that we can find the previous and next works in the found set -->
   <% prev_work = Work.ransack(session[:query]).result.order(sortable_title: :desc).find_by("sortable_title < ?", @work.sortable_title) %>
 
   <% next_work = Work.ransack(session[:query]).result.order(:sortable_title).find_by("sortable_title > ?", @work.sortable_title) %>
@@ -23,14 +23,14 @@
   <% if notice %>
       | <span id="notice"><%= notice %></span> 
   <% end %>
-  <!-- Link to clear current ransack search; returns to current page -->
+  <!-- Clear current ransack search, and return to current page -->
   <% if session[:query] %>
     <span style="margin-left: 1em">
       <%= link_to "(clear search)", clear_work_path(@work), class: "small" %>
     </span>
   <% end %>
 </p>
-
+<!-- Display the record of the current work -->
 <h2>
   <i><%= @work.title %></i>
 </h2>
@@ -42,7 +42,7 @@
          <%= link_to @work.composers[0].lastname, @work.composers[0] %>
        </p>
     <% end %>
-    
+    <!-- List the associated authors and their functions -->
     <h5>Author(s):</h5>
     <% if @work.authors[0] %>
       <table class="indent">
@@ -72,7 +72,7 @@
       <p>NA</p>
     <% end %>
     
-    <!-- Table of performances, with sortable columns -->
+    <!-- Table of performances of the current work, with sortable columns -->
     <h4>Performances</h4> 
       <% if @performances.any? %>
         <table class="table table-responsive table-striped">
@@ -89,7 +89,7 @@
           </tr>
         </thead>
         <tbody>
-          <!-- In Works controller, @performances = @work.events.where.not(receipts: "NA") -->
+          <!-- As defined in the Works controller, @performances = @work.events.where.not(receipts: "NA") -->
           <% @performances.each do | performance | %>
             <tr>
               <td><%= link_to performance.date.strftime("%Y/%m/%d"), performance %></td>

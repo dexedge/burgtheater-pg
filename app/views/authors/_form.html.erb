@@ -1,15 +1,15 @@
 <%= simple_form_for @author do |form| %>
   <%= form.error_notification%>
 
-  <%= form.input :lastname, label: 'Last name' %>
+  <%= form.input :lastname, label: 'Last name', input_html: { rows: 1 } %>
   
-  <%= form.input :firstnames, label: 'First name(s)' %>
+  <%= form.input :firstnames, label: 'First name(s)', input_html: { rows: 1 } %>
 
   <%= form.input :birth %>
 
   <%= form.input :death %>
 
-  <%= form.input :notes, input_html: { rows: 3 } %>
+  <%= form.input :notes, input_html: { rows: 6 } %>
 
   <%= form.button :submit, class: "btn-outline-secondary" %> 
 
