@@ -23,7 +23,8 @@
   <% if notice %>
       | <span id="notice"><%= notice %></span> 
   <% end %>
-  <!-- Clear current ransack search, and return to current page -->
+  <!-- Link to clear current ransack search, and 
+  return to current page -->
   <% if session[:query] %>
     <span style="margin-left: 1em">
       <%= link_to "(clear search)", clear_work_path(@work), class: "small" %>
