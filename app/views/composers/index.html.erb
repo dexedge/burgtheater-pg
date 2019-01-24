@@ -3,13 +3,7 @@
 <% end %>
 
 <h1>Composers</h1>
-<!--<div>
-  <h4>Import data!</h4>
-  <%= form_tag import_composers_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <%= submit_tag "Import from file"%>
-  <% end %>
-</div>-->
+
 <% cache(@composers) do %>
 <table class="table table-responsive table-striped">
   <thead>

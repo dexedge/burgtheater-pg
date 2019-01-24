@@ -1,30 +1,15 @@
 Rails.application.routes.draw do
-  resources :users
   root to: "events#index"
-  get 'events/index'
-  get 'events/import' => 'events#my_import'
-  get 'works/index'
-  get 'works/import' => 'works#my_import'
-  get 'performances/index'
-  get 'performances/import' => 'performances#my_import'
-  get 'authors/index'
-  get 'authors/import' => 'authors#my_import'
-  get 'writings/index'
-  get 'writings/import' => 'writings#my_import'
-  get 'composers/index'
-  get 'composers/import' => 'composers#my_import'
-  get 'composings/index'
-  get 'composings/import' => 'composings#my_import'
+  
+  resources :users
   
   resources :events do
-    collection {post :import}
     member do
       get :clear
     end
   end
   
   resources :works do
-    collection {post :import}
     member do
       get :authors
       post :author_add
@@ -33,28 +18,19 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :performances do
-    collection {post :import}
-  end
+  resources :performances 
 
   resources :authors do
-    collection {post :import}
     member do
       get :works
     end
   end
   
-  resources :writings do
-    collection {post :import}
-  end
+  resources :writings
   
-  resources :composers do
-    collection {post :import}
-  end
+  resources :composers
   
-  resources :composings do
-    collection {post :import}
-  end
+  resources :composings
 
   get 'users/new' => 'users#new'
   post 'users' => 'users#create'
