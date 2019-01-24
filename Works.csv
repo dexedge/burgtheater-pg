@@ -1,140 +1,0 @@
-id,title,genre,notes,created_at,updated_at
-1,Agnes Bernauerinn,T,,1/4/2015,1/5/2015
-2,Alles aus Eigennutz,S,http://books.google.com.au/books?id=OS1IAAAAcAAJ&pg=PP5#v=onepage&q&f=false,1/4/2015,1/5/2015
-3,Ariadne auf Naxos,M,,1/4/2015,1/28/2015
-4,"Axur, re d'Ormus",O,"An Italian adaptation of Salieri's Tarare, with a libretto by Beaumarchais.",1/4/2015,1/28/2015
-5,Bayard,S,,1/4/2015,1/5/2015
-137,Concert,C,"A generic record and title to stand for all concerts (apart from L'ape musicale, which has a separate Work record). Notes on specific concerts are in the Event record for that concert.",1/9/2015,1/9/2015
-6,Così fan tutte,O,,1/4/2015,1/5/2015
-7,Das Blatt hat sich gewendet,L,"Based on Richard Cumberland, The Brothers.  Title page: ""Das Blatt hat sich gewendet. / Ein / Lustspiel / in / fünf Aufzügen. / Von Schröder. / Nach dem Englischen des Cumberland.""1786 printing: https://books.google.com/books?id=SylXAAAAcAAJ&dq=das%20blatt%20hat%20sich%20gewendet&pg=PR4#v=onepage&q&f=false",1/4/2015,1/11/2015
-8,Das Findelkind,L,,1/4/2015,1/6/2015
-9,Das Herz behält seine Rechte,S,,1/4/2015,1/5/2015
-10,Das Kleid aus Lyon,L,,1/4/2015,1/5/2015
-11,Das Landmädchen,L,"Title (1776 printing?): ""Das / Landmädchen. / Ein / Lustspiel / in fünf Aufzügen, / nach dem Englischen / des Herrn Wicherley.""https://books.google.com/books?id=95dHAAAAcAAJ&dq=das%20landm%C3%A4dchen&pg=PA1#v=onepage&q&f=falseSchmid not explicitly credited as translator.",1/4/2015,1/11/2015
-12,Das Liebhaber-Duell,L,"Said in Goedeke's article on Pelzel to be based on a play by Garrick, but not clear what this is.  There is no obviously matching title in the complete list of works here:http://ota.ox.ac.uk/text/4107.htmlNo copy of Das Liebhaber-Duell in ÖNB online catalogue under Pelzel's name. According to Hadamowsky, there is a manuscript censor's copy, and a poster.  (The mention of Garrick is perhaps on the poster?)",1/4/2015,1/12/2015
-13,Das Loch in der Thure,L,,1/4/2015,1/5/2015
-14,Das öffentliche Geheimniß,L,"Title page (Vienna 1792):Das / öffentliche Geheimniß. / Ein / Lustspiel / in fünf Aufzügen, / nach Gozzi von Gotter.https://books.google.com/books?id=w7dTAAAAcAAJ&dq=%22das%20%C3%B6ffentliche%20geheimni%C3%9F%22&pg=PA1#v=onepage&q&f=falseProbably adapted from Il Pubblico Secreto",1/4/2015,1/12/2015
-15,Das Portrait der Mutter,L,,1/4/2015,1/5/2015
-16,Das Räuschgen,L,,1/4/2015,1/5/2015
-17,Das Souvenir,G,,1/4/2015,1/5/2015
-18,Das Testament,L,,1/4/2015,1/5/2015
-19,Der Adjutant,L,,1/4/2015,1/5/2015
-20,Der Advokat zu Cordoua,L,"Title page (Vienna 1789):Der Advokat / zu / Cordoua. / Ein Lustspiel in fünf Aufzügen, / aus dem englischen von Beaumont und Flet= / cher frei übersetzt.https://books.google.com/books?id=ZbxTAAAAcAAJ&dq=%22der%20Advokat%20zu%20cordoua%22&pg=PA1#v=onepage&q&f=falseAdapted from The Little French Lawyer (pub. 1647).  Pape not credited as translator.  The mention of Beaumont comes from the collected publication.",1/4/2015,1/12/2015
-21,Der Bettelstudent,L,"This would appear to be a play with music, rather than a Singspiel, but this should be checked.",1/4/2015,1/8/2015
-22,Der Bettler,L,"Title page (Vienna 1773):Der / Bettler. / Ein Lustspiel in einem Aufzuge, / Vom Herrn Magister Bock.Based on Goldoni, La birba (1734)?",1/4/2015,1/11/2015
-23,Der Burgermeister,L,,1/4/2015,1/5/2015
-24,Der dankbare Sohn,L,,1/4/2015,1/4/2015
-25,Der Dorfbarbier,L,,1/4/2015,1/4/2015
-26,Der Eilfertige,L,,1/4/2015,1/5/2015
-27,Der Fabrikant,L,,1/4/2015,1/5/2015
-28,Der Fahndrich,L,,1/4/2015,1/5/2015
-29,Der Fasching-Dienstag,L,,1/4/2015,1/5/2015
-30,Der flatterhafte Ehemann,L,"Title page (Hamburg 1785)Wie man eine Hand / umkehrt, / oder: / Der flatterhafte / Ehemann. / Ein / Lustspiel / in fünf Aufzügebn, / von Bock.https://books.google.com/books?id=IqxIAAAAcAAJ&dq=%22der%20flatterhafte%20Ehemann%22&pg=PA1#v=onepage&q&f=falseHadamowsky's listing has the title and subtitle in reverse order.  From The careless husband by Colley Cibber.",1/4/2015,1/11/2015
-31,Der Hausvater,S,Published in Das Theater des Herrn Diderot. Aus dem Französischen übersezt von Gotthold Ephraim Lessing.https://books.google.com/books?id=IM85AAAAcAAJ&dq=%22der%20hausvater%22%20diderot&pg=PP7#v=onepage&q&f=falseProbably from Le Père de famille (1758): http://en.wikipedia.org/wiki/Le_Père_de_famille,1/4/2015,1/12/2015
-32,Der Jurist und der Bauer,L,,1/4/2015,1/4/2015
-33,Der Kobold,L,"Title page (Vienna 1778):Der / Kobold. / Ein / Lustspiel in vier Akten. / Nach Hauteroche und Colle. / Nationalisiret von Herrn Gotter.Probably derived from L'Esprit folle, which may in turn descend from Calderón, La dama duende.  See:https://books.google.com/books?id=mcC0hgK8FI0C&lpg=PA420&ots=bd4Be47Sxq&dq=%22der%20kobold%22%20hauteroche&pg=PA419#v=onepage&q&f=false",1/4/2015,1/12/2015
-34,Der König Lear,T,,1/4/2015,1/5/2015
-35,Der Kühehirt,L,,1/4/2015,1/4/2015
-36,Der Landphilosoph,L,,1/4/2015,1/5/2015
-37,Der Mönch vom Carmel,T,Title page (Vienna 1787):Der Mönch / vom / Carmel. / Ein dramatisches Gedicht / in / fünf Aufzügen. / Vom Freyherrn von Dalberg.https://books.google.com/books?id=PqtSAAAAcAAJ&dq=%22der%20M%C3%B6nch%20vom%20carmel%22&pg=PA1#v=onepage&q&f=falseBased on Cumberland's The Carmelite. Cumberland is not mentioned on the Vienna title page.,1/4/2015,1/12/2015
-38,Der poetische Dorfjunker,L,Title page (Vienna 1761):Der Poetische / Dorfjunker. / Ein Lustspiel / in fünf Aufzügen. / Mit einiger Veränderung / aus dem Französischen / Des Herrn Destouches / übersetzt / von / L. A. V. Gottschedinn.https://books.google.com/books?id=ftVVAAAAcAAJ&dq=%22der%20poetische%20dorfjunker%22&pg=PR3#v=onepage&q&f=falseBased on La Fausse Agnès (1759),1/4/2015,1/12/2015
-39,Der Postzug,L,,1/4/2015,1/5/2015
-40,Der Revers,L,,1/4/2015,1/5/2015
-42,Der Ring,L,"Title page (Vienna 1786):Der Ring. / Ein Lustspiel / in fünf Aufzügen. / Von / Schröder.https://books.google.com/books?id=cYdHAAAAcAAJ&dq=%22der%20ring%22%20schr%C3%B6der&pg=PA1#v=onepage&q&f=falseTranslated and adapted from Farquhar, The Constant Couple.",1/4/2015,1/11/2015
-41,Der Ring (Part 2),L,,1/4/2015,1/5/2015
-43,Der Schreiner,L,"Performance on 14 Oct 1789 was ""frey"" in celebration of the taking of Belgrade.",1/4/2015,2/4/2015
-44,Der seltne Freyer,L,"Title page (Vienna 1781):Der / seltne Freyer. / Ein / Lustspiel / in / drey Aufzügen. / Aus dem Französischen / des Gernevalde.https://books.google.com/books?id=Mt8mqQTt7ngC&dq=%22der%20seltne%20freyer%22%20gernevalde&pg=PA1#v=onepage&q&f=falseOriginal source unclear. Gernevalde is not well documented online.  One play that turns up fairly often is L'Homme noir, ou le Spleen.",1/4/2015,1/12/2015
-45,Der seltne Onckel,L,,1/4/2015,1/5/2015
-46,Der Sohn aus Indien,L,,1/4/2015,1/5/2015
-47,Der Sonderling,L,,1/4/2015,1/5/2015
-48,Der Strich durch die Rechnung,L,,1/4/2015,1/5/2015
-49,Der taube Liebhaber,L,"In Hadamowsky as:   ""L 2, n d Engl. d Pilow fürs deutsche Theater einger. (Friedr. Ludw.) Schröder.",1/4/2015,1/7/2015
-50,"Der Todte, ein Freyer",L,,1/4/2015,1/5/2015
-51,Der Vetter in Lissabon,G,,1/4/2015,1/5/2015
-52,Der Vizekanzler,S,,1/4/2015,1/5/2015
-53,Der Wechsel,L,,1/4/2015,1/5/2015
-54,Der Wittwer,L,,1/4/2015,1/4/2015
-55,Die Adelsucht,L,"Original source uncertain.  See the list of plays by La Chaussée here:http://cesar.org.uk/cesar2/people/people.php?fct=edit&person_UOID=100736No copy of Die Adelsucht turns up in a Google search, but there are many references to performances of it, and references to Schröder acting in it.  Schröder seems to have billing as author in most references.",1/4/2015,1/12/2015
-56,Die Beschämten,L,There is a long article on Die Beschämten in Schink's Dramaturgische Monate. https://books.google.com/books?id=Wf86AAAAcAAJ&dq=%22die%20besch%C3%A4mten%22%20schink&pg=PA212-IA19#v=onepage&q&f=falseProbably from Cibber's The Careless Husband?,1/4/2015,1/14/2015
-57,Die drey Töchter,L,,1/4/2015,1/5/2015
-58,Die Entführung,L,,1/4/2015,1/5/2015
-59,Die falschen Vertraulichkeiten,L,"From Les fausses confidences.References to Gotter in 18th-c. sources, but no accessible digital copy of the playbook.",1/4/2015,1/14/2015
-60,Die Familie,S,"Authiorial status of Gemmingen is unclear in Hadamowsky, who writes: ""(Gegenstück zu Diderots 'Hausvater' Otto Heinr. Reichsfreih. v Gemmingen) (v Friedr. Ludw. Schröder.)""Hadamowsky writes ""Ab 1808 unter d Orig.-Titel 'Der deutsche Hausvater."" But this is the title of a successful play by Gemmingen, so perhaps this is the work referred to here.Hoftheater Vieann 1807 playbook, with attribution to Gemmingen: https://books.google.com/books?id=yWxUAAAAcAAJ&dq=%22der%20deutsche%20hausvater&pg=PP1#v=onepage&q&f=false",1/4/2015,1/14/2015
-61,Die Glücksritter,L,"Based on Farquhar's The Beaux Stratagem.Title page (Vienna 1783):Die / Glücksritter, / oder / die Liebe / steht ihren Günstlingen bey. / Ein Lustspiel / in fünf Aufzügen. / Nach the Beaux Stratagem des Farquhar / bearbeitet.No translator given.https://books.google.com/books?id=EtpaAAAAcAAJ&dq=%22Die%20Gl%C3%BCcksritter'&pg=PP1#v=onepage&q&f=false",1/4/2015,1/14/2015
-62,Die grosse Batterie,L,,1/4/2015,1/5/2015
-63,Die Gunst der Fürsten,T,"Authorial credits are complicated.  Hadamowsky writes:Gunst der Fürsten, Die (oder: Elisabeth und Essex.) T 5 n (John) Banks, (Henry) Brooke, (Henry) Jones u (James) Ralph (v Christian Heinr. Schmid).Title page (Vienna 1773):Die / Gunst der Fürsten. / Ein / Trauerspiel in fünf Aufzügen, / nach / Banks, Brooke, Jones, und Ralph.https://books.google.com/books?id=TCRVAAAAcAAJ&dq=%22Die%20Gunst%20der%20F%C3%BCrsten%22&pg=PA1#v=onepage&q&f=falseUltimately derived from The Unhappy Favourite, or  the Earl of Essex (1681) On the complicated history, see:  http://sederi.org/docs/yearbooks/11/11%2018.Arreciado.pdf.  Banks's play was on the stage for over 70 years, with imitations by:James Ralph, The Fall of the Earl of Essex (1730)Henry Jones, The Earl of Essex (1753)Henry Brooke, The Earl of Essex (1761)Schmid is given as author on Google Books and elsewhere, but his name is not mentioned in the Viennese playbook. There is a multivolume work by Schmid called Englisches Theater, and a book (in English) about his translations of English plays.",1/4/2015,1/14/2015
-64,Die heimliche Heyrath,L,"Complex authorial credit.  Hadamowsky writes:(n ""The clandestine marriage"" d George) Colman (the Elder) u (David) Garrick. Neu übers. u fürs deutsche Theater eingerichtet Friedr. Ludw. Schröder.""Title page (Vienna 1781):Die / heimliche Heyrath. / Ein / Lustspiel / in / fünf Aufzügen, / von / Colman und Garrick. / Neu übersetzt, und fürs deutsche Theater eingerichtet / von / Schröder.Based on The Clandestine Marriage (1766).",1/4/2015,1/16/2015
-65,Die Heurath durch ein Wochenblatt,P,"(n Edme Boursaults ""Le Mercure galant"" v Friedr. Ludw. Schröder.)No evident digitized version of the playbook from Vienna in the 1780s.  1803 (and 1808) edition do not mention Schröder (or any author) on title page.According to Hadamowsky, based on Le Mercure galant.",1/4/2015,1/16/2015
-66,Die Holländer,L,"Full title: Die Holländer, oder Was vermag ein vernünftiges Frauenzimmer nicht!Based on Goldoni's I mercanti.No digitized copy of Viennese edition. ",1/4/2015,1/16/2015
-67,Die Indianer in England,L,,1/4/2015,1/5/2015
-68,Die Jäger,G,,1/4/2015,1/5/2015
-69,Die Lästerschule,L,"Title page (Vienna 1782):Die Lästerschule. / Ein Lustspiel in fünf Aufzügen, / nach dem Englischen / des jüngern Sheridan.Based on The School for Scandal.",1/4/2015,1/16/2015
-70,Die Mündel,S,,1/4/2015,1/5/2015
-71,Die Redoute,L,,1/4/2015,1/5/2015
-72,Die schöne Wienerinn,L,,1/4/2015,1/5/2015
-73,Die Sonnenjungfrau,S,,1/4/2015,1/5/2015
-74,Die Strelitzen,S,,1/4/2015,1/5/2015
-75,Die unerwartete Wendung,L,"This record of a prompter's copy attributes the play to Frances Chamberlaine Sheridan (1724-1766).http://allegro.sub.uni-hamburg.de/hans-cgi/hans.pl?x=u&t_show=x&wertreg=PER&wert=sheridan%2C+frances+chamberlaine+%5B1724-1766%5D%B7+++VERFASSERIN+BUCHHANDSCHRIFT&reccheck=157425This is most likely correct, rather than Elizabeth Anne Sheridan (née Linley), Richard's wife.Uncertain which of Frances Sheridan's plays this is. Perhaps The Discovery (1763)?https://books.google.com/books?id=E1AJAAAAQAAJ&dq=frances%20sheridan&pg=PP5#v=onepage&q&f=falseOn Sheridan, see http://en.wikipedia.org/wiki/Frances_Sheridan",1/4/2015,1/28/2015
-76,Die unmögliche Sache,L,"Hadamowsky: ""n d Engl. d (John) Crown(e) (""Sir courthy [sic] nice, or it cannot be"" f d deutsche Bühng übers. u einger.) v (Friedr.Ludw.Schröder.""Title (Vienna 1782):Die / unmögliche Sache. / Ein Lustspiel / in vier Aufzügen / nach dem Englischen des Crown.[Translator not specified]https://books.google.com/books?id=MNlaAAAAcAAJ&dq=%22die%20unm%C3%B6gliche%20Sache%22&pg=PA1#v=onepage&q&f=falseHadamowsky is referring to Sir Courtly Nice, or It Cannot Be (1685), derived from Moreto's No puede ser guardar una mujer.",1/4/2015,1/28/2015
-77,Die Widersprecherin,L,"(N d Französ. (""L'esprit de contradiction"" d Charles Rivière) Dufresny v Luise Adelgunde Gottsched.)",1/4/2015,1/7/2015
-78,Drey Zwillingschwestern,L,,1/4/2015,1/5/2015
-79,Emilia Galotti,T,,1/4/2015,1/5/2015
-80,Erklärte Fehde,L,"Hadamowsky: A d Französ. (n ""Guerre ouverte"" d Antoine-Jean Bourlin, Pseud.) Dumaniant übers. Gottl. Stephanie d Jüng.Title (Vienna 1787):Erklärte Fehde  / oder / List gegen List. / Ein / Lustspiel / in / drey Aufzügen, / Aus dem Französchen des Herrn Dumaniant / übersetzt / von Stephanie dem Jüngern.[Stephanie's name in larger type than Dumaniant's]Based on Guerre ouverte, ou Ruse contre ruse (1786)",1/4/2015,1/28/2015
-81,Erwine von Steinheim,T,,1/4/2015,1/5/2015
-82,Fehler in Formalibus,L,,1/4/2015,1/4/2015
-83,Fiesco,T,,1/4/2015,1/5/2015
-84,Fra i due litiganti,O,Based on Le nozze by Goldoni.,1/4/2015,1/7/2015
-85,Frauenstand,S,,1/4/2015,1/5/2015
-86,Geschwind eh es jemand erfährt,L,"Hadamowsky: ""n Carlo Goldoni Un curioso accidente v Joh Christian Bock.""Title (Vienna 1777):Geschwind, eh es / jemand erfährt, / oder / der besondre Zufall. / Ein / Lustspiel / in / drey Aufzügen. [no author attribution]https://books.google.com/books?id=KrVTAAAAcAAJ&dq=%22geschwind%20eh%20es%20jemand%20erf%C3%A4hrt%22&pg=PA1#v=onepage&q&f=falseA Hamburg playbook from 1784 attributes the play to ""Bock.""",1/4/2015,1/28/2015
-87,Gli equivoci,O,,1/4/2015,1/5/2015
-88,Grafen Guiscardi,T,,1/4/2015,1/5/2015
-89,Hamlet,T,"No evident copy of the playbook online.  The record for the 1789 Köln playbook in the ÖNB gives:Hamlet, Prinz von Dänemark. Trauerspiel in 5 Aufz. nach Shakespear, von (Friedrich Ludwig) Schröder. Neue rechtmäßige Aufl.The ÖNB has a digitized copy of an 1811 Viennese printing:http://data.onb.ac.at/rec/AC07687985",1/4/2015,1/28/2015
-90,Hattyù Ilona,L,,1/4/2015,1/5/2015
-91,I due baroni,O,,1/4/2015,1/5/2015
-92,I due suppositi conti,O,,1/4/2015,1/5/2015
-93,Il burbero di buon cuore,O,,1/4/2015,1/5/2015
-94,Il falegname,O,"Italian/German libretto from Viennese performance in 1783 attributes music solely to Cimarosa, showing that Salieri didn't get ""billing.""",1/4/2015,1/7/2015
-95,Il pastor fido,O,,1/4/2015,1/5/2015
-96,Il re Teodoro in Venezia,O,,1/4/2015,1/5/2015
-97,Il talismano,O,,1/4/2015,1/5/2015
-98,Il turco in Italia,O,,1/4/2015,1/5/2015
-99,Imogen,S,"Based on Shakespeare's Cymbeline.Digitized copy at ÖNB http://data.onb.ac.at/rec/AC10317158, Vienna 1782:Imogen. / Schauspiel / in fünf Aufzügen / aus dem Shakespeare.",1/4/2015,1/28/2015
-100,Irrthum auf allen Ecken,L,Based on She Stoops to Conquer.Title (Vienna 1804):Irrthum auf allen Ecken. / Ein Lustspiel / in / fünf Aufzügen. / Nach dem Englischen des D. Goldsmith.,1/4/2015,1/28/2015
-101,Juliane von Lindorak,S,"Hadamowsky has:  ""S 5. N (Carlo Graf) Gozzi (v Friedr. Ludw. Schröder)""Title (Vienna 1780):Juliane von Lindorak. / Ein Schauspiel  / in fünf Aufzügen. / Nach Gozzi. [...]https://books.google.com/books?id=ZRFaAAAAcAAJ&dq=%22juliane%20von%20lindorak%22&pg=PA1#v=onepage&q&f=falseAccording to Buch, Magic Flutes (252, n58), based on Gozzi's Doride, which in turn is based on Calderón's El secreto a voces.",1/4/2015,1/29/2015
-102,Komedie in der Komedie,L,,1/4/2015,1/4/2015
-103,Koriolan,T,"Note that this is definitely Shakespeare's Coriolan, not Heinrich Jos. v Collin's Coriolan, which premiered in 1802.  Hadamowsky has: ""T 5 n Schakespear v (Joh. Friedr.) Schink.""No evident copy online. Possible copy in the Shakespeare Memorial Collection in (apparently) the Birmingham (U.K.) Free Library?:  https://books.google.com/books?id=4ZcxAAAAYAAJ&dq=%22koriolan%22%20schink&pg=PA171#v=onepage&q&f=false",1/4/2015,1/29/2015
-138,L'ape musicale,C,"Pasticcio for the benefit of the opera company, given several times in 1789.",1/9/2015,1/9/2015
-104,L'arbore di Diana,O,,1/4/2015,1/5/2015
-105,La caffettiera bizzarra,O,,1/4/2015,1/5/2015
-106,La cifra,O,,1/4/2015,1/5/2015
-107,La giardiniera innamorata,O,,1/4/2015,1/5/2015
-108,La molinara,O,,1/4/2015,1/5/2015
-109,La pastorella nobile,O,,1/4/2015,1/5/2015
-110,La quacquera spirituosa,O,"But heavily adapted, so as to become essentially a pasticcio?Also spelled ""La quacquera spiritosa.""  No evident copy online.",1/4/2015,1/29/2015
-111,Lanassa,T,"Title (Augsburg 1783):Lanassa / Trauerspiel / in fünf Akten, / von / C. M. Plümike. / Nach der Veuve du Malabar des le Mierre.https://books.google.com/books?id=ia86AAAAcAAJ&dq=lanassa%20mierre&pg=PA1#v=onepage&q&f=falseSee also the record for the Viennese playbook (1783) in the ÖNB catalog:http://data.onb.ac.at/rec/AC10204406 (This one may not specify Plümicke on the title page.)",1/4/2015,1/29/2015
-112,Le gelosie fortunate,O,,1/4/2015,1/5/2015
-113,Le nozze di Figaro,O,Based on Beaumarchais's La Folle journée ou Le Mariage de Figaro (1784).,1/4/2015,1/28/2015
-114,Liebhaber und Nebenbuhler,L,,1/4/2015,1/5/2015
-115,Marie Stuart,T,,1/4/2015,1/5/2015
-116,Matilde,T,,1/4/2015,1/5/2015
-117,Medea,M,,1/4/2015,1/5/2015
-118,Menschenhaß und Reue,S,,1/4/2015,1/5/2015
-119,Minna von Barnhelm,L,,1/4/2015,1/5/2015
-120,"Narrheit, Liebe und Edelmut",L,,1/4/2015,1/5/2015
-121,Nicht mehr als sechs Schüsseln,G,,1/4/2015,1/5/2015
-123,Nina,O,"Hadamowsky:Tratto dal Francese (""Nina, ou La folle par amour"") v Benoit Joseph Marsollier des Vivetières) ridotto (Lor.) Da Ponte. Kom. Si 2, in Verse gebrachte und vermehrt v Lor. da Ponte. Mus. Giov. Paesiello.  Otto pezzi del (Gius.) Weigl.",1/4/2015,1/7/2015
-122,Nina (play),L,"Hadamowsky: ""Nina, oder Wahnwitz aus Liebe, L 1. N d Französ. (d Marollier) frey bearb., (Joh. Heinr. Friedr.) Müller d. Ältern.""Title (Vienna 1788):Nina, / oder/ Wahnwitz aus Liebe. / Ein Lustspiel in einem Aufzuge. / Nach dem Französischen frey bearbeitet, / von / Müller d. ältern.http://data.onb.ac.at/rec/AC10142477 ",1/4/2015,1/29/2015
-124,Olivie,T,,1/4/2015,1/5/2015
-125,Othello,T,"Hadamowsky: ""T 5 Shakespear. Zum Gebrauch d k. k. National-Hof-Theaters (n Christoph Martin Wielands Übersetzung bearb. v Franz Brockmann).Title (Vienna 1785): Othello, / der Mohr von Venedig. / Trauerspiel / in fünf Acten. / Von / Shakespear. [sic] / Zum Gebrauch des k. k. National=Hof=Theatershttps://books.google.com/books?id=6mtUAAAAcAAJ&dq=Othello%20wien&pg=PA1#v=onepage&q&f=false",1/4/2015,1/29/2015
-126,Percy,T,,1/4/2015,1/5/2015
-127,Romeo und Julie,T,"Hadamowsky: ""...bürgerliches T 5 (Shakespeare. Freie Bearbeitung Christian Felix) Weiße.""Several copies in ÖNB of various editions.Vienna 1769: ""Romeo und Julie, bürgerliches Trauerspiel in 5 Aufz. Von Weiße."" (not digitized)",1/4/2015,1/29/2015
-128,Stille Wasser sind betrüglich,L,"Hadamowsky:  ""(Friedr. Ludw.) Schröder. N (Francis Beaumont u (John) Fletchers ""Have a Wife and rule a Wife"" (m Benützung d Garrickschen Umarbeitung.)""Title (Vienna 1804):Stille Wasser sind betrüglich. / Ein / Lustspiel in vier Aufzügen. / Nach Beaumont und Fletchers Have a Wife / and rule a Wife. / Von / Schröder.https://books.google.com/books?id=cr1TAAAAcAAJ&dq=%22stille%20wasser%20sind%20betr%C3%BCglich%22&pg=PA1#v=onepage&q&f=falseSeveral earlier copies in ÖNB, but only 1804 copy digitized.Vienna 1786:  http://data.onb.ac.at/rec/AC10300759",1/4/2015,1/29/2015
-129,Theater closed,K,,1/4/2015,1/9/2015
-130,Una cosa rara,O,,1/4/2015,1/5/2015
-139,unknown,U,"A generic record and title for dates on which the status of the Burgtheater is unknown, used for cases in which no performances is known, but the theater is not explicitly known to have been closed.",1/9/2015,1/29/2015
-131,Verirrung ohne Laster,S,Based on Tom Jones.,1/4/2015,1/7/2015
-132,Viel gewagt und nichts gewonnen,P,"Hadamowsky: ""Posse 2. A d Engl. d (David) Garrick. Von (Jos.) Pezzl (Pelzel).""Performed only once in Vienna, on 31 Oct 1789.  No print copy in ÖNB.  Hadamosky lists censor ms.",1/4/2015,1/29/2015
-133,Viktorine,L,Based on Fanny Burney's novel Eveline.,1/4/2015,1/7/2015
-134,Virginia,T,,1/4/2015,1/5/2015
-135,Wahrheit ist gut Ding,L,"Hadamowsky: ""n d Lügner d (Carlo) Goldoni frei bearb. v Salomon Friedr. Schletter""Title (Vienna 1781):Wahrheit ist gut Ding / Ein / Lustspiel / in / fünf Aufzügen. / Nach / dem Lügner des Goldoni frey bearbeitet / von / Salomo [sic] Friedrich Schlettern, / Souffleur bey dem k. k. National=Schauspiel. [...]https://books.google.com/books?id=3BJaAAAAcAAJ&dq=%22wahrheit%20ist%20gut%20ding%22&pg=PA1#v=onepage&q&f=falseBased on Goldoni's Il bugiardo (""The Liar""), 1750-51.http://en.wikipedia.org/wiki/The_Liar_(Goldoni)",1/4/2015,1/29/2015
-136,Yariko,T,,1/4/2015,1/5/2015
