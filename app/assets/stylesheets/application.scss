@@ -21,6 +21,23 @@ body {
   color: #003965;
 }
 
+.navbar-custom {
+  background-color: #003965;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: #f6f7f6;
+}
+
+.jumbotron {
+  background-image: asset-url('Michaelerplatz-Postl-rev.jpeg');
+  background-size: cover;
+  background-position: center;
+  width: 900;
+  height: 650px;
+}
+
 .datepicker {
   padding: 2px;
 }

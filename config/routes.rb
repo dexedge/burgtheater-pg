@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root to: "events#index"
-  
+  root "pages#home"
+    
   resources :users
   
   resources :events do
