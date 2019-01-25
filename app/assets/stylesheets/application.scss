@@ -27,7 +27,20 @@ body {
 
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-text {
-    color: #f6f7f6;
+  color: #f6f7f6;
+}
+
+.navbar-custom .navbar-brand {
+  background-color: transparent;
+}
+
+.navbar-custom .nav-item:hover .nav-link {
+  color: #ffffff;
+  background-color: #005799;
+}
+
+.navbar-custom .nav-link.disabled {
+  color: #aaa;
 }
 
 .jumbotron {
