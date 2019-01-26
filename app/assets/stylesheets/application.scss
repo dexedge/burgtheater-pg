@@ -25,23 +25,23 @@ body {
   background-color: #003965;
 }
 
-.navbar-custom .navbar-brand,
-.navbar-custom .navbar-text {
-  color: #f6f7f6;
-}
-
-.navbar-custom .navbar-brand {
+.navbar-dark .navbar-brand {
   background-color: transparent;
 }
 
-.navbar-custom .nav-item:hover .nav-link {
-  color: #ffffff;
+.navbar-dark .nav-item:hover .nav-link {
+  color: #e9ebe9;
   background-color: #005799;
 }
 
-.navbar-custom .nav-link.disabled {
+.navbar-dark .navbar-nav .navbar-text {
+  color: #e9ebe9;
+}
+
+.navbar-dark .navbar-nav .nav-link.disabled {
   color: #aaa;
 }
+
 
 .jumbotron {
   background-image: asset-url('Michaelerplatz-Postl-rev.jpeg');
