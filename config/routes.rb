@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  root to: "events#index"
-  
+  root "pages#home"
+
+  get "about", to: "pages#about"
+    
   resources :users
   
   resources :events do
