@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Burgtheater, 1789–1791</title>
+    <title>
+      <%= if content_for?(:title) then yield(:title) + ' | ' end %>
+      Burgtheater, 1789–1791
+    </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 

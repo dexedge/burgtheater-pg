@@ -27,6 +27,7 @@
   <% end %>
 </p>
 
+<% title @event.date.strftime("%-d %b %Y")%>
 <!-- Construct heading with date and title-->
 <h3 style="margin-top: 0.5em">
   <%= @event.date.strftime("%a, %-d %b %Y") %> <i></i>
