@@ -55,5 +55,11 @@ module ApplicationHelper
     m_pos = array.size / 2
     return array.size % 2 == 1 ? array[m_pos] : mean(array[m_pos-1..m_pos])
   end
+  
+  # Title helper for views. Sets titles for individual pages
+
+  def title(page_title)
+    content_for(:title) { page_title }
+  end
 
 end
