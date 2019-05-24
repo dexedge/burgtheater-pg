@@ -26,7 +26,7 @@ class WorksController < ApplicationController
     when "dow"
       @performances = performances.order("to_char(date, 'D') " + sort_direction + ", date")
     when "receipts"
-      @performances = performances.order(sort_column + "::integer"+ " " + sort_direction)
+      @performances = performances.order(sort_column + "::integer" + " " + sort_direction)
     else
       @performances = performances.order(:date)
     end

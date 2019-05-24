@@ -33,10 +33,10 @@
 <h1>Editing Work</h1>
 
 <div class="row">
-  <div class="col-6">
+  <div class="col-7">
     <%= render 'form', work: @work %>
   </div>
-  <div class="col-1"></div>
+  <!--<div class="col-1"></div> -->
   <div class="col">
     <% if !@work.image_name.blank? %>
       <%= link_to image_tag("titlepages/#{@work.image_name}", size: "298x500", class: "titlepage"), @work.book_url, target:

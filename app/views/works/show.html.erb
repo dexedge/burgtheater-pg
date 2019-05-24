@@ -92,6 +92,7 @@
         </thead>
         <tbody>
           <!-- As defined in the Works controller, @performances = @work.events.where.not(receipts: "NA") -->
+          <%# performances = @performances.to_a %>
           <% @performances.each do | performance | %>
             <tr>
               <td><%= link_to performance.date.strftime("%Y/%m/%d"), performance %></td>
