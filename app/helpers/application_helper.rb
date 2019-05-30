@@ -57,6 +57,8 @@ module ApplicationHelper
   end
   
   # Title helper for views. Sets titles for individual pages
+  # Called from individual views with the syntax (for example):
+  # <% title @work.title %>
 
   def title(page_title)
     content_for(:title) { page_title }
