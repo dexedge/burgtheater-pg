@@ -91,7 +91,7 @@
   </p>
 
   <p class="notes">
-    <% if @event.notes %>
+    <% if !@event.notes.blank? %>
       <strong>Notes:</strong>
       <%= @event.notes.html_safe %>
     <% end %>
